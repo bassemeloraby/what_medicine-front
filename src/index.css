@@ -1,3 +1,17 @@
+/*
+=============== 
+Variables
+===============
+*/
+:root {
+  --clr-white: #fff;
+  --clr-blue: rgb(116, 146, 235);
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +24,92 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+.a-class {
+  color: var(--clr-white);
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: xx-large;
+  font-weight: 600;
+  text-transform: capitalize;
+}
+.a-class:hover {
+  color: rgb(226, 43, 43);
+  background-color: yellow;
+}
+
+/* header */
+container-a {
+  margin-left: 10px;
+}
+section.container-a {
+  display: flex;
+  background-color: blue;
+  color: var(--clr-white);
+  cursor: pointer;
+}
+
+.logo {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-size: xx-large;
+  font-weight: 600;
+}
+.logo:hover {
+  background-color: aqua;
+}
+/* drugs */
+.layout {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px 10px;
+  justify-items: center;
+}
+.drugs {
+  text-align: center;
+}
+
+
+.card {
+  display: grid;
+  background-color: antiquewhite;
+  
+  
+  
+ 
+ margin-left: 12px;
+margin-right: 10px;
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+td {
+  padding-left: 10px;
+  width: 50%;
+}
+table {
+  margin-right: 13px;
+}
+
+.hover{
+  cursor: pointer;
+}
+.hover:hover {
+  background-color: red;
+}
+
+/* card */
+.grid-container {
+  display: grid;
+  justify-content: center;
+  background-color: #2196F3;
+  padding: 10px;
 }
