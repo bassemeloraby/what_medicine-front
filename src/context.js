@@ -26,7 +26,9 @@ const AppProvider = ({ children }) => {
   useEffect(() => {
     fetchDrugs();
   }, []);
-
+  if (loading) {
+    return <Loading/>
+  }
   return (
     <AppContext.Provider
       value={{
