@@ -33,6 +33,7 @@ const AppProvider = ({ children }) => {
     <AppContext.Provider
       value={{
         drugs,
+        setDrugs
       }}
     >
       {children}

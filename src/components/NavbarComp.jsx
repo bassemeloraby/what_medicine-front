@@ -14,6 +14,9 @@ function NavbarComp() {
           <Link className="a-class" to="/drugs">
             Drugs
           </Link>
+          <Link className="a-class" to="/medicine">
+          Medicine
+          </Link>
         </nav>
       </section>
     </div>

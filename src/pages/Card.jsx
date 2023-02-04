@@ -35,7 +35,7 @@ function Card() {
         .filter((drug) => drug._id === _id)
         .map((drug) => {
           return (
-            <section className="section cocktail-section">
+            <section className="section-card cocktail-section">
               <Link to="/drugs" className="btn btn-primary">
                 back to drugs list
               </Link>
@@ -52,18 +52,78 @@ function Card() {
                     <span className="drink-data">name :</span> {drug.TradeName}
                   </p>
                   <p>
-                    <span className="drink-data">category :</span>{' '}
-                    {drug.TradeName}
+                    <span className="drink-data">Scientific Name :</span>{' '}
+                    {drug.ScientificName}
                   </p>
                   <p>
-                    <span className="drink-data">info :</span> {drug.TradeName}
+                    <span className="drink-data">DrugType :</span>{' '}
+                    {drug.DrugType}
                   </p>
                   <p>
-                    <span className="drink-data">glass :</span> {drug.TradeName}
+                    <span className="drink-data">Strength :</span> {drug.Strength}
                   </p>
                   <p>
-                    <span className="drink-data">instructons :</span>{' '}
-                    {drug.TradeName}
+                    <span className="drink-data">Strength Unit :</span> {drug.StrengthUnit}
+                  </p>
+                  <p>
+                    <span className="drink-data">Pharmaceutical Form :</span>{' '}
+                    {drug.PharmaceuticalForm}
+                  </p>
+                  <p>
+                    <span className="drink-data">Administration Route :</span>{' '}
+                    {drug.AdministrationRoute}
+                  </p>
+                  <p>
+                    <span className="drink-data">Size :</span>{' '}
+                    {drug.Size}
+                  </p>
+                  <p>
+                    <span className="drink-data">Size Unit :</span>{' '}
+                    {drug.SizeUnit}
+                  </p>
+                  <p>
+                    <span className="drink-data">Package Types :</span>{' '}
+                    {drug.PackageTypes}
+                  </p>
+                  <p>
+                    <span className="drink-data">Package Size :</span>{' '}
+                    {drug.PackageSize}
+                  </p>
+                  <p>
+                    <span className="drink-data">LegalStatus :</span>{' '}
+                    {drug.LegalStatus}
+                  </p>
+                  <p>
+                    <span className="drink-data">DistributeArea :</span>{' '}
+                    {drug.DistributeArea}
+                  </p>
+                  <p>
+                    <span className="drink-data">PublicPrice :</span>{' '}
+                    {drug.PublicPrice}
+                  </p>
+                  <p>
+                    <span className="drink-data">ShelfLife :</span>{' '}
+                    {drug.ShelfLife}
+                  </p>
+                  <p>
+                    <span className="drink-data">Marketing Company :</span>{' '}
+                    {drug.MarketingCompany}
+                  </p>
+                  <p>
+                    <span className="drink-data">MarketingCountry :</span>{' '}
+                    {drug.MarketingCountry}
+                  </p>
+                  <p>
+                    <span className="drink-data">ManufactureName :</span>{' '}
+                    {drug.ManufactureName}
+                  </p>
+                  <p>
+                    <span className="drink-data">ManufactureCountry :</span>{' '}
+                    {drug.ManufactureCountry}
+                  </p>
+                  <p>
+                    <span className="drink-data">MainAgent :</span>{' '}
+                    {drug.MainAgent}
                   </p>
                 </div>
               </div>
