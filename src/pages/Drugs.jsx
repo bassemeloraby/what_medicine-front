@@ -13,12 +13,7 @@ function Drugs() {
     console.log(_id);
     navigate(`/card/${_id}`);
   };
-const nameHndeler = ()=>{
-  if (inputValue.length !== 0) {
-    return drugs.filter((drug) => drug.TradeName.includes(inputValue));
-  }
-  return drugs
-}
+
   
   return (
     <div>
