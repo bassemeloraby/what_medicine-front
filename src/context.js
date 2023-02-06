@@ -29,6 +29,9 @@ const AppProvider = ({ children }) => {
   if (loading) {
     return <Loading/>
   }
+
+  
+
   return (
     <AppContext.Provider
       value={{

@@ -14,7 +14,6 @@ function Medicine() {
   };
 
   const [items, setItems] = useState([]);
-  // const [hoverIndex, setHoverIndex] = useState();
   const [query, setQuery] = useState();
   const navigate = useNavigate();
   const handleOnClick = (index) => {

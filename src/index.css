@@ -69,21 +69,34 @@ img {
   margin-top: 10px;
 }
 
-/* logo */
-.logo {
+.section-input {
+  height: 50px;
+  background: black;
+  border-radius: 25%;
+  margin-bottom: 10px;
+}
+
+/* header */
+.header {
+  display: flex;
+  background-color: black;
+  height: 60px;
+  padding-top: 1%;
+  padding-bottom: 5%;
+}
+.header span {
   margin-left: 10px;
   margin-right: 10px;
   font-size: xx-large;
   font-weight: 600;
 }
-.logo a {
+.header span a {
   border: solid;
   padding: 6px;
   border-radius: 40%;
   background-color: chocolate;
 }
-
-.a-class {
+.header nav a {
   color: var(--clr-white);
   margin-left: 10px;
   margin-right: 10px;
@@ -94,27 +107,9 @@ img {
   border: solid;
   padding: 6px;
 }
-.a-class:hover {
+.header nav a:hover {
   color: rgb(226, 43, 43);
   background-color: yellow;
-}
-.section-input {
-  height: 50px;
-  background: black;
-  border-radius: 25%;
-  margin-bottom: 10px;
-}
-
-/* header */
-container-a {
-  margin-left: 10px;
-}
-section.container-a {
-  display: flex;
-  background-color: blue;
-  color: var(--clr-white);
-  cursor: pointer;
-  padding: 15px;
 }
 /* home */
 .welcome {
@@ -346,7 +341,7 @@ Form
 }
 /* medicine */
 .input-medicine {
-  margin-left: 36%; 
+  margin-left: 36%;
   width: 25%;
   height: 100%;
   font-size: 50px;
