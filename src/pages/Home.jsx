@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react';
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <Fragment>
+      <h1 className='welcome'>Welcome to my new site</h1>
+    </Fragment>
+  );
 }
 
-export default Home
+export default Home;
