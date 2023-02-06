@@ -104,7 +104,7 @@ img {
   font-weight: 600;
   text-transform: capitalize;
   border-radius: 50%;
-  border: solid;
+  /* border: solid; */
   padding: 6px;
 }
 .header nav a:hover {
@@ -128,10 +128,36 @@ img {
 }
 
 .card {
-  display: grid;
+  display: flex;
   background-color: antiquewhite;
   margin-left: 12px;
   margin-right: 10px;
+  margin-bottom: 20px;
+  justify-content: space-between;
+}
+.card div{
+  background-color: aqua;
+  border:solid;
+  margin-bottom: 2px;
+  padding: 2px;
+  font-weight: bold;
+  
+}
+.card .TradeName{
+  background-color: #d5e4ca;
+  width: 45%;
+  height: fit-content;
+}
+.card .PublicPrice{
+  background-color: #d9d582;
+  width: 10%;
+  height: fit-content;
+  text-align: center;
+}
+.card .ScientificName{
+  background-color: #94c1ce;
+  width: 45%;
+  height: fit-content;
 }
 
 table,
@@ -142,7 +168,7 @@ td {
 
 td {
   padding-left: 10px;
-  width: 50%;
+  
 }
 table {
   margin-right: 13px;
@@ -161,6 +187,7 @@ table {
   justify-content: center;
   background-color: #2196f3;
   padding: 10px;
+  
 }
 /*
 ====== 

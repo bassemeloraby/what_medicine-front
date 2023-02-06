@@ -5,9 +5,8 @@ import { VariableSizeList as List } from 'react-window';
 import { AutoSizer } from 'react-virtualized';
 
 function Medicine() {
-  const { drugs} = useGlobalContext();
+  const { drugs } = useGlobalContext();
   const data = drugs;
-  
 
   const isGroup = (index) => {
     return index === 0 || data[index]?.type !== data[index - 1]?.type;
@@ -23,7 +22,6 @@ function Medicine() {
       return temp;
     });
   };
-  
 
   const handleOnChange = (value) => {
     setQuery(value);
@@ -35,7 +33,7 @@ function Medicine() {
         x.TradeName.toLowerCase().includes(query?.toLowerCase())
       )
     );
-  }, [query,data]);
+  }, [query, data]);
 
   useEffect(() => {
     setItems(data);
@@ -71,28 +69,15 @@ function Medicine() {
                 {({ index, data, style }) => {
                   return (
                     <div
-                     
                       onClick={() => handleOnClick(index)}
                       style={{
                         ...style,
-                        //background: `${hoverIndex === index ? '#ccc' : ''}`
                       }}
                       className="card"
                     >
-                      <table>
-                        <tbody>
-                          <tr>
-                          
-                            <td
-                              className="hover"
-                              onClick={() => cardHndeler(data[index]._id)}
-                            >
-                              {data[index].TradeName}.{' '}
-                            </td>
-                            <td>{data[index].ScientificName}.</td>
-                          </tr>
-                        </tbody>
-                      </table>
+                      <div className='TradeName' > {data[index].TradeName}</div>
+                      <div className='PublicPrice' >{data[index].PublicPrice} SR</div>
+                      <div className='ScientificName' >{data[index].ScientificName}</div>
                     </div>
                   );
                 }}

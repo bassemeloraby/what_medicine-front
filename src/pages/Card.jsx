@@ -30,16 +30,16 @@ function Card() {
     return <Loading />;
   }
   return (
-    <section className="section cocktail-section">
+    <section className="">
       {drugs
         .filter((drug) => drug._id === _id)
         .map((drug) => {
           return (
             <section className="section-card cocktail-section">
-              <Link to="/drugs" className="btn btn-primary">
-                back to drugs list
+              <Link to="/medicine" className="btn btn-primary">
+                back to medicine list
               </Link>
-              <h2 className="section-title">{}</h2>
+              <h2 className="section-title">{drug.TradeName}</h2>
               <div className="drink">
                 {drug.img ? (
                   <img src={drug.img} alt={drug.TradeName}></img>
