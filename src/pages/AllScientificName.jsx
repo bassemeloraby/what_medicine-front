@@ -4,8 +4,10 @@ import { useNavigate } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
 import { AutoSizer } from 'react-virtualized';
 
-function Medicine() {
+function AllScientificName() {
   const { drugs } = useGlobalContext();
+  const allCategories = [new Set(drugs.map((item) => item.ScientificName))];
+  console.log(allCategories)
   const data = drugs;
 
   const isGroup = (index) => {
@@ -38,10 +40,10 @@ function Medicine() {
   useEffect(() => {
     setItems(data);
   }, [data]);
-  const cardHndeler = (_id) => {
-    console.log(_id);
-    navigate(`/card/${_id}`);
-  };
+  // const cardHndeler = (_id) => {
+  //   console.log(_id);
+  //   navigate(`/card/${_id}`);
+  // };
   const ScientificNameHndeler = (ScientificName) => {
     console.log(ScientificName);
     navigate(`/ScientificName/${ScientificName}`);
@@ -80,16 +82,7 @@ function Medicine() {
                       }}
                       className="card"
                     >
-                      <div
-                        className="TradeName"
-                        onClick={() => cardHndeler(data[index]._id)}
-                      >
-                        {' '}
-                        {data[index].TradeName}
-                      </div>
-                      <div className="PublicPrice">
-                        {data[index].PublicPrice} SR
-                      </div>
+                      
                       <div
                         className="ScientificName"
                         onClick={() =>
@@ -110,4 +103,4 @@ function Medicine() {
   );
 }
 
-export default Medicine;
+export default AllScientificName;

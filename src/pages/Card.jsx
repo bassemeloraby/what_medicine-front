@@ -35,7 +35,7 @@ function Card() {
         .filter((drug) => drug._id === _id)
         .map((drug) => {
           return (
-            <section className="section-card cocktail-section">
+            <section className="section-card cocktail-section" key={drug._id}>
               <Link to="/medicine" className="btn btn-primary">
                 back to medicine list
               </Link>

@@ -12,6 +12,9 @@ function NavbarComp() {
         <Link  to="/medicine">
           Medicine
         </Link>
+        <Link  to="/AllScientificName">
+        Scientific
+        </Link>
       </nav>
     </header>
   );

@@ -3,7 +3,8 @@ import React, { useState, useContext, useEffect } from 'react';
 import Loading from './components/Loading';
 import axios from 'axios';
 
-const url = 'http://localhost:5000/api/drugs';
+// const url = 'http://localhost:5000/api/drugs';
+const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
 const AppContext = React.createContext();
 
@@ -17,7 +18,7 @@ const AppProvider = ({ children }) => {
       const res = await axios.get(`${url}`);
       setLoading(false);
       setDrugs(res.data);
-      console.log(res.data);
+      
     } catch (error) {
       setLoading(false);
       console.log(error);
