@@ -58,7 +58,7 @@ function Medicine() {
           <input
             onChange={(e) => handleOnChange(e.target.value)}
             className="input-medicine"
-            placeholder='Search by medicine Name'
+            placeholder='Search by Trade Name'
           />
         </section>
 
