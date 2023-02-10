@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
-import { AutoSizer } from 'react-virtualized';
+import  AutoSizer  from 'react-virtualized-auto-sizer';
 
 function Medicine() {
   const { drugs } = useGlobalContext();

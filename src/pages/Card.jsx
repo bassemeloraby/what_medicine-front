@@ -4,7 +4,7 @@ import Loading from '../components/Loading';
 import axios from 'axios';
 import drugImge from './no photo.jpg';
 
-const url = 'http://localhost:5000/api/drugs';
+const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 function Card() {
   const [drugs, setDrugs] = useState([]);
   const [loading, setLoading] = useState(false);
