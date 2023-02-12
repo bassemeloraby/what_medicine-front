@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from 'react';
 import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
-import  AutoSizer  from 'react-virtualized-auto-sizer';
+import AutoSizer from 'react-virtualized-auto-sizer';
 
 function Medicine() {
   const { drugs } = useGlobalContext();
@@ -14,6 +14,8 @@ function Medicine() {
 
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState();
+  const [copyTrade, setCopyTrade] = useState('');
+
   const navigate = useNavigate();
   const handleOnClick = (index) => {
     setItems((p) => {
@@ -49,16 +51,24 @@ function Medicine() {
   function rowHeight({ index }) {
     return isGroup(index) ? 20 : 30; // Use your heights here
   }
+  const copyHandler = (TradeName) => {
+    console.log(TradeName);
+    setCopyTrade(TradeName);
+    const clip = () => {
+      navigator.clipboard.writeText(copyTrade);
+    };
+    clip();
+  };
   return (
     <Fragment>
       <div className="container">
         <h1 className="drugs">{drugs.length} Items</h1>
-        
+
         <section className="section-input">
           <input
             onChange={(e) => handleOnChange(e.target.value)}
             className="input-medicine"
-            placeholder='Search by Trade Name'
+            placeholder="Search by Trade Name"
           />
         </section>
 
@@ -85,8 +95,14 @@ function Medicine() {
                         className="TradeName"
                         onClick={() => cardHndeler(data[index]._id)}
                       >
-                        {' '}
                         {data[index].TradeName}
+                      </div>
+                      <div className="PublicPrice">
+                        <button
+                          onClick={() => copyHandler(data[index].TradeName)}
+                        >
+                          Copy
+                        </button>
                       </div>
                       <div className="PublicPrice">
                         {data[index].PublicPrice} SR

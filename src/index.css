@@ -153,9 +153,19 @@ img {
   cursor: pointer;
 }
 .card .TradeName{
+  display: flex;
   background-color: #d5e4ca;
   width: 45%;
   height: fit-content;
+  justify-content: space-between;
+
+}
+.card .TradeName button {
+  background-color: #476a2e;
+  cursor: pointer;
+}
+.card .TradeName button:hover{
+  background-color: #fff;
 }
 .card .PublicPrice{
   background-color: #d9d582;
