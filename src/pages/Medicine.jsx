@@ -97,12 +97,10 @@ function Medicine() {
                       >
                         {data[index].TradeName}
                       </div>
-                      <div className="PublicPrice">
-                        <button
-                          onClick={() => copyHandler(data[index].TradeName)}
-                        >
+                      <div className="PublicPrice" onClick={() => copyHandler(data[index].TradeName)}>
+                        
                           Copy
-                        </button>
+                        
                       </div>
                       <div className="PublicPrice">
                         {data[index].PublicPrice} SR
