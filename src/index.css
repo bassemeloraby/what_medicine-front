@@ -178,7 +178,7 @@ img {
   width: 10%;
   height: fit-content;
   text-align: center;
-  display: none;
+  
 }
 .card .ScientificName {
   background-color: #94c1ce;
@@ -186,7 +186,6 @@ img {
   height: -moz-fit-content;
   height: fit-content;
   width: 45%;
-  display: none;
 }
 
 table,
@@ -457,24 +456,7 @@ nav {
   height: 10rem;
 }
 @media screen and (min-width: 800px) {
-  .card .TradeName {
-    display: flex;
-    background-color: #d5e4ca;
-    width: 45%;
-    height: fit-content;
-    justify-content: space-between;
-  }
-  .card .PublicPrice {
-    background-color: #d9d582;
-    width: 10%;
-    height: fit-content;
-    text-align: center;
-  }
-  .card .ScientificName {
-    background-color: #94c1ce;
-    width: 45%;
-    height: fit-content;
-  }
+  
   .nav-center {
     max-width: 1170px;
     margin: 0 auto;
@@ -513,5 +495,27 @@ nav {
   }
   .social-icons a:hover {
     color: var(--clr-primary-7);
+  }
+}
+@media  (max-width: 450px) {
+  .card .TradeName {
+    display: flex;
+    background-color: #d5e4ca;
+    width: 97%;
+    height: fit-content;
+    justify-content: space-between;
+  }
+  .card .PublicPrice {
+    background-color: #d9d582;
+    width: 10%;
+    height: fit-content;
+    text-align: center;
+    display: none;
+  }
+  .card .ScientificName {
+    background-color: #94c1ce;
+    width: 45%;
+    height: fit-content;
+    display: none;
   }
 }
