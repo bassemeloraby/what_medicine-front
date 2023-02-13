@@ -6,6 +6,11 @@ Variables
 :root {
   --clr-white: #fff;
   --clr-blue: rgb(116, 146, 235);
+  --clr-primary-1: hsl(205, 86%, 17%);
+  --clr-primary-3: hsl(205, 72%, 37%);
+  --clr-primary-5: hsl(205, 78%, 60%);
+  --clr-grey-7: hsl(211, 27%, 70%);
+  --clr-grey-8: hsl(210, 31%, 80%);
   --primaryColor: #476a2e;
   --mainSpacing: 0.3rem;
   --mainTransition: all 0.3s linear;
@@ -17,6 +22,8 @@ Variables
   --lightShadow: 2px 5px 3px 0px rgba(0, 0, 0, 0.5);
   --darkShadow: 4px 10px 5px 0px rgba(0, 0, 0, 0.5);
   --mainBackground: #f1f5f8;
+  --spacing: 0.1rem;
+  --transition: all 0.3s linear;
 }
 /* 
 ====== 
@@ -141,9 +148,9 @@ img {
   margin-bottom: 20px;
   justify-content: space-between;
 }
-.card div{
+.card div {
   background-color: aqua;
-  border:solid;
+  border: solid;
   margin-bottom: 2px;
   padding: 2px;
   font-weight: bold;
@@ -152,31 +159,34 @@ img {
   background-color: rgb(239, 236, 70);
   cursor: pointer;
 }
-.card .TradeName{
+.card .TradeName {
   display: flex;
   background-color: #d5e4ca;
-  width: 45%;
+  width: 97%;
   height: fit-content;
-  justify-content: space-between;
-
+  
 }
 .card .TradeName button {
   background-color: #476a2e;
   cursor: pointer;
 }
-.card .TradeName button:hover{
+.card .TradeName button:hover {
   background-color: #fff;
 }
-.card .PublicPrice{
+.card .PublicPrice {
   background-color: #d9d582;
   width: 10%;
   height: fit-content;
   text-align: center;
+  display: none;
 }
-.card .ScientificName{
+.card .ScientificName {
   background-color: #94c1ce;
-  width: 45%;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
   height: fit-content;
+  width: 45%;
+  display: none;
 }
 
 table,
@@ -187,7 +197,6 @@ td {
 
 td {
   padding-left: 10px;
-  
 }
 table {
   margin-right: 13px;
@@ -206,7 +215,6 @@ table {
   justify-content: center;
   background-color: #2196f3;
   padding: 10px;
-  
 }
 /*
 ====== 
@@ -391,4 +399,119 @@ Form
   width: 60%;
   height: 100%;
   font-size: 50px;
+}
+
+/*
+=============== 
+NavbarA
+===============
+*/
+nav {
+  background: var(--clr-white);
+  box-shadow: var(--light-shadow);
+}
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+}
+.nav-toggle {
+  font-size: 1.5rem;
+  color: var(--clr-primary-5);
+  background: transparent;
+  border-color: transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.nav-toggle:hover {
+  color: var(--clr-primary-1);
+  transform: rotate(90deg);
+}
+.logo {
+  height: 40px;
+}
+.links a {
+  color: var(--clr-grey-3);
+  font-size: 1rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  display: block;
+  padding: 0.5rem 1rem;
+  transition: var(--transition);
+}
+.links a:hover {
+  background: var(--clr-primary-8);
+  color: var(--clr-primary-5);
+  padding-left: 1.5rem;
+}
+.social-icons {
+  display: none;
+}
+.links-container {
+  height: 0;
+  overflow: hidden;
+  transition: var(--transition);
+}
+.show-container {
+  height: 10rem;
+}
+@media screen and (min-width: 800px) {
+  .card .TradeName {
+    display: flex;
+    background-color: #d5e4ca;
+    width: 45%;
+    height: fit-content;
+    justify-content: space-between;
+  }
+  .card .PublicPrice {
+    background-color: #d9d582;
+    width: 10%;
+    height: fit-content;
+    text-align: center;
+  }
+  .card .ScientificName {
+    background-color: #94c1ce;
+    width: 45%;
+    height: fit-content;
+  }
+  .nav-center {
+    max-width: 1170px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+  .nav-header {
+    padding: 0;
+  }
+  .nav-toggle {
+    display: none;
+  }
+  .links-container {
+    height: auto !important;
+  }
+  .links {
+    display: flex;
+  }
+  .links a {
+    padding: 0;
+    margin: 0 0.5rem;
+  }
+  .links a:hover {
+    padding: 0;
+    background: transparent;
+  }
+  .social-icons {
+    display: flex;
+  }
+  .social-icons a {
+    margin: 0 0.5rem;
+    color: var(--clr-primary-5);
+    transition: var(--transition);
+  }
+  .social-icons a:hover {
+    color: var(--clr-primary-7);
+  }
 }

@@ -5,10 +5,12 @@ import ScientificName from './pages/ScientificName'
 import Home from './pages/Home';
 import Medicine from './pages/Medicine';
 import AllScientificName from './pages/AllScientificName';
+import NavbarA from './components/NavbarA';
 function App() {
   return (
     <div>
-      <NavbarComp />
+    <NavbarA/>
+      {/*<NavbarComp />*/}
 
       <Routes>
         <Route path="/" element={<Home />} />
