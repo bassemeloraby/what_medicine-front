@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Loading from '../components/Loading';
 import axios from 'axios';
 import drugImge from './no photo.jpg';
@@ -9,6 +10,7 @@ function Card() {
   const [drugs, setDrugs] = useState([]);
   const [loading, setLoading] = useState(false);
   const { _id } = useParams();
+  const navigate = useNavigate();
   //fetch data
   useEffect(() => {
     const fetchOneDrug = async () => {
@@ -29,6 +31,12 @@ function Card() {
   if (loading) {
     return <Loading />;
   }
+  //open Scientific
+  const ScientificNameHndeler = (ScientificName) => {
+    console.log(ScientificName);
+    navigate(`/ScientificName/${ScientificName}`);
+  };
+
   return (
     <section className="">
       {drugs
@@ -51,7 +59,9 @@ function Card() {
                   <p>
                     <span className="drink-data">name :</span> {drug.TradeName}
                   </p>
-                  <p>
+                  <p onClick={() =>
+                    ScientificNameHndeler(drug.ScientificName)
+                  }>
                     <span className="drink-data">Scientific Name :</span>{' '}
                     {drug.ScientificName}
                   </p>

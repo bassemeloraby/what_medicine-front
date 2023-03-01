@@ -343,6 +343,17 @@ Cocktail
 .drink-info {
   padding-top: 2rem;
 }
+.drink-info p {
+  cursor:pointer
+}
+.drink-info p:hover {
+  background-color: yellow
+}
+@media screen and (max-width: 800px) {
+  .ScientificName {
+    display:none;
+  }
+}
 @media screen and (min-width: 992px) {
   .drink {
     display: grid;
