@@ -52,7 +52,7 @@ function Card() {
                 {drug.img ? (
                   <img src={drug.img} alt={drug.TradeName}></img>
                 ) : (
-                  <img src={drugImge} alt={drug.TradeName}></img>
+                  <img src={drugImge} alt={drug.TradeName} className="display-none"></img>
                 )}
 
                 <div className="drink-info">

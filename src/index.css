@@ -535,3 +535,8 @@ nav {
     display: none;
   }
 }
+@media screen and (max-width: 800px) {
+.display-none{
+  display: none;
+}
+}
