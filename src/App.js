@@ -10,8 +10,6 @@ function App() {
   return (
     <div>
     <NavbarA/>
-      {/*<NavbarComp />*/}
-
       <Routes>
         <Route path="/" element={<Home />} />
         
