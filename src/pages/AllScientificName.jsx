@@ -30,11 +30,7 @@ function AllScientificName() {
 
   return (
     <Fragment>
-      <div style={{ backgroundColor: 'yellow' }}>
-        <h3 style={{ textAlign: 'center' }}>
-          under construction - تحت الانشاء{' '}
-        </h3>
-      </div>
+      
       <section className="section-input">
         <input
           onChange={(e) => handleOnChange(e.target.value)}
