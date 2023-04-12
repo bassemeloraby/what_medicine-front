@@ -1,15 +1,37 @@
 import { Fragment, useState, useEffect } from 'react';
 import { FixedSizeList as List } from 'react-window';
-import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import Loading from '../components/Loading';
+
+const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
 function AllScientificName() {
-  const { drugs } = useGlobalContext();
+  const [drugs, setDrugs] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState();
   console.log(drugs);
   const data = drugs;
   const navigate = useNavigate();
+
+  const fetchDrugs = async () => {
+    setLoading(true);
+    try {
+      const res = await axios.get(`${url}`);
+      setLoading(false);
+      setDrugs(res.data);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchDrugs();
+  }, []);
+
+
+
   const ScientificNameHndeler = (ScientificName) => {
     console.log(ScientificName);
     navigate(`/ScientificName/${ScientificName}`);
@@ -28,9 +50,12 @@ function AllScientificName() {
     );
   }, [query, data]);
 
+  if (loading) {
+    return <Loading/>
+  }
+
   return (
     <Fragment>
-      
       <section className="section-input">
         <input
           onChange={(e) => handleOnChange(e.target.value)}

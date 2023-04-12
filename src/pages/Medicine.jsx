@@ -3,34 +3,47 @@ import { useNavigate } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import axios from 'axios';
+import Loading from '../components/Loading';
+
 
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
 function Medicine() {
   const [drugs, setDrugs] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [items, setItems] = useState([]);
+  const [query, setQuery] = useState();
+  const [copyTrade, setCopyTrade] = useState('');
+  
+  const navigate = useNavigate();
+  
   const data = drugs;
 
+
   const fetchDrugs = async () => {
+    setLoading(true);
     try {
       const res = await axios.get(`${url}`);
+      setLoading(false);
       setDrugs(res.data);
     } catch (error) {
+      setLoading(false);
       console.log(error);
     }
   };
   useEffect(() => {
     fetchDrugs();
   }, []);
-
+  
+  
+  
   const isGroup = (index) => {
     return index === 0 || data[index]?.type !== data[index - 1]?.type;
   };
 
-  const [items, setItems] = useState([]);
-  const [query, setQuery] = useState();
-  const [copyTrade, setCopyTrade] = useState('');
+ 
 
-  const navigate = useNavigate();
+  
   const handleOnClick = (index) => {
     setItems((p) => {
       let temp = p.concat();
@@ -54,6 +67,11 @@ function Medicine() {
   useEffect(() => {
     setItems(data);
   }, [data]);
+
+  if (loading) {
+    return <Loading/>
+  }
+
   const cardHndeler = (_id) => {
     console.log(_id);
     navigate(`/card/${_id}`);
