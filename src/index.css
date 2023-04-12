@@ -6,6 +6,10 @@ Variables
 :root {
   --clr-white: #fff;
   --clr-blue: rgb(116, 146, 235);
+  --blue-1-backClr: #04174c;
+  --blue-2-backClr: #3a69eb;
+  --blue-3-backClr: #97abe4;
+  --blue-4-backClr: #c4e3f4;
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-3: hsl(205, 72%, 37%);
   --clr-primary-5: hsl(205, 78%, 60%);
@@ -403,6 +407,9 @@ Form
   font-size: 1.2rem;
 }
 /* medicine */
+.Medicine-section .search-button {
+  margin-bottom: 5px;
+}
 .input-medicine {
   margin-left: 20%;
   width: 60%;
@@ -481,6 +488,7 @@ nav {
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
+    box-shadow: 5px 5px 10px 1px #000;
   }
   .nav-header {
     padding: 0;
@@ -547,4 +555,3 @@ nav {
   margin-bottom: 1%;
   margin-left: 1%;
 }
-

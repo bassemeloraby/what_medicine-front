@@ -1,8 +1,9 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
-import { social } from '../data';
-import logo from '../logoA.png';
+
+import Mederma from '../images/MedermaLogo.png';
 import { Link } from 'react-router-dom';
+import Login from './Login';
 
 function NavbarA() {
   const [showLinks, setShowLinks] = useState(false);
@@ -23,7 +24,7 @@ function NavbarA() {
     <nav>
       <div className="nav-center">
         <div className="nav-header">
-          <img src={logo} className="logo" alt="logo" />
+          <img src={Mederma} className="logo" alt="logo" />
           <button className="nav-toggle" onClick={toggleLinks}>
             <FaBars />
           </button>
@@ -38,16 +39,9 @@ function NavbarA() {
             </li>
           </ul>
         </div>
-        <ul className="social-icons">
-          {social.map((socialIcon) => {
-            const { id, url, icon } = socialIcon;
-            return (
-              <li key={id}>
-                <a href={url}>{icon}</a>
-              </li>
-            );
-          })}
-        </ul>
+        <div>
+        <Login/>
+        </div>
       </div>
     </nav>
   );

@@ -86,11 +86,11 @@ function Medicine() {
   };
   return (
     <Fragment>
-      <div className="container">
+      <div className="container Medicine-section">
         <div>
           <h1 className="drugs">{drugs.length} Items</h1>
         </div>
-        <div>
+        <div className='search-button'>
           <Link to="/AllScientificName" className="btn btn-primary">
             search by Scientific Name
           </Link>
