@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
-import {  social } from '../data';
+import { social } from '../data';
 import logo from '../logoA.png';
 import { Link } from 'react-router-dom';
 
@@ -30,16 +30,12 @@ function NavbarA() {
         </div>
         <div className="links-container" ref={linksContainerRef}>
           <ul className="links" ref={linksRef}>
-            <li><Link to="/">
-            home
-          </Link></li>
-            <li><Link  to="/medicine">
-            Medicine
-          </Link></li>
-            <li><Link  to="/AllScientificName">
-            Scientific
-            </Link></li>
-            <li></li>
+            <li>
+              <Link to="/">home</Link>
+            </li>
+            <li>
+              <Link to="/medicine">Medicine</Link>
+            </li>
           </ul>
         </div>
         <ul className="social-icons">

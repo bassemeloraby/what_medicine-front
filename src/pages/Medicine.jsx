@@ -1,10 +1,9 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import axios from 'axios';
 import Loading from '../components/Loading';
-
 
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
@@ -14,11 +13,10 @@ function Medicine() {
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState();
   const [copyTrade, setCopyTrade] = useState('');
-  
-  const navigate = useNavigate();
-  
-  const data = drugs;
 
+  const navigate = useNavigate();
+
+  const data = drugs;
 
   const fetchDrugs = async () => {
     setLoading(true);
@@ -34,16 +32,11 @@ function Medicine() {
   useEffect(() => {
     fetchDrugs();
   }, []);
-  
-  
-  
+
   const isGroup = (index) => {
     return index === 0 || data[index]?.type !== data[index - 1]?.type;
   };
 
- 
-
-  
   const handleOnClick = (index) => {
     setItems((p) => {
       let temp = p.concat();
@@ -69,7 +62,7 @@ function Medicine() {
   }, [data]);
 
   if (loading) {
-    return <Loading/>
+    return <Loading />;
   }
 
   const cardHndeler = (_id) => {
@@ -94,8 +87,14 @@ function Medicine() {
   return (
     <Fragment>
       <div className="container">
-        <h1 className="drugs">{drugs.length} Items</h1>
-
+        <div>
+          <h1 className="drugs">{drugs.length} Items</h1>
+        </div>
+        <div>
+          <Link to="/AllScientificName" className="btn btn-primary">
+            search by Scientific Name
+          </Link>
+        </div>
         <section className="section-input">
           <input
             onChange={(e) => handleOnChange(e.target.value)}
