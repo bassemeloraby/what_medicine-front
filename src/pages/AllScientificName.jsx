@@ -52,7 +52,7 @@ function AllScientificName() {
                 onClick={() =>
                   ScientificNameHndeler(data[index].ScientificName)
                 }
-                className="ScientificName"
+                className="ScientificName Scientific-display"
                 style={{ width: '100%' }}
               >
                 {data[index].ScientificName}

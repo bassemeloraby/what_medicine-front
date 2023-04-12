@@ -69,6 +69,7 @@ img {
   width: 100%;
   display: block;
 }
+/* ====================start global classes=============================== */
 .underline {
   height: 0.25rem;
   width: 5rem;
@@ -536,7 +537,14 @@ nav {
   }
 }
 @media screen and (max-width: 800px) {
-.display-none{
-  display: none;
+  .display-none {
+    display: none;
+  }
 }
+
+/* scientificName page */
+.button-navigate {
+  margin-bottom: 1%;
+  margin-left: 1%;
 }
+

@@ -1,12 +1,26 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { useGlobalContext } from '../context';
 import { useNavigate } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
+import axios from 'axios';
+
+const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
 function Medicine() {
-  const { drugs } = useGlobalContext();
+  const [drugs, setDrugs] = useState([]);
   const data = drugs;
+
+  const fetchDrugs = async () => {
+    try {
+      const res = await axios.get(`${url}`);
+      setDrugs(res.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchDrugs();
+  }, []);
 
   const isGroup = (index) => {
     return index === 0 || data[index]?.type !== data[index - 1]?.type;
@@ -97,10 +111,11 @@ function Medicine() {
                       >
                         {data[index].TradeName}
                       </div>
-                      <div className="PublicPrice" onClick={() => copyHandler(data[index].TradeName)}>
-                        
-                          Copy
-                        
+                      <div
+                        className="PublicPrice"
+                        onClick={() => copyHandler(data[index].TradeName)}
+                      >
+                        Copy
                       </div>
                       <div className="PublicPrice">
                         {data[index].PublicPrice} SR

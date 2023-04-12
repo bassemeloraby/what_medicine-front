@@ -8,8 +8,11 @@ function ScientificName() {
     <Fragment>
       <div className="drugs"><h2>{ScientificName}</h2></div>
       <div className='underline'></div>
-      <Link to="/medicine" className="btn btn-primary">
+      <Link to="/medicine" className="btn btn-primary button-navigate">
         back to medicine list
+      </Link>
+      <Link to="/AllScientificName" className="btn btn-primary button-navigate">
+        back to Scientific list
       </Link>
       {drugs
         .filter((drug) => drug.ScientificName === ScientificName)

@@ -1,43 +1,24 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useContext } from 'react';
 
-import Loading from './components/Loading';
-import axios from 'axios';
 
-// const url = 'http://localhost:5000/api/drugs';
-const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
+
+
 
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  const [drugs, setDrugs] = useState([]);
-  const [loading, setLoading] = useState(false);
+  
 
-  const fetchDrugs = async () => {
-    setLoading(true);
-    try {
-      const res = await axios.get(`${url}`);
-      setLoading(false);
-      setDrugs(res.data);
-      
-    } catch (error) {
-      setLoading(false);
-      console.log(error);
-    }
-  };
-  useEffect(() => {
-    fetchDrugs();
-  }, []);
-  if (loading) {
-    return <Loading/>
-  }
+  
 
+
+  
   
 
   return (
     <AppContext.Provider
       value={{
-        drugs,
-        setDrugs
+        
       }}
     >
       {children}
