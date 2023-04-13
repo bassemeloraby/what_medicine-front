@@ -7,9 +7,17 @@ import React, { useContext } from 'react';
 const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
-  
+  const [admin, setAdmin] = React.useState(false);
+  const [adminOpen, setAdminOpen] = React.useState(false);
 
-  
+  //move to administrators
+  const asAdmin = () => {
+    setAdmin(true);
+  };
+  //move to users
+  const asUser = () => {
+    setAdminOpen(false);
+  };
 
 
   
@@ -18,7 +26,12 @@ const AppProvider = ({ children }) => {
   return (
     <AppContext.Provider
       value={{
-        
+        asAdmin,
+        asUser,
+        adminOpen,
+        admin,
+        setAdmin,
+        setAdminOpen,
       }}
     >
       {children}

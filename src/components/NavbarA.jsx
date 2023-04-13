@@ -4,9 +4,12 @@ import { FaBars } from 'react-icons/fa';
 import Mederma from '../images/MedermaLogo.png';
 import { Link } from 'react-router-dom';
 import Login from './Login';
+import { useGlobalContext } from '../context';
 
 function NavbarA() {
   const [showLinks, setShowLinks] = useState(false);
+  const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
+    useGlobalContext();
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
   const toggleLinks = () => {
@@ -39,8 +42,17 @@ function NavbarA() {
             </li>
           </ul>
         </div>
-        <div>
-        <Login/>
+        <div className='log-aria'>
+        {!adminOpen ? (
+          <button onClick={asAdmin}>login</button>
+        ) : (
+          <button onClick={asUser}>logout</button>
+        )}
+        {admin ? (
+          <Login setAdminOpen={setAdminOpen} setAdmin={setAdmin}/>
+        ) : (
+          ''
+        )}
         </div>
       </div>
     </nav>

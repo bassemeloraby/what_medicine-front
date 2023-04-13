@@ -4,6 +4,7 @@ import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import { useGlobalContext } from '../context';
 
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
@@ -13,6 +14,8 @@ function Medicine() {
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState();
   const [copyTrade, setCopyTrade] = useState('');
+  const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
+    useGlobalContext();
 
   const navigate = useNavigate();
 
@@ -87,10 +90,15 @@ function Medicine() {
   return (
     <Fragment>
       <div className="container Medicine-section">
-        <div>
-          <h1 className="drugs">{drugs.length} Items</h1>
-        </div>
-        <div className='search-button'>
+        {adminOpen ? (
+          <div>
+            <h1 className="drugs">{drugs.length} Items</h1>
+          </div>
+        ) : (
+          ''
+        )}
+
+        <div className="search-button">
           <Link to="/AllScientificName" className="btn btn-primary">
             search by Scientific Name
           </Link>
