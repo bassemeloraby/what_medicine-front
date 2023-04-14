@@ -14,7 +14,7 @@ function Medicine() {
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState();
   const [copyTrade, setCopyTrade] = useState('');
-  const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
+  const {  adminOpen } =
     useGlobalContext();
 
   const navigate = useNavigate();
