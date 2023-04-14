@@ -4,6 +4,7 @@ import axios from 'axios';
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/users';
 
 const Login = ({ setAdminOpen, setAdmin }) => {
+  // eslint-disable-next-line
   const [pass, setPass] = React.useState(false);
   const [pass2, setPass2] = React.useState(false);
 
