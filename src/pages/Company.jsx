@@ -2,7 +2,7 @@ import React from 'react';
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
 import axios from 'axios';
-const URL = 'http://localhost:5000/api/companies';
+const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
 const Company = () => {
   const [company, setCompany] = React.useState([]);

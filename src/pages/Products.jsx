@@ -3,7 +3,7 @@ import { useGlobalContext } from '../context';
 import axios from 'axios';
 import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from '../components/AddProducts';
-const pruductURL = 'http://localhost:5000/api/products';
+const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
 
 function Products() {
   const { adminOpen } = useGlobalContext();
