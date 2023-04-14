@@ -40,6 +40,12 @@ function NavbarA() {
             <li>
               <Link to="/medicine">Medicine</Link>
             </li>
+            <li>
+              <Link to="/companies">Companies</Link>
+            </li>
+            <li>
+              <Link to="/products">Products</Link>
+            </li>
           </ul>
         </div>
         <div className='log-aria'>
