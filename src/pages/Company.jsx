@@ -1,4 +1,5 @@
 import React from 'react';
+
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
 import axios from 'axios';
@@ -8,6 +9,9 @@ const Company = () => {
   const [company, setCompany] = React.useState([]);
 
   const { adminOpen } = useGlobalContext();
+
+ 
+
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -41,6 +45,7 @@ const Company = () => {
   return (
     <React.Fragment>
       <section className="container">
+      
         <div className="company-header">
           <h2 className="company-title">Company </h2>
           <span>number of companies: {company.length}</span>

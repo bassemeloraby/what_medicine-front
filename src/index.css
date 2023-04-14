@@ -11,7 +11,7 @@ Variables
   --blue-3-backClr: #97abe4;
   --blue-4-backClr: #c4e3f4;
   --white-clr: #f8fafb;
-  --yellow:#ebb618;
+  --yellow: #ebb618;
   --clr-primary-1: hsl(205, 86%, 17%);
   --clr-primary-3: hsl(205, 72%, 37%);
   --clr-primary-5: hsl(205, 78%, 60%);
@@ -72,15 +72,16 @@ a {
   color: var(--mainBlack);
 }
 img {
-  width: 100%;
   display: block;
 }
 button {
   font-size: 15px;
   font-family: Arial;
-  width: 70px;
+  width: auto;
   height: 30px;
-  margin-left: 1%;
+  /* margin-left: 1%; */
+  padding-left: 5px;
+  padding-right: 5px;
   border-width: 1px;
   color: var(--white-clr);
   border-color: var(--blue-1-backClr);
@@ -101,11 +102,10 @@ form {
   display: grid;
   box-shadow: 5px 5px 10px 1px #000;
 }
-input{
+input {
   margin: 5px;
-  
 }
-select{
+select {
   margin: 5px;
 }
 /* ====================start global classes=============================== */
@@ -612,7 +612,7 @@ nav {
   display: grid;
   grid-template-columns: 25% auto;
 }
-.product-main{
+.product-main {
   display: grid;
   grid-template-columns: auto;
 }
@@ -631,9 +631,9 @@ nav {
   gap: 5px;
   background-color: var(--white-clr);
 }
-.product-show-login div{
+.product-show-login div {
   background-color: var(--blue-4-backClr);
 }
-.product-form-logout{
+.product-form-logout {
   display: none;
 }

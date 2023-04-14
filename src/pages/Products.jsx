@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import { useGlobalContext } from '../context';
 import axios from 'axios';
 import noPhoto from '../images/noPhoto.jpg';
@@ -8,6 +10,8 @@ const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
 function Products() {
   const { adminOpen } = useGlobalContext();
   const [products, setProducts] = React.useState([]);
+
+  const navigate = useNavigate();
   //fetch product data from backend
   React.useEffect(() => {
     const fetchProducts = async () => {
@@ -37,6 +41,9 @@ function Products() {
   }
   return (
     <React.Fragment>
+      <div>
+        <button onClick={() => navigate('/companies')}>Companies</button>
+      </div>
       <section className={adminOpen ? 'product-main-login' : 'product-main'}>
         <section
           className={
