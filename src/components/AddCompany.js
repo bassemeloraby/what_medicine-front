@@ -1,6 +1,7 @@
 import React from 'react';
 function AddCompany({ onAdd }) {
   const [companyName, setCompanyName] = React.useState('');
+  const [website, setWebsite] = React.useState('');
 
 
   const onSubmit = (e) => {
@@ -9,7 +10,7 @@ function AddCompany({ onAdd }) {
       alert('Please add a company name');
       return;
     }
-    onAdd({ companyName });
+    onAdd({ companyName,website });
 
     setCompanyName('');
   };
@@ -28,10 +29,10 @@ function AddCompany({ onAdd }) {
         type="text"
         name="website"
         placeholder="enter link"
-        // value={companyName}
+        value={website}
         autoFocus
         autoComplete="off"
-        // onChange={(e) => setCompanyName(e.target.value)}
+        onChange={(e) => setWebsite(e.target.value)}
       />
       <button type="submit" value="Save Company">
         Add
