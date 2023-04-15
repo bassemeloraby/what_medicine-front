@@ -41,7 +41,7 @@ function NavbarA() {
               <Link to="/medicine">Medicine</Link>
             </li>
             <li>
-              <Link to="/products">Products</Link>
+              <Link to="/products">Derma</Link>
             </li>
           </ul>
         </div>

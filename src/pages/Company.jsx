@@ -3,23 +3,24 @@ import React from 'react';
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
 import axios from 'axios';
+import Loading from '../components/Loading';
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
 const Company = () => {
   const [company, setCompany] = React.useState([]);
-
+  const [loading, setLoading] = React.useState(false);
   const { adminOpen } = useGlobalContext();
-
- 
-
 
   //fetch company data from backend
   React.useEffect(() => {
     const fetchCompany = async () => {
+      setLoading(true);
       try {
         const res = await axios.get(`${URL}`);
+        setLoading(false);
         setCompany(res.data);
       } catch (error) {
+        setLoading(false);
         console.log(error);
       }
     };
@@ -42,13 +43,15 @@ const Company = () => {
     setCompany(newList);
   }
 
+  if (loading) {
+    return <Loading />;
+  }
   return (
     <React.Fragment>
       <section className="container">
-      
         <div className="company-header">
           <h2 className="company-title">Company </h2>
-          <span>number of companies: {company.length}</span>
+          {adminOpen ?<span>number of companies: {company.length}</span>:""}
         </div>
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           {adminOpen ? (

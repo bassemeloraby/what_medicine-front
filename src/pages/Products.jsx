@@ -5,20 +5,25 @@ import { useGlobalContext } from '../context';
 import axios from 'axios';
 import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from '../components/AddProducts';
+import Loading from '../components/Loading';
 const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
 
 function Products() {
   const { adminOpen } = useGlobalContext();
   const [products, setProducts] = React.useState([]);
+  const [loading, setLoading] = React.useState(false);
 
   const navigate = useNavigate();
   //fetch product data from backend
   React.useEffect(() => {
     const fetchProducts = async () => {
+      setLoading(true);
       try {
         const res = await axios.get(`${pruductURL}`);
+        setLoading(false);
         setProducts(res.data);
       } catch (error) {
+        setLoading(false);
         console.log(error);
       }
     };
@@ -39,6 +44,11 @@ function Products() {
     const newList = products.filter((product) => product._id !== _id);
     setProducts(newList);
   }
+
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
     <React.Fragment>
       <div>

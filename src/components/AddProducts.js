@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-const URL = 'http://localhost:5000/api/companies';
+const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 function AddProducts({ onAdd }) {
   const [comp, setComp] = React.useState([]);
   const [company, setCompany] = React.useState('');
