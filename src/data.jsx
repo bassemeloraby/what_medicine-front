@@ -50,3 +50,50 @@ export const social = [
     icon: <FaBehance />,
   },
 ];
+
+export const proGroup = [
+  {
+    _id: 1,
+    groupName: 'Sensibio',
+  },
+  {
+    _id: 2,
+    groupName: 'Autoderm',
+  },
+  {
+    _id: 3,
+    groupName: 'Sebium',
+  },
+  {
+    _id: 4,
+    groupName: 'Photoderm',
+  },
+  {
+    _id: 5,
+    groupName: 'PigmentBio',
+  },
+  {
+    _id: 6,
+    groupName: 'White Objective',
+  },
+  {
+    _id: 7,
+    groupName: 'Hydrabio',
+  },
+  {
+    _id: 8,
+    groupName: 'Secapio',
+  },
+  {
+    _id: 9,
+    groupName: 'No D',
+  },
+  {
+    _id: 10,
+    groupName: 'ABC Derm',
+  },
+  {
+    _id: 11,
+    groupName: 'ABC Derm',
+  },
+];

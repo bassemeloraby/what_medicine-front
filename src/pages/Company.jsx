@@ -79,7 +79,7 @@ const Company = () => {
                   <tr key={comp._id}>
                     <td>{comp.companyName}</td>
                     <td>
-                      <a href={comp.website} rel="noreferrer" target="_blank">
+                      <a href={comp.website} rel="noreferrer" target="_blank" style={{textDecoration:"underline"}}>
                         {comp.website}
                       </a>
                     </td>
