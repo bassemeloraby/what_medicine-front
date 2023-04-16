@@ -1,12 +1,12 @@
 import React from 'react';
 import axios from 'axios';
-import { proGroup } from '../data';
+
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
+
 function AddProducts({ onAdd }) {
   const [comp, setComp] = React.useState([]);
   const [company, setCompany] = React.useState('');
   const [productName, setProductName] = React.useState('');
-  const [productGroup, setProductGroup] = React.useState(proGroup);
   
 
   //fetch company data from backend
@@ -49,22 +49,8 @@ function AddProducts({ onAdd }) {
               {c.companyName}
             </option>
           ))}
-          {/*select name of group if company is Bioderma */}
         </select>
-        {company === 'Bioderma' ? (
-          <select
-            name="productGroup"
-            onChange={(e) => setProductGroup(e.target.value)}
-          >
-            {productGroup.map((c) => (
-              <option key={c._id} value={c.groupName}>
-                {c.groupName}
-              </option>
-            ))}
-          </select>
-        ) : (
-          ''
-        )}
+        
         {/*enter Product Name*/}
         <input
           type="text"
