@@ -22,6 +22,7 @@ function Products() {
         const res = await axios.get(`${pruductURL}`);
         setLoading(false);
         setProducts(res.data);
+        console.log(res.data);
       } catch (error) {
         setLoading(false);
         console.log(error);
@@ -32,9 +33,11 @@ function Products() {
 
   // add Product
   const addProduct = async (comp) => {
+    console.log(comp);
     const res = await axios.post(`${pruductURL}`, comp);
 
     const newProduct = res.data;
+    console.log(newProduct);
     setProducts([...products, newProduct]);
   };
 
@@ -51,6 +54,15 @@ function Products() {
 
   return (
     <React.Fragment>
+      {adminOpen ? (
+        <div>
+          admin notes
+          <br />
+          Products.jsx
+        </div>
+      ) : (
+        ''
+      )}
       <div>
         <button onClick={() => navigate('/companies')}>Companies</button>
       </div>

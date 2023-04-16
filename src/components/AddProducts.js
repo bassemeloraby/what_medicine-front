@@ -7,6 +7,7 @@ function AddProducts({ onAdd }) {
   const [company, setCompany] = React.useState('');
   const [productName, setProductName] = React.useState('');
   const [productGroup, setProductGroup] = React.useState(proGroup);
+  
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -28,28 +29,43 @@ function AddProducts({ onAdd }) {
       return;
     }
     onAdd({ company, productName });
-
+    console.log(productName);
     setCompany('');
     setProductName('');
   };
 
   return (
     <React.Fragment>
+      <div>
+        admin notes
+        <br />
+        Products.jsx
+      </div>
       <form className="product-form" onSubmit={onSubmit}>
+        {/*select name of company*/}
         <select name="company" onChange={(e) => setCompany(e.target.value)}>
           {comp.map((c) => (
             <option key={c._id} value={c.companyName}>
               {c.companyName}
             </option>
           ))}
+          {/*select name of group if company is Bioderma */}
         </select>
-       {company ==="Bioderma"?<select name="productGroup" onChange={(e) => setProductGroup(e.target.value)}>
-          {productGroup.map((c) => (
-            <option key={c._id} value={c.groupName}>
-              {c.groupName}
-            </option>
-          ))}
-        </select>:""} 
+        {company === 'Bioderma' ? (
+          <select
+            name="productGroup"
+            onChange={(e) => setProductGroup(e.target.value)}
+          >
+            {productGroup.map((c) => (
+              <option key={c._id} value={c.groupName}>
+                {c.groupName}
+              </option>
+            ))}
+          </select>
+        ) : (
+          ''
+        )}
+        {/*enter Product Name*/}
         <input
           type="text"
           name="productName"
@@ -58,6 +74,7 @@ function AddProducts({ onAdd }) {
           autoComplete="off"
           onChange={(e) => setProductName(e.target.value)}
         />
+        
         <button type="submit">Add</button>
       </form>
     </React.Fragment>
