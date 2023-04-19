@@ -98,6 +98,7 @@ function Products() {
                     <h3>{product.productName}</h3>
                   </li>
                   <li>{product.company}</li>
+                  <li>{product.photo}</li>
                 </ul>
               </div>
               {adminOpen ? (

@@ -7,7 +7,7 @@ function AddProducts({ onAdd }) {
   const [comp, setComp] = React.useState([]);
   const [company, setCompany] = React.useState('');
   const [productName, setProductName] = React.useState('');
-  
+  const [photo, setPhoto] = React.useState('');
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -24,14 +24,15 @@ function AddProducts({ onAdd }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!company || !productName) {
+    if (!company || !productName || !photo) {
       alert('Please add all fields');
       return;
     }
-    onAdd({ company, productName });
+    onAdd({ company, productName, photo });
     console.log(productName);
     setCompany('');
     setProductName('');
+    setPhoto('');
   };
 
   return (
@@ -50,7 +51,7 @@ function AddProducts({ onAdd }) {
             </option>
           ))}
         </select>
-        
+
         {/*enter Product Name*/}
         <input
           type="text"
@@ -60,7 +61,16 @@ function AddProducts({ onAdd }) {
           autoComplete="off"
           onChange={(e) => setProductName(e.target.value)}
         />
-        
+        {/*enter Product photo*/}
+        <input
+          type="text"
+          name="photo"
+          placeholder="enter Product photo"
+          value={photo}
+          autoComplete="off"
+          onChange={(e) => setPhoto(e.target.value)}
+        />
+
         <button type="submit">Add</button>
       </form>
     </React.Fragment>
