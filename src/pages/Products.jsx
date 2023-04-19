@@ -89,8 +89,18 @@ function Products() {
                   display: 'grid',
                   margin: '5px',
                 }}
+                className="product-card-photo"
               >
-                <img src={noPhoto} alt={product.productName} width={200} />
+                {product.photo ? (
+                  <img
+                    src={product.photo}
+                    alt={product.productName}
+                    width={"100%"}
+                    height={"100%"}
+                  />
+                ) : (
+                  <img src={noPhoto} alt={product.productName} width={200} />
+                )}
               </div>
               <div>
                 <ul className="container">
@@ -98,7 +108,6 @@ function Products() {
                     <h3>{product.productName}</h3>
                   </li>
                   <li>{product.company}</li>
-                  <li>{product.photo}</li>
                 </ul>
               </div>
               {adminOpen ? (
