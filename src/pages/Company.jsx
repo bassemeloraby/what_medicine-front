@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
@@ -43,6 +43,9 @@ const Company = () => {
     setCompany(newList);
   }
 
+  // update company
+  const updateHandler = (_id) => {};
+
   if (loading) {
     return <Loading />;
   }
@@ -75,15 +78,25 @@ const Company = () => {
                 <tr>
                   <th>Company</th>
                   <th>Website</th>
-                  {adminOpen ? <th>Delete</th> : ''}
+                  {adminOpen ? (
+                    <Fragment>
+                      <th>Delete</th>
+                      <th>Update</th>
+                    </Fragment>
+                  ) : (
+                    ''
+                  )}
                 </tr>
               </thead>
               <tbody>
+
                 {company
                   .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
                   .map((comp) => (
                     <tr key={comp._id}>
-                      <td><h3>{comp.companyName}</h3></td>
+                      <td>
+                        <h3>{comp.companyName}</h3>
+                      </td>
                       <td>
                         <a
                           href={comp.website}
@@ -95,15 +108,26 @@ const Company = () => {
                         </a>
                       </td>
                       {adminOpen ? (
-                        <td>
-                          <button
-                            className="delete"
-                            type="button"
-                            onClick={() => deleteCompany(comp._id)}
-                          >
-                            Delete
-                          </button>
-                        </td>
+                        <Fragment>
+                          <td>
+                            <button
+                              className="delete"
+                              type="button"
+                              onClick={() => deleteCompany(comp._id)}
+                            >
+                              Delete
+                            </button>
+                          </td>
+                          <td>
+                            <button
+                              className="update"
+                              type="button"
+                              onClick={updateHandler(comp._id)}
+                            >
+                              update
+                            </button>
+                          </td>
+                        </Fragment>
                       ) : (
                         ''
                       )}
