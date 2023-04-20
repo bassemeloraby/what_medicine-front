@@ -103,6 +103,8 @@ function Products() {
                   <h3>{product.productName}</h3>
                   <ul>
                     <li>company: {product.company}</li>
+                    <li>company: {product.company}</li>
+                    <li>company: {product.company}</li>
                   </ul>
                 </div>
                 {/*------------- start product-button when login as admin------- ------ */}

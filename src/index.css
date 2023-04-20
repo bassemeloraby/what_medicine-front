@@ -632,14 +632,15 @@ nav {
 }
 .product-show {
   display: grid;
-  /* grid-template-columns: auto auto auto auto; */
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: auto auto auto auto;
+  /* grid-template-columns: 300px 300px 300px; */
   gap: 5px;
   justify-content: center;
   background-color: var(--white-clr);
 }
-.product-show div {
-  /* background-color: var(--blue-4-backClr); */
+.product-show-card{
+  background-color: #ebb618;
+  border-radius: var(--radius);
 }
 .product-card-photo {
   display: grid;
@@ -650,6 +651,7 @@ nav {
 }
 .product-details{
   background-color: #68e210;
+  display: grid;
 }
 .product-details h3{
 text-align: center;
