@@ -617,7 +617,11 @@ nav {
 .company-table th {
   background-color: var(--yellow);
 }
+
 /* products */
+.products-header-address h2{
+  text-align: center;
+}
 .product-main-login {
   display: grid;
   grid-template-columns: 25% auto;
@@ -638,8 +642,11 @@ nav {
   /* background-color: var(--blue-4-backClr); */
 }
 .product-card-photo {
+  display: grid;
+  margin: 5px;
   background-color: black;
   border-radius: var(--radius);
+  justify-content: center;
 }
 .product-details{
   background-color: #68e210;

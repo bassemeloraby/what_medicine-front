@@ -55,11 +55,17 @@ function Products() {
   return (
     <React.Fragment>
       <section className="products">
-        {/* navigate to company*/}
-        <div>
-          <button onClick={() => navigate('/companies')}>Companies</button>
-        </div>
-        {/* */}
+        <section className="products-header">
+          {' '}
+          {/* navigate to company*/}
+          <div className="products-header-nav">
+            <button onClick={() => navigate('/companies')}>Companies</button>
+          </div>
+          <div className="products-header-address">
+            <h2>Products</h2>
+          </div>
+        </section>
+
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           <section
             className={
@@ -68,6 +74,7 @@ function Products() {
           >
             <AddProducts onAdd={addProduct} />
           </section>
+          {/*-------------product-show------ ------ */}
           <section
             className={
               adminOpen
@@ -76,15 +83,9 @@ function Products() {
             }
           >
             {products.map((product) => (
-              <div key={product._id}>
-                <div
-                  style={{
-                    justifyContent: 'center',
-                    display: 'grid',
-                    margin: '5px',
-                  }}
-                  className="product-card-photo"
-                >
+              <div key={product._id} className="product-show-card">
+                {/*------------- start product-card-photo------- ------ */}
+                <div className="product-card-photo">
                   {product.photo ? (
                     <img
                       src={product.photo}
@@ -96,12 +97,15 @@ function Products() {
                     <img src={noPhoto} alt={product.productName} width={200} />
                   )}
                 </div>
+                {/*------------- end product-card-photo------- ------ */}
+                {/*------------- start product-details------- ------ */}
                 <div className="container product-details">
                   <h3>{product.productName}</h3>
                   <ul>
                     <li>company: {product.company}</li>
                   </ul>
                 </div>
+                {/*------------- start product-button when login as admin------- ------ */}
                 {adminOpen ? (
                   <div>
                     <button
@@ -114,6 +118,7 @@ function Products() {
                 ) : (
                   ''
                 )}
+                {/*------------- end product-button when login as admin------- ------ */}
               </div>
             ))}
           </section>
