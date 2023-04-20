@@ -51,7 +51,11 @@ const Company = () => {
       <section className="container">
         <div className="company-header">
           <h2 className="company-title">Company </h2>
-          {adminOpen ?<span>number of companies: {company.length} - Company.jsx</span>:""}
+          {adminOpen ? (
+            <span>number of companies: {company.length} - Company.jsx</span>
+          ) : (
+            ''
+          )}
         </div>
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           {adminOpen ? (
@@ -75,29 +79,36 @@ const Company = () => {
                 </tr>
               </thead>
               <tbody>
-                {company.map((comp) => (
-                  <tr key={comp._id}>
-                    <td>{comp.companyName}</td>
-                    <td>
-                      <a href={comp.website} rel="noreferrer" target="_blank" style={{textDecoration:"underline"}}>
-                        {comp.website}
-                      </a>
-                    </td>
-                    {adminOpen ? (
+                {company
+                  .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+                  .map((comp) => (
+                    <tr key={comp._id}>
+                      <td><h3>{comp.companyName}</h3></td>
                       <td>
-                        <button
-                          className="delete"
-                          type="button"
-                          onClick={() => deleteCompany(comp._id)}
+                        <a
+                          href={comp.website}
+                          rel="noreferrer"
+                          target="_blank"
+                          style={{ textDecoration: 'underline' }}
                         >
-                          Delete
-                        </button>
+                          {comp.website}
+                        </a>
                       </td>
-                    ) : (
-                      ''
-                    )}
-                  </tr>
-                ))}
+                      {adminOpen ? (
+                        <td>
+                          <button
+                            className="delete"
+                            type="button"
+                            onClick={() => deleteCompany(comp._id)}
+                          >
+                            Delete
+                          </button>
+                        </td>
+                      ) : (
+                        ''
+                      )}
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>

@@ -82,47 +82,53 @@ function Products() {
                 : 'container product-show'
             }
           >
-            {products.map((product) => (
-              <div key={product._id} className="product-show-card">
-                {/*------------- start product-card-photo------- ------ */}
-                <div className="product-card-photo">
-                  {product.photo ? (
-                    <img
-                      src={product.photo}
-                      alt={product.productName}
-                      width={'100%'}
-                      height={'100%'}
-                    />
-                  ) : (
-                    <img src={noPhoto} alt={product.productName} width={200} />
-                  )}
-                </div>
-                {/*------------- end product-card-photo------- ------ */}
-                {/*------------- start product-details------- ------ */}
-                <div className="container product-details">
-                  <h3>{product.productName}</h3>
-                  <ul>
-                    <li>company: {product.company}</li>
-                    <li>company: {product.company}</li>
-                    <li>company: {product.company}</li>
-                  </ul>
-                </div>
-                {/*------------- start product-button when login as admin------- ------ */}
-                {adminOpen ? (
-                  <div>
-                    <button
-                      type="button"
-                      onClick={() => deleteCompany(product._id)}
-                    >
-                      delete
-                    </button>
+            {products
+              .sort((a, b) => (a.createdAt> b.createdAt ? -1 : 1))
+              .map((product) => (
+                <div key={product._id} className="product-show-card">
+                  {/*------------- start product-card-photo------- ------ */}
+                  <div className="product-card-photo">
+                    {product.photo ? (
+                      <img
+                        src={product.photo}
+                        alt={product.productName}
+                        width={'100%'}
+                        height={'100%'}
+                      />
+                    ) : (
+                      <img
+                        src={noPhoto}
+                        alt={product.productName}
+                        width={200}
+                      />
+                    )}
                   </div>
-                ) : (
-                  ''
-                )}
-                {/*------------- end product-button when login as admin------- ------ */}
-              </div>
-            ))}
+                  {/*------------- end product-card-photo------- ------ */}
+                  {/*------------- start product-details------- ------ */}
+                  <div className="container product-details">
+                    <h3>{product.productName}</h3>
+                    <ul>
+                      <li>company: {product.company}</li>
+                      <li>company: {product.company}</li>
+                      <li>company: {product.company}</li>
+                    </ul>
+                  </div>
+                  {/*------------- start product-button when login as admin------- ------ */}
+                  {adminOpen ? (
+                    <div>
+                      <button
+                        type="button"
+                        onClick={() => deleteCompany(product._id)}
+                      >
+                        delete
+                      </button>
+                    </div>
+                  ) : (
+                    ''
+                  )}
+                  {/*------------- end product-button when login as admin------- ------ */}
+                </div>
+              ))}
           </section>
         </section>
       </section>
