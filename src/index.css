@@ -30,7 +30,7 @@ Variables
   --mainBackground: #f1f5f8;
   --spacing: 0.1rem;
   --transition: all 0.3s linear;
-  --radius:10px
+  --radius: 10px;
 }
 /* 
 ====== 
@@ -619,7 +619,7 @@ nav {
 }
 
 /* products */
-.products-header-address h2{
+.products-header-address h2 {
   text-align: center;
 }
 .product-main-login {
@@ -638,7 +638,7 @@ nav {
   justify-content: center;
   background-color: var(--white-clr);
 }
-.product-show-card{
+.product-show-card {
   background-color: #ebb618;
   border-radius: var(--radius);
 }
@@ -649,26 +649,22 @@ nav {
   border-radius: var(--radius);
   justify-content: center;
 }
-.product-details{
+.product-details {
   background-color: #68e210;
   display: grid;
 }
-.product-details h3{
-text-align: center;
+.product-details h3 {
+  text-align: center;
 }
-.product-details li{
-border: solid black;
-border-radius: var(--radius);
+.product-details li {
+  border: solid black;
+  border-radius: var(--radius);
 }
+/* in case of login */
 .product-show-login {
-  display: grid;
-  grid-template-columns: auto auto;
-  gap: 5px;
-  background-color: var(--white-clr);
+  grid-template-columns: auto auto auto;
 }
-.product-show-login div {
-  background-color: var(--blue-4-backClr);
-}
+
 .product-form-logout {
   display: none;
 }

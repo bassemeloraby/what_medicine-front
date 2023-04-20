@@ -78,7 +78,7 @@ function Products() {
           <section
             className={
               adminOpen
-                ? 'container product-show-login'
+                ? 'container product-show product-show-login'
                 : 'container product-show'
             }
           >
