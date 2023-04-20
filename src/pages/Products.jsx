@@ -54,15 +54,6 @@ function Products() {
 
   return (
     <React.Fragment>
-      {adminOpen ? (
-        <div>
-          admin notes
-          <br />
-          Products.jsx
-        </div>
-      ) : (
-        ''
-      )}
       <div>
         <button onClick={() => navigate('/companies')}>Companies</button>
       </div>

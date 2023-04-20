@@ -37,11 +37,7 @@ function AddProducts({ onAdd }) {
 
   return (
     <React.Fragment>
-      <div>
-        admin notes
-        <br />
-        Products.jsx
-      </div>
+      
       <form className="product-form" onSubmit={onSubmit}>
         {/*select name of company*/}
         <select name="company" onChange={(e) => setCompany(e.target.value)}>
