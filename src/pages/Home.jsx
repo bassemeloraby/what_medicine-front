@@ -1,10 +1,16 @@
 import React, { Fragment } from 'react';
+import YouTube from 'react-youtube';
 
 function Home() {
   return (
     <Fragment>
       <section className="home">
-        <h1 className="welcome">Welcome to my new site</h1>
+        <section className="home-header">
+          <h2 className="">Welcome to my new site</h2>
+        </section>
+        <section className="home-video">
+          <YouTube videoId="7wX3Pnjecqc" />
+        </section>
       </section>
     </Fragment>
   );

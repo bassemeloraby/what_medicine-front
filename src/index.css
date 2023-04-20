@@ -165,10 +165,18 @@ select {
   background-color: yellow;
 }
 /* home */
-.welcome {
-  text-align: center;
-  margin-top: 25%;
+.home-header {
+  display: grid;
+  justify-content: center;
 }
+.home-header h2 {
+  margin-top: 5px;
+}
+.home-video {
+  display: grid;
+  justify-content: center;
+}
+
 /* drugs */
 .layout {
   display: grid;
