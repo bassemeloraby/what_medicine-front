@@ -30,6 +30,7 @@ Variables
   --mainBackground: #f1f5f8;
   --spacing: 0.1rem;
   --transition: all 0.3s linear;
+  --radius:10px
 }
 /* 
 ====== 
@@ -60,6 +61,7 @@ h6 {
   font-family: var(--slantedFont);
   margin-bottom: 1.25rem;
   letter-spacing: var(--mainSpacing);
+  overflow-wrap: anywhere;
 }
 p {
   margin-bottom: 1.25rem;
@@ -626,12 +628,28 @@ nav {
 }
 .product-show {
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  /* grid-template-columns: auto auto auto auto; */
+  grid-template-columns: 300px 300px 300px;
   gap: 5px;
+  justify-content: center;
   background-color: var(--white-clr);
 }
 .product-show div {
-  background-color: var(--blue-4-backClr);
+  /* background-color: var(--blue-4-backClr); */
+}
+.product-card-photo {
+  background-color: black;
+  border-radius: var(--radius);
+}
+.product-details{
+  background-color: #68e210;
+}
+.product-details h3{
+text-align: center;
+}
+.product-details li{
+border: solid black;
+border-radius: var(--radius);
 }
 .product-show-login {
   display: grid;

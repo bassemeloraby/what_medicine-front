@@ -54,67 +54,69 @@ function Products() {
 
   return (
     <React.Fragment>
-      <div>
-        <button onClick={() => navigate('/companies')}>Companies</button>
-      </div>
-      <section className={adminOpen ? 'product-main-login' : 'product-main'}>
-        <section
-          className={
-            adminOpen ? 'product-form container' : 'product-form-logout'
-          }
-        >
-          <AddProducts onAdd={addProduct} />
-        </section>
-        <section
-          className={
-            adminOpen
-              ? 'container product-show-login'
-              : 'container product-show'
-          }
-        >
-          {products.map((product) => (
-            <div key={product._id}>
-              <div
-                style={{
-                  justifyContent: 'center',
-                  display: 'grid',
-                  margin: '5px',
-                }}
-                className="product-card-photo"
-              >
-                {product.photo ? (
-                  <img
-                    src={product.photo}
-                    alt={product.productName}
-                    width={"100%"}
-                    height={"100%"}
-                  />
+      <section className="products">
+        {/* navigate to company*/}
+        <div>
+          <button onClick={() => navigate('/companies')}>Companies</button>
+        </div>
+        {/* */}
+        <section className={adminOpen ? 'product-main-login' : 'product-main'}>
+          <section
+            className={
+              adminOpen ? 'product-form container' : 'product-form-logout'
+            }
+          >
+            <AddProducts onAdd={addProduct} />
+          </section>
+          <section
+            className={
+              adminOpen
+                ? 'container product-show-login'
+                : 'container product-show'
+            }
+          >
+            {products.map((product) => (
+              <div key={product._id}>
+                <div
+                  style={{
+                    justifyContent: 'center',
+                    display: 'grid',
+                    margin: '5px',
+                  }}
+                  className="product-card-photo"
+                >
+                  {product.photo ? (
+                    <img
+                      src={product.photo}
+                      alt={product.productName}
+                      width={'100%'}
+                      height={'100%'}
+                    />
+                  ) : (
+                    <img src={noPhoto} alt={product.productName} width={200} />
+                  )}
+                </div>
+                <div className="container product-details">
+                  <h3>{product.productName}</h3>
+                  <ul>
+                    <li>company: {product.company}</li>
+                  </ul>
+                </div>
+                {adminOpen ? (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => deleteCompany(product._id)}
+                    >
+                      delete
+                    </button>
+                  </div>
                 ) : (
-                  <img src={noPhoto} alt={product.productName} width={200} />
+                  ''
                 )}
               </div>
-              <div>
-                <ul className="container">
-                  <li style={{ textAlign: 'center' }}>
-                    <h3>{product.productName}</h3>
-                  </li>
-                  <li>{product.company}</li>
-                </ul>
-              </div>
-              {adminOpen ? (
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => deleteCompany(product._id)}
-                  >
-                    delete
-                  </button>
-                </div>
-              ) : (
-                ''
-              )}
-            </div>
-          ))}
+            ))}
+          </section>
         </section>
       </section>
     </React.Fragment>
