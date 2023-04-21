@@ -84,7 +84,7 @@ function Products() {
             }
           >
             {products
-              .sort((a, b) => (a.createdAt> b.createdAt ? -1 : 1))
+              .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
               .map((product) => (
                 <div key={product._id} className="product-show-card">
                   {/*------------- start product-card-photo------- ------ */}
@@ -107,12 +107,18 @@ function Products() {
                   {/*------------- end product-card-photo------- ------ */}
                   {/*------------- start product-details------- ------ */}
                   <div className="container product-details">
-                    <h3>{product.productName}</h3>
-                    <ul>
-                      <li>company: {product.company}</li>
-                      <li>company: {product.company}</li>
-                      <li>company: {product.company}</li>
-                    </ul>
+                    <div className="product-details-title">
+                      <h3>{product.productName}</h3>
+                    </div>
+                    <div className="product-details-body">
+                      {' '}
+                      <ul>
+                        <li>company: {product.company}</li>
+                        <li>company: {product.company}</li>
+                        <li>company: {product.company}</li>
+                        <li>company: {product.company}</li>
+                      </ul>
+                    </div>
                   </div>
                   {/*------------- start product-button when login as admin------- ------ */}
                   {adminOpen ? (
