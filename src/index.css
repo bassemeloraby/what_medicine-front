@@ -641,33 +641,36 @@ nav {
   background-color: var(--white-clr);
 }
 .product-show-card {
-  background-color: hsl(205deg 25% 84%);
+  background-color: antiquewhite;
+  
   border-radius: var(--radius);
-  display: grid;
-
+  
 }
 .product-card-photo {
   display: grid;
+  justify-content: center;
+  /* display: grid;
   margin: 5px;
   height: 180px;
   background-color: black;
   border-radius: var(--radius);
-  justify-content: center;
+  justify-content: center; */
 }
 .product-details {
-  background-color: #f1f5f8;
-  display: grid;
+  /* background-color: #f1f5f8;
+  display: grid; */
   font-family: emoji;
 }
 .product-details h3 {
   text-align: center;
+  color: red;
 }
 .product-details li {
-  border: solid black;
+  /* border: solid black;
   border-radius: var(--radius);
   padding-left: 1%;
   margin-bottom: 2%;
-  padding-bottom: 2%;
+  padding-bottom: 2%; */
 }
 /* in case of login */
 .product-show-login {
