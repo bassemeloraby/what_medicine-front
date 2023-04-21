@@ -4,7 +4,7 @@ import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
 import axios from 'axios';
 import Loading from '../components/Loading';
-const URL = 'http://localhost:5000/api/companies';
+const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
 const Company = () => {
   const [company, setCompany] = React.useState([]);
@@ -28,7 +28,7 @@ const Company = () => {
       }
     };
     fetchCompany();
-  }, []);
+  }, [updateState]);
 
   // add company
   const addCompany = async (comp) => {
@@ -46,6 +46,7 @@ const Company = () => {
     const newCompany = res.data;
     console.log(newCompany);
     // setCompany([...company, newCompany]);
+    setUpdateState("")
   };
 
   //delete company
@@ -80,11 +81,7 @@ const Company = () => {
       <section className="container">
         <div className="company-header">
           <h2 className="company-title">Company </h2>
-          {adminOpen ? (
-            <span>number of companies: {company.length} - Company.jsx</span>
-          ) : (
-            ''
-          )}
+          
         </div>
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           {adminOpen ? (
@@ -124,7 +121,7 @@ const Company = () => {
                           <td>
                             <input
                               name="text"
-                              value={companyName}
+                              defaultValue={comp.companyName}
                               autoComplete="off"
                               onChange={(e) => setCompanyName(e.target.value)}
                             ></input>
@@ -161,20 +158,21 @@ const Company = () => {
                             <h3>{comp.companyName}</h3>
                           </td>
                           <td>
-                            <a
-                              href={comp.website}
-                              rel="noreferrer"
-                              target="_blank"
-                              style={{ textDecoration: 'underline' }}
-                            >
-                              {comp.website}
-                            </a>
+                          <button><a
+                          href={comp.website}
+                          rel="noreferrer"
+                          target="_blank"
+                          style={{ textDecoration: 'underline' }}
+                        >
+                          {comp.companyName}
+                        </a></button>
+                            
                           </td>
                           {adminOpen ? (
                             <Fragment>
                               <td>
                                 <button
-                                  className="delete"
+                                  className="delete button"
                                   type="button"
                                   onClick={() => deleteCompany(comp._id)}
                                 >
@@ -183,7 +181,7 @@ const Company = () => {
                               </td>
                               <td>
                                 <button
-                                  className="edit"
+                                  className="edit button"
                                   type="button"
                                   onClick={() => editHandler(comp._id)}
                                 >
