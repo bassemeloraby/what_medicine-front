@@ -75,67 +75,69 @@ const Company = () => {
             ''
           )}
           <div>
-            <table className="company-table">
-              <thead>
-                <tr>
-                  <th>Company</th>
-                  <th>Website</th>
-                  {adminOpen ? (
-                    <Fragment>
-                      <th>Delete</th>
-                      <th>Update</th>
-                    </Fragment>
-                  ) : (
-                    ''
-                  )}
-                </tr>
-              </thead>
-              <tbody>
-                {company
-                  .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-                  .map((comp) => (
-                    <tr key={comp._id}>
-                      <td>
-                        <h3>{comp.companyName}</h3>
-                      </td>
-                      <td>
-                        <a
-                          href={comp.website}
-                          rel="noreferrer"
-                          target="_blank"
-                          style={{ textDecoration: 'underline' }}
-                        >
-                          {comp.website}
-                        </a>
-                      </td>
-                      {adminOpen ? (
-                        <Fragment>
-                          <td>
-                            <button
-                              className="delete"
-                              type="button"
-                              onClick={() => deleteCompany(comp._id)}
-                            >
-                              Delete
-                            </button>
-                          </td>
-                          <td>
-                            <button
-                              className="edit"
-                              type="button"
-                              onClick={() => editHandler(comp._id)}
-                            >
-                              edit
-                            </button>
-                          </td>
-                        </Fragment>
-                      ) : (
-                        ''
-                      )}
-                    </tr>
-                  ))}
-              </tbody>
-            </table>
+            <form>
+              <table className="company-table">
+                <thead>
+                  <tr>
+                    <th>Company</th>
+                    <th>Website</th>
+                    {adminOpen ? (
+                      <Fragment>
+                        <th>Delete</th>
+                        <th>Update</th>
+                      </Fragment>
+                    ) : (
+                      ''
+                    )}
+                  </tr>
+                </thead>
+                <tbody>
+                  {company
+                    .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+                    .map((comp) => (
+                      <tr key={comp._id}>
+                        <td>
+                          <h3>{comp.companyName}</h3>
+                        </td>
+                        <td>
+                          <a
+                            href={comp.website}
+                            rel="noreferrer"
+                            target="_blank"
+                            style={{ textDecoration: 'underline' }}
+                          >
+                            {comp.website}
+                          </a>
+                        </td>
+                        {adminOpen ? (
+                          <Fragment>
+                            <td>
+                              <button
+                                className="delete"
+                                type="button"
+                                onClick={() => deleteCompany(comp._id)}
+                              >
+                                Delete
+                              </button>
+                            </td>
+                            <td>
+                              <button
+                                className="edit"
+                                type="button"
+                                onClick={() => editHandler(comp._id)}
+                              >
+                                edit
+                              </button>
+                            </td>
+                          </Fragment>
+                        ) : (
+                          ''
+                        )}
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            </form>
           </div>
         </section>
       </section>
