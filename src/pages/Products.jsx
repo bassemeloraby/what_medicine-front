@@ -63,6 +63,7 @@ function Products() {
           </div>
           <div className="products-header-address">
             <h2>Products</h2>
+            <div className="underline"></div>
           </div>
         </section>
 

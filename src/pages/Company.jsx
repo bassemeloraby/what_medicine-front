@@ -54,11 +54,8 @@ const Company = () => {
       <section className="container">
         <div className="company-header">
           <h2 className="company-title">Company </h2>
-          {adminOpen ? (
-            <span>number of companies: {company.length} - Company.jsx</span>
-          ) : (
-            ''
-          )}
+          <div className="underline"></div>
+          
         </div>
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           {adminOpen ? (
