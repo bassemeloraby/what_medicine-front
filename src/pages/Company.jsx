@@ -44,7 +44,9 @@ const Company = () => {
   }
 
   // update company
-  const updateHandler = (_id) => {};
+  const editHandler = (_id) => {
+    console.log(_id);
+  };
 
   if (loading) {
     return <Loading />;
@@ -54,8 +56,11 @@ const Company = () => {
       <section className="container">
         <div className="company-header">
           <h2 className="company-title">Company </h2>
-          <div className="underline"></div>
-          
+          {adminOpen ? (
+            <span>number of companies: {company.length} - Company.jsx</span>
+          ) : (
+            ''
+          )}
         </div>
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           {adminOpen ? (
@@ -86,7 +91,6 @@ const Company = () => {
                 </tr>
               </thead>
               <tbody>
-
                 {company
                   .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
                   .map((comp) => (
@@ -117,11 +121,11 @@ const Company = () => {
                           </td>
                           <td>
                             <button
-                              className="update"
+                              className="edit"
                               type="button"
-                              onClick={updateHandler(comp._id)}
+                              onClick={() => editHandler(comp._id)}
                             >
-                              update
+                              edit
                             </button>
                           </td>
                         </Fragment>
