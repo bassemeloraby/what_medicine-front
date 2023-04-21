@@ -4,12 +4,15 @@ import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
 import axios from 'axios';
 import Loading from '../components/Loading';
-const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
+const URL = 'http://localhost:5000/api/companies';
 
 const Company = () => {
   const [company, setCompany] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [updateState, setUpdateState] = React.useState('');
   const { adminOpen } = useGlobalContext();
+
+  const [companyName, setCompanyName] = React.useState('');
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -35,6 +38,15 @@ const Company = () => {
     console.log(newCompany);
     setCompany([...company, newCompany]);
   };
+  // add company
+  const updateCompany = async (comp) => {
+    console.log(comp)
+    const res = await axios.put(`${URL}/${updateState}`, comp);
+
+    const newCompany = res.data;
+    console.log(newCompany);
+    // setCompany([...company, newCompany]);
+  };
 
   //delete company
   function deleteCompany(_id) {
@@ -46,6 +58,18 @@ const Company = () => {
   // update company
   const editHandler = (_id) => {
     console.log(_id);
+    setUpdateState(_id);
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (!companyName) {
+      alert('Please add a company name');
+      return;
+    }
+    updateCompany({ companyName});
+
+    setCompanyName('');
   };
 
   if (loading) {
@@ -75,7 +99,7 @@ const Company = () => {
             ''
           )}
           <div>
-            <form>
+            <form onSubmit={onSubmit}>
               <table className="company-table">
                 <thead>
                   <tr>
@@ -94,47 +118,85 @@ const Company = () => {
                 <tbody>
                   {company
                     .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-                    .map((comp) => (
-                      <tr key={comp._id}>
-                        <td>
-                          <h3>{comp.companyName}</h3>
-                        </td>
-                        <td>
-                          <a
-                            href={comp.website}
-                            rel="noreferrer"
-                            target="_blank"
-                            style={{ textDecoration: 'underline' }}
-                          >
-                            {comp.website}
-                          </a>
-                        </td>
-                        {adminOpen ? (
-                          <Fragment>
-                            <td>
-                              <button
-                                className="delete"
-                                type="button"
-                                onClick={() => deleteCompany(comp._id)}
-                              >
-                                Delete
-                              </button>
-                            </td>
-                            <td>
-                              <button
-                                className="edit"
-                                type="button"
-                                onClick={() => editHandler(comp._id)}
-                              >
-                                edit
-                              </button>
-                            </td>
-                          </Fragment>
-                        ) : (
-                          ''
-                        )}
-                      </tr>
-                    ))}
+                    .map((comp) =>
+                      updateState === comp._id ? (
+                        <tr key={comp._id}>
+                          <td>
+                            <input
+                              name="text"
+                              value={companyName}
+                              autoComplete="off"
+                              onChange={(e) => setCompanyName(e.target.value)}
+                            ></input>
+                          </td>
+                          <td>
+                            <a
+                              href={comp.website}
+                              rel="noreferrer"
+                              target="_blank"
+                              style={{ textDecoration: 'underline' }}
+                            >
+                              {comp.website}
+                            </a>
+                          </td>
+                          {adminOpen ? (
+                            <Fragment>
+                              <td>
+                                <button
+                                  className="update"
+                                  type="submit"
+                                  // onClick={() => updateHandler(comp._id)}
+                                >
+                                  update
+                                </button>
+                              </td>
+                            </Fragment>
+                          ) : (
+                            ''
+                          )}
+                        </tr>
+                      ) : (
+                        <tr key={comp._id}>
+                          <td>
+                            <h3>{comp.companyName}</h3>
+                          </td>
+                          <td>
+                            <a
+                              href={comp.website}
+                              rel="noreferrer"
+                              target="_blank"
+                              style={{ textDecoration: 'underline' }}
+                            >
+                              {comp.website}
+                            </a>
+                          </td>
+                          {adminOpen ? (
+                            <Fragment>
+                              <td>
+                                <button
+                                  className="delete"
+                                  type="button"
+                                  onClick={() => deleteCompany(comp._id)}
+                                >
+                                  Delete
+                                </button>
+                              </td>
+                              <td>
+                                <button
+                                  className="edit"
+                                  type="button"
+                                  onClick={() => editHandler(comp._id)}
+                                >
+                                  edit
+                                </button>
+                              </td>
+                            </Fragment>
+                          ) : (
+                            ''
+                          )}
+                        </tr>
+                      )
+                    )}
                 </tbody>
               </table>
             </form>
