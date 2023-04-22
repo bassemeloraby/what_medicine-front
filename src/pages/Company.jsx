@@ -81,26 +81,29 @@ const Company = () => {
   return (
     <React.Fragment>
       <section className="container">
-        <div className="company-header">
-          <h2 className="company-title">Company </h2>
+        {/*-------start company header----------*/}
+        <div className="">
+          <h2 className="text-center">Company </h2>
         </div>
-        <section className={adminOpen ? 'product-main-login' : 'product-main'}>
+        {/*-------end company header----------*/}
+
+        {/*-------start company body-------*/}
+        {/*-------start company form-------*/}
+        <section className="row">
           {adminOpen ? (
-            <div
-              className={
-                adminOpen ? 'product-form container' : 'product-form-logout'
-              }
-            >
+            <section class="col-3">
               <AddCompany onAdd={addCompany} />
-            </div>
+            </section>
           ) : (
             ''
           )}
-          <div>
+          {/*-------end company form-------*/}
+          {/*-------start company show-------*/}
+          <section class="col">
             <form onSubmit={onSubmit}>
               <Table striped bordered hover>
                 <thead>
-                  <tr style={{backgroundColor:"orange"}}>
+                  <tr style={{ backgroundColor: 'orange' }}>
                     <th>Company</th>
                     <th>Website</th>
                     {adminOpen ? (
@@ -155,27 +158,34 @@ const Company = () => {
                             <h3>{comp.companyName}</h3>
                           </td>
                           <td>
-                            
-                              <a
-                                href={comp.website}
-                                rel="noreferrer"
-                                target="_blank"
-                                style={{ textDecoration: 'underline' }}
-                              >
-                                {comp.companyName}
-                              </a>
-                            
+                            <a
+                              href={comp.website}
+                              rel="noreferrer"
+                              target="_blank"
+                              style={{ textDecoration: 'underline' }}
+                            >
+                              {comp.companyName}
+                            </a>
                           </td>
                           {adminOpen ? (
                             <Fragment>
                               <td>
-                                
-                                <Button onClick={() => deleteCompany(comp._id)} variant="danger" size="sm">Delete</Button>{' '}
-                                
+                                <Button
+                                  onClick={() => deleteCompany(comp._id)}
+                                  variant="danger"
+                                  size="sm"
+                                >
+                                  Delete
+                                </Button>{' '}
                               </td>
                               <td>
-                        
-                                <Button onClick={() => editHandler(comp._id)} variant="success" size="sm">Edit</Button>{' '}
+                                <Button
+                                  onClick={() => editHandler(comp._id)}
+                                  variant="success"
+                                  size="sm"
+                                >
+                                  Edit
+                                </Button>{' '}
                               </td>
                             </Fragment>
                           ) : (
@@ -187,8 +197,10 @@ const Company = () => {
                 </tbody>
               </Table>
             </form>
-          </div>
+          </section>
+          {/*-------end company show-------*/}
         </section>
+        {/*-------end company body-------*/}
       </section>
     </React.Fragment>
   );
