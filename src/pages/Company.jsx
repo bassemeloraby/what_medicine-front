@@ -100,7 +100,7 @@ const Company = () => {
             <form onSubmit={onSubmit}>
               <Table striped bordered hover>
                 <thead>
-                  <tr>
+                  <tr style={{backgroundColor:"orange"}}>
                     <th>Company</th>
                     <th>Website</th>
                     {adminOpen ? (
