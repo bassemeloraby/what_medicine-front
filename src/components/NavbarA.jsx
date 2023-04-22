@@ -1,6 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { FaBars } from 'react-icons/fa';
 
+import Button from 'react-bootstrap/Button';
+
 import Mederma from '../images/MedermaLogo.png';
 import { Link } from 'react-router-dom';
 import Login from './Login';
@@ -45,17 +47,21 @@ function NavbarA() {
             </li>
           </ul>
         </div>
-        <div className='log-aria'>
-        {!adminOpen ? (
-          <button onClick={asAdmin}>login</button>
-        ) : (
-          <button onClick={asUser}>logout</button>
-        )}
-        {admin ? (
-          <Login setAdminOpen={setAdminOpen} setAdmin={setAdmin}/>
-        ) : (
-          ''
-        )}
+        <div >
+          {!adminOpen ? (
+            <Button variant="primary" onClick={asAdmin}>
+              login
+            </Button>
+          ) : (
+            <Button variant="primary" onClick={asUser}>
+              logout
+            </Button>
+          )}
+          {admin ? (
+            <Login setAdminOpen={setAdminOpen} setAdmin={setAdmin} />
+          ) : (
+            ''
+          )}
         </div>
       </div>
     </nav>

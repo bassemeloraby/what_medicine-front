@@ -38,6 +38,7 @@ function AddCompany({ onAdd }) {
         Add
       </button>
     </form>
+    
   );
 }
 

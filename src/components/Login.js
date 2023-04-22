@@ -1,6 +1,10 @@
 import React from 'react';
 import axios from 'axios';
 
+import Col from 'react-bootstrap/Col';
+import Form from 'react-bootstrap/Form';
+import Row from 'react-bootstrap/Row';
+
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/users';
 
 const Login = ({ setAdminOpen, setAdmin }) => {
@@ -40,9 +44,16 @@ const Login = ({ setAdminOpen, setAdmin }) => {
 
   return (
     <React.Fragment>
-      <div className="login-section">
-        <input type="password" autoFocus onChange={getPass} />
-      </div>
+      <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+        <Col sm="10">
+          <Form.Control
+            type="password"
+            placeholder="Password"
+            autoFocus
+            onChange={getPass}
+          />
+        </Col>
+      </Form.Group>
     </React.Fragment>
   );
 };

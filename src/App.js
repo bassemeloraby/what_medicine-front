@@ -1,4 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
 // import NavbarComp from './components/NavbarComp';
 import Card from './pages/Card';
 import ScientificName from './pages/ScientificName'
