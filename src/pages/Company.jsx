@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
 
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
@@ -154,7 +155,7 @@ const Company = () => {
                             <h3>{comp.companyName}</h3>
                           </td>
                           <td>
-                            <button>
+                            
                               <a
                                 href={comp.website}
                                 rel="noreferrer"
@@ -163,27 +164,18 @@ const Company = () => {
                               >
                                 {comp.companyName}
                               </a>
-                            </button>
+                            
                           </td>
                           {adminOpen ? (
                             <Fragment>
                               <td>
-                                <button
-                                  className="delete button"
-                                  type="button"
-                                  onClick={() => deleteCompany(comp._id)}
-                                >
-                                  Delete
-                                </button>
+                                
+                                <Button onClick={() => deleteCompany(comp._id)} variant="danger" size="sm">Delete</Button>{' '}
+                                
                               </td>
                               <td>
-                                <button
-                                  className="edit button"
-                                  type="button"
-                                  onClick={() => editHandler(comp._id)}
-                                >
-                                  edit
-                                </button>
+                        
+                                <Button onClick={() => editHandler(comp._id)} variant="success" size="sm">Edit</Button>{' '}
                               </td>
                             </Fragment>
                           ) : (
