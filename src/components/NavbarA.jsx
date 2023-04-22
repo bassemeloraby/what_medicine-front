@@ -53,7 +53,7 @@ function NavbarA() {
               login
             </Button>
           ) : (
-            <Button variant="primary" onClick={asUser}>
+            <Button variant="danger" onClick={asUser}>
               logout
             </Button>
           )}

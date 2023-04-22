@@ -77,40 +77,8 @@ img {
   display: grid;
   height: 175px;
 }
-button {
-  font-size: 15px;
-  font-family: Arial;
-  width: auto;
-  height: 30px;
-  /* margin-left: 1%; */
-  padding-left: 5px;
-  padding-right: 5px;
-  border-width: 1px;
-  color: var(--white-clr);
-  border-color: var(--blue-1-backClr);
-  font-weight: bold;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  box-shadow: 0px 1px 0px 0px var(--blue-3-backClr);
-  text-shadow: 0px 1px 0px var(--blue-2-backClr);
-  background: linear-gradient(var(--blue-2-backClr), var(--blue-1-backClr));
-  margin: 5px;
-}
-button:hover {
-  background: linear-gradient(var(--blue-1-backClr), var(--blue-2-backClr));
-}
-form {
-  display: grid;
-  box-shadow: 5px 5px 10px 1px #000;
-}
-input {
-  margin: 5px;
-}
-select {
-  margin: 5px;
-}
+
+
 /* ====================start global classes=============================== */
 .underline {
   height: 0.25rem;
@@ -602,23 +570,7 @@ nav {
   margin-bottom: 1%;
   margin-left: 1%;
 }
-/* copmany page */
-.company-title {
-  text-align: center;
-}
-.company-header {
-  text-align: center;
-}
-.company-table {
-  width: 100%;
-}
-.company-table td {
-  padding-left: 1%;
-  padding-right: 1%;
-}
-.company-table th {
-  background-color: var(--yellow);
-}
+
 
 /* products */
 .products-header-address h2 {

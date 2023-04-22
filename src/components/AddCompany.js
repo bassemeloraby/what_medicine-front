@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 function AddCompany({ onAdd }) {
   const [companyName, setCompanyName] = React.useState('');
   const [website, setWebsite] = React.useState('');
@@ -15,6 +15,7 @@ function AddCompany({ onAdd }) {
     setCompanyName('');
   };
   return (
+    <Fragment>
     <form onSubmit={onSubmit} className="company-add-form">
       <input
         type="text"
@@ -38,7 +39,7 @@ function AddCompany({ onAdd }) {
         Add
       </button>
     </form>
-    
+    </Fragment>
   );
 }
 

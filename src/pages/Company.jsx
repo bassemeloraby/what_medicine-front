@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import Table from 'react-bootstrap/Table';
 
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
@@ -40,13 +41,13 @@ const Company = () => {
   };
   // add company
   const updateCompany = async (comp) => {
-    console.log(comp)
+    console.log(comp);
     const res = await axios.put(`${URL}/${updateState}`, comp);
 
     const newCompany = res.data;
     console.log(newCompany);
     // setCompany([...company, newCompany]);
-    setUpdateState("")
+    setUpdateState('');
   };
 
   //delete company
@@ -68,7 +69,7 @@ const Company = () => {
       alert('Please add a company name');
       return;
     }
-    updateCompany({ companyName});
+    updateCompany({ companyName });
 
     setCompanyName('');
   };
@@ -81,7 +82,6 @@ const Company = () => {
       <section className="container">
         <div className="company-header">
           <h2 className="company-title">Company </h2>
-          
         </div>
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           {adminOpen ? (
@@ -97,7 +97,7 @@ const Company = () => {
           )}
           <div>
             <form onSubmit={onSubmit}>
-              <table className="company-table">
+              <Table striped bordered hover>
                 <thead>
                   <tr>
                     <th>Company</th>
@@ -139,11 +139,7 @@ const Company = () => {
                           {adminOpen ? (
                             <Fragment>
                               <td>
-                                <button
-                                  className="update"
-                                  type="submit"
-                                  // onClick={() => updateHandler(comp._id)}
-                                >
+                                <button className="update" type="submit">
                                   update
                                 </button>
                               </td>
@@ -158,15 +154,16 @@ const Company = () => {
                             <h3>{comp.companyName}</h3>
                           </td>
                           <td>
-                          <button><a
-                          href={comp.website}
-                          rel="noreferrer"
-                          target="_blank"
-                          style={{ textDecoration: 'underline' }}
-                        >
-                          {comp.companyName}
-                        </a></button>
-                            
+                            <button>
+                              <a
+                                href={comp.website}
+                                rel="noreferrer"
+                                target="_blank"
+                                style={{ textDecoration: 'underline' }}
+                              >
+                                {comp.companyName}
+                              </a>
+                            </button>
                           </td>
                           {adminOpen ? (
                             <Fragment>
@@ -196,7 +193,7 @@ const Company = () => {
                       )
                     )}
                 </tbody>
-              </table>
+              </Table>
             </form>
           </div>
         </section>
