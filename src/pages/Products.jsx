@@ -54,19 +54,20 @@ function Products() {
 
   return (
     <React.Fragment>
-      <section className="products">
-        <section className="products-header">
+      <section className="container">
+        {/*-------start products header----------*/}
+        <section className="">
           {' '}
           {/* navigate to company*/}
-          <div className="products-header-nav">
+          <section className="products-header-nav">
             <button onClick={() => navigate('/companies')}>Companies</button>
-          </div>
+          </section>
           <div className="products-header-address">
             <h2>Products</h2>
             <div className="underline"></div>
           </div>
         </section>
-
+        {/*-------end products header----------*/}
         <section className={adminOpen ? 'product-main-login' : 'product-main'}>
           <section
             className={
@@ -90,11 +91,7 @@ function Products() {
                   {/*------------- start product-card-photo------- ------ */}
                   <div className="product-card-photo">
                     {product.photo ? (
-                      <img
-                        src={product.photo}
-                        alt={product.productName}
-                        
-                      />
+                      <img src={product.photo} alt={product.productName} />
                     ) : (
                       <img
                         src={noPhoto}
