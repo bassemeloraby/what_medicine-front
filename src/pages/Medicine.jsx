@@ -5,6 +5,10 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import { useGlobalContext } from '../context';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
 
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
@@ -88,29 +92,40 @@ function Medicine() {
   };
   return (
     <Fragment>
-      <div className="container Medicine-section">
-        {adminOpen ? (
-          <div>
-            <h1 className="drugs">{drugs.length} Items</h1>
-          </div>
-        ) : (
-          ''
-        )}
-
-        <div className="search-button">
-          <Link to="/AllScientificName" className="btn btn-primary">
+      <section className="container">
+        {/*-------start medicine header----------*/}
+        {/* navigate to company*/}
+        <section className="">
+          <Button
+            variant="primary"
+            onClick={() => navigate('/AllScientificName')}
+          >
             search by Scientific Name
-          </Link>
-        </div>
-        <section className="section-input">
-          <input
-            onChange={(e) => handleOnChange(e.target.value)}
-            className="input-medicine"
-            placeholder="Search by Trade Name"
-          />
+          </Button>{' '}
         </section>
+        <div className="">
+          <h2 className="text-center">Medicine by trade name </h2>
+          <div className="underline"></div>
+        </div>
+        {/*-------end medicine header----------*/}
+        {/*-------start medicine search----------*/}
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>
+          <Form.Control
+            type="text"
+            placeholder="Search by Trade Name"
+            autoComplete="off"
+            autoFocus
+            onChange={(e) => handleOnChange(e.target.value)}
+          />
+        </InputGroup>
+        {/*-------end medicine search----------*/}
+        {/*-------start  medicine tarde name table----------*/}
+       
 
-        <div style={{ width: '100%', height: '100vh' }}>
+        {/*-------end  medicine tarde name table----------*/}
+
+        <section style={{ width: '100%', height: '100vh' }}>
           <AutoSizer>
             {({ width, height }) => (
               <List
@@ -120,6 +135,7 @@ function Medicine() {
                 itemSize={rowHeight}
                 width={width}
               >
+
                 {({ index, data, style }) => {
                   return (
                     <div
@@ -158,8 +174,8 @@ function Medicine() {
               </List>
             )}
           </AutoSizer>
-        </div>
-      </div>
+        </section>
+      </section>
     </Fragment>
   );
 }
