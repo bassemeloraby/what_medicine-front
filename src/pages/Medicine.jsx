@@ -1,14 +1,13 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { VariableSizeList as List } from 'react-window';
 import AutoSizer from 'react-virtualized-auto-sizer';
 import axios from 'axios';
 import Loading from '../components/Loading';
-import { useGlobalContext } from '../context';
+// import { useGlobalContext } from '../context';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import Table from 'react-bootstrap/Table';
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
 function Medicine() {
@@ -16,8 +15,8 @@ function Medicine() {
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
   const [query, setQuery] = useState();
-  const [copyTrade, setCopyTrade] = useState('');
-  const { adminOpen } = useGlobalContext();
+  // const [copyTrade, setCopyTrade] = useState('');
+  // const { adminOpen } = useGlobalContext();
 
   const navigate = useNavigate();
 
