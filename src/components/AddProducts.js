@@ -1,5 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Button from 'react-bootstrap/Button';
 
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
@@ -37,38 +40,54 @@ function AddProducts({ onAdd }) {
 
   return (
     <React.Fragment>
-      
-      <form className="product-form" onSubmit={onSubmit}>
+      {/*---------------------------------------------------*/}
+      <Form onSubmit={onSubmit}>
         {/*select name of company*/}
-        <select name="company" onChange={(e) => setCompany(e.target.value)}>
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder="Enter a company"
+            type="text"
+            name="text"
+            autoFocus
+            autoComplete="off"
+            list="data"
+            onChange={(e) => setCompany(e.target.value)}
+            value={company}
+          />
+        </InputGroup>
+        <datalist id="data">
           {comp.map((c) => (
             <option key={c._id} value={c.companyName}>
               {c.companyName}
             </option>
           ))}
-        </select>
-
+        </datalist>
         {/*enter Product Name*/}
-        <input
-          type="text"
-          name="productName"
-          placeholder="enter Product Name"
-          value={productName}
-          autoComplete="off"
-          onChange={(e) => setProductName(e.target.value)}
-        />
-        {/*enter Product photo*/}
-        <input
-          type="text"
-          name="photo"
-          placeholder="enter Product photo"
-          value={photo}
-          autoComplete="off"
-          onChange={(e) => setPhoto(e.target.value)}
-        />
-
-        <button type="submit">Add</button>
-      </form>
+        <InputGroup className="mb-3">
+          <Form.Control
+            type="text"
+            name="productName"
+            placeholder="Enter Product Name"
+            value={productName}
+            autoComplete="off"
+            onChange={(e) => setProductName(e.target.value)}
+          />
+        </InputGroup>
+        {/*Enter Product photo link*/}
+        <InputGroup className="mb-3">
+          <Form.Control
+            type="text"
+            name="photo"
+            placeholder="Enter Product image link"
+            value={photo}
+            autoComplete="off"
+            onChange={(e) => setPhoto(e.target.value)}
+          />
+        </InputGroup>
+        <Button variant="primary" type="submit" value="Save Company">
+          Add
+        </Button>{' '}
+      </Form>
     </React.Fragment>
   );
 }

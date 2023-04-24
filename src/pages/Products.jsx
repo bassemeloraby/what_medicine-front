@@ -88,7 +88,7 @@ function Products() {
             {products
               .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
               .map((product) => (
-                <Card style={{ width: '18rem' }}>
+                <Card style={{ width: '18rem' }} key={product._id}>
                   <div className="card-photo">
                     {' '}
                     <Card.Img
