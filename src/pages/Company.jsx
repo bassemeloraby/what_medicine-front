@@ -84,6 +84,7 @@ const Company = () => {
         {/*-------start company header----------*/}
         <div className="">
           <h2 className="text-center">Company </h2>
+          <div className="underline"></div>
         </div>
         {/*-------end company header----------*/}
 

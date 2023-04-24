@@ -1,4 +1,8 @@
 import React from 'react';
+import Button from 'react-bootstrap/Button';
+
+import Card from 'react-bootstrap/Card';
+
 import { useNavigate } from 'react-router-dom';
 
 import { useGlobalContext } from '../context';
@@ -59,81 +63,60 @@ function Products() {
         <section className="">
           {' '}
           {/* navigate to company*/}
-          <section className="products-header-nav">
-            <button onClick={() => navigate('/companies')}>Companies</button>
+          <section className="">
+            <Button variant="primary" onClick={() => navigate('/companies')}>
+              Companies
+            </Button>{' '}
           </section>
-          <div className="products-header-address">
-            <h2>Products</h2>
+          <div className="">
+            <h2 className="text-center">Products</h2>
             <div className="underline"></div>
           </div>
         </section>
         {/*-------end products header----------*/}
-        <section className={adminOpen ? 'product-main-login' : 'product-main'}>
-          <section
-            className={
-              adminOpen ? 'product-form container' : 'product-form-logout'
-            }
-          >
-            <AddProducts onAdd={addProduct} />
-          </section>
-          {/*-------------product-show------ ------ */}
-          <section
-            className={
-              adminOpen
-                ? 'container product-show product-show-login'
-                : 'container product-show'
-            }
-          >
+        {/*-------start products-form-show----------*/}
+        <section className="products-form-show row">
+          {' '}
+          {adminOpen && (
+            <section className="col-3">
+              <AddProducts onAdd={addProduct} />
+            </section>
+          )}
+          {/*------------- end product-form ------ */}
+          {/*-------------start product-show------ ------ */}
+          <section className="col row justify-content-center">
             {products
               .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
               .map((product) => (
-                <div key={product._id} className="product-show-card">
-                  {/*------------- start product-card-photo------- ------ */}
-                  <div className="product-card-photo">
-                    {product.photo ? (
-                      <img src={product.photo} alt={product.productName} />
-                    ) : (
-                      <img
-                        src={noPhoto}
-                        alt={product.productName}
-                        width={200}
-                      />
-                    )}
+                <Card style={{ width: '18rem' }}>
+                  <div className="card-photo">
+                    {' '}
+                    <Card.Img
+                      variant="top"
+                      src={product.photo}
+                      alt={product.productName}
+                      style={{ width: '5rem' }}
+                    />
                   </div>
-                  {/*------------- end product-card-photo------- ------ */}
-                  {/*------------- start product-details------- ------ */}
-                  <div className="container product-details">
-                    <div className="product-details-title">
-                      <h3>{product.productName}</h3>
-                    </div>
-                    <div className="product-details-body">
-                      {' '}
-                      <ul>
-                        <li>company: {product.company}</li>
-                        <li>company: {product.company}</li>
-                        <li>company: {product.company}</li>
-                        <li>company: {product.company}</li>
-                      </ul>
-                    </div>
-                  </div>
-                  {/*------------- start product-button when login as admin------- ------ */}
-                  {adminOpen ? (
-                    <div>
-                      <button
-                        type="button"
-                        onClick={() => deleteCompany(product._id)}
-                      >
-                        delete
-                      </button>
-                    </div>
-                  ) : (
-                    ''
-                  )}
-                  {/*------------- end product-button when login as admin------- ------ */}
-                </div>
+
+                  <Card.Body>
+                    <Card.Title>{product.productName}</Card.Title>
+                    <Card.Text>
+                      Some quick example text to build on the card title and
+                      make up the bulk of the card's content.
+                    </Card.Text>
+                    <Button
+                      variant="danger"
+                      onClick={() => deleteCompany(product._id)}
+                    >
+                    Delete
+                    </Button>
+                  </Card.Body>
+                </Card>
               ))}
           </section>
         </section>
+        {/*-------end products-form-show----------*/}
       </section>
     </React.Fragment>
   );

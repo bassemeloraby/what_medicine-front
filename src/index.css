@@ -73,11 +73,6 @@ a {
   text-decoration: none;
   color: var(--mainBlack);
 }
-img {
-  display: grid;
-  height: 175px;
-}
-
 
 /* ====================start global classes=============================== */
 .underline {
@@ -571,4 +566,8 @@ nav {
   margin-left: 1%;
 }
 
-
+/* bootstrab */
+.card-photo {
+  display: grid;
+  justify-content: center;
+}
