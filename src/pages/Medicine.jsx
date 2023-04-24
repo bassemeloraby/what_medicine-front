@@ -9,7 +9,6 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import Table from 'react-bootstrap/Table';
-
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
 function Medicine() {
@@ -30,6 +29,7 @@ function Medicine() {
       const res = await axios.get(`${url}`);
       setLoading(false);
       setDrugs(res.data);
+      console.log(res.data);
     } catch (error) {
       setLoading(false);
       console.log(error);
@@ -80,16 +80,16 @@ function Medicine() {
     navigate(`/ScientificName/${ScientificName}`);
   };
   function rowHeight({ index }) {
-    return isGroup(index) ? 20 : 30; // Use your heights here
+    return isGroup(index) ? 20 : 60; // Use your heights here
   }
-  const copyHandler = (TradeName) => {
-    console.log(TradeName);
-    setCopyTrade(TradeName);
-    const clip = () => {
-      navigator.clipboard.writeText(copyTrade);
-    };
-    clip();
-  };
+  // const copyHandler = (TradeName) => {
+  //   console.log(TradeName);
+  //   setCopyTrade(TradeName);
+  //   const clip = () => {
+  //     navigator.clipboard.writeText(copyTrade);
+  //   };
+  //   clip();
+  // };
   return (
     <Fragment>
       <section className="container">
@@ -121,7 +121,6 @@ function Medicine() {
         </InputGroup>
         {/*-------end medicine search----------*/}
         {/*-------start  medicine tarde name table----------*/}
-       
 
         {/*-------end  medicine tarde name table----------*/}
 
@@ -135,7 +134,6 @@ function Medicine() {
                 itemSize={rowHeight}
                 width={width}
               >
-
                 {({ index, data, style }) => {
                   return (
                     <div
@@ -143,25 +141,26 @@ function Medicine() {
                       style={{
                         ...style,
                       }}
-                      className="card"
                     >
-                      <div
-                        className="TradeName"
-                        onClick={() => cardHndeler(data[index]._id)}
-                      >
-                        {data[index].TradeName}
+                      {/* ---start trade name & price & buttons*/}
+                      <div className="row">
+                        <div
+                          className="col-8 text-wrap border border-primary"
+                          onClick={() => cardHndeler(data[index]._id)}
+                          style={{ fontSize: 'small' }}
+                        >
+                          {data[index].TradeName}
+                        </div>
+
+                        <div className="col-2 " style={{ fontSize: 'small' }}>
+                          {data[index].PublicPrice} SR
+                        </div>
                       </div>
+                      {/* ---end trade name & price & buttons*/}
+
                       <div
-                        className="PublicPrice"
-                        onClick={() => copyHandler(data[index].TradeName)}
-                      >
-                        Copy
-                      </div>
-                      <div className="PublicPrice">
-                        {data[index].PublicPrice} SR
-                      </div>
-                      <div
-                        className="ScientificName"
+                        className="col-12 text-wrap"
+                        style={{ fontSize: 'small' }}
                         onClick={() =>
                           ScientificNameHndeler(data[index].ScientificName)
                         }
