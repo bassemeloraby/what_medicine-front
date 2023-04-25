@@ -105,12 +105,14 @@ function Products() {
                       Some quick example text to build on the card title and
                       make up the bulk of the card's content.
                     </Card.Text>
-                    <Button
-                      variant="danger"
-                      onClick={() => deleteCompany(product._id)}
-                    >
-                    Delete
-                    </Button>
+                    {adminOpen && (
+                      <Button
+                        variant="danger"
+                        onClick={() => deleteCompany(product._id)}
+                      >
+                        Delete
+                      </Button>
+                    )}
                   </Card.Body>
                 </Card>
               ))}

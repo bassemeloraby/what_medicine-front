@@ -8,7 +8,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [admin, setAdmin] = React.useState(false);
-  const [adminOpen, setAdminOpen] = React.useState(true);
+  const [adminOpen, setAdminOpen] = React.useState(false);
 
   //move to administrators
   const asAdmin = () => {
