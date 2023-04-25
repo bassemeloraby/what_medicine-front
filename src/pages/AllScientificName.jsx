@@ -3,6 +3,9 @@ import { FixedSizeList as List } from 'react-window';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Loading from '../components/Loading';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 
 const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
 
@@ -30,8 +33,6 @@ function AllScientificName() {
     fetchDrugs();
   }, []);
 
-
-
   const ScientificNameHndeler = (ScientificName) => {
     console.log(ScientificName);
     navigate(`/ScientificName/${ScientificName}`);
@@ -51,41 +52,61 @@ function AllScientificName() {
   }, [query, data]);
 
   if (loading) {
-    return <Loading/>
+    return <Loading />;
   }
 
   return (
     <Fragment>
-      <section className="section-input">
-        <input
-          onChange={(e) => handleOnChange(e.target.value)}
-          className="input-medicine"
-          placeholder="Search by Scientific Name"
-        />
-      </section>
-      <div className="container">
-        <List
-          height={600}
-          itemCount={items.length}
-          itemData={items}
-          itemSize={35}
-          width={'100%'}
-        >
-          {({ index, style, data }) => (
-            <div style={style} className="card">
-              <div
-                onClick={() =>
-                  ScientificNameHndeler(data[index].ScientificName)
-                }
-                className="ScientificName Scientific-display"
-                style={{ width: '100%' }}
-              >
-                {data[index].ScientificName}
+      <section className="container">
+        {/*-------start Scientific header----------*/}
+        {/* navigate to medicine*/}
+        <section className="">
+          <Button variant="primary" onClick={() => navigate('/medicine')}>
+            search by medicine trade Name
+          </Button>{' '}
+        </section>
+        <div className="">
+          <h2 className="text-center">Medicine by Scientific name</h2>
+          <div className="underline"></div>
+        </div>
+        {/*-------end Scientific header----------*/}
+        {/*-------start Scientific search----------*/}
+        <InputGroup className="mb-3">
+          <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>
+          <Form.Control
+            type="text"
+            placeholder="Search by Scientific Name"
+            autoComplete="off"
+            autoFocus
+            onChange={(e) => handleOnChange(e.target.value)}
+          />
+        </InputGroup>
+        {/*-------end Scientific search----------*/}
+
+        <div className="">
+          <List
+            height={600}
+            itemCount={items.length}
+            itemData={items}
+            itemSize={35}
+            width={'100%'}
+          >
+            {({ index, style, data }) => (
+              <div style={style} className="card">
+                <div
+                  onClick={() =>
+                    ScientificNameHndeler(data[index].ScientificName)
+                  }
+                  className="ScientificName Scientific-display"
+                  style={{ width: '100%' }}
+                >
+                  {data[index].ScientificName}
+                </div>
               </div>
-            </div>
-          )}
-        </List>
-      </div>
+            )}
+          </List>
+        </div>
+      </section>
     </Fragment>
   );
 }

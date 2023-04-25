@@ -93,7 +93,7 @@ function Medicine() {
     <Fragment>
       <section className="container">
         {/*-------start medicine header----------*/}
-        {/* navigate to company*/}
+        {/* navigate to AllScientificName*/}
         <section className="">
           <Button
             variant="primary"
