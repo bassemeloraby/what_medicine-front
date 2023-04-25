@@ -155,10 +155,10 @@ a {
   text-align: center;
 }
 
-
-
-
-
+.hover:hover {
+  background-color: #ebb618;
+  cursor: pointer;
+}
 
 table,
 th,
@@ -172,7 +172,6 @@ td {
 table {
   margin-right: 13px;
 }
-
 
 /*
 ====== 
@@ -461,9 +460,6 @@ nav {
     color: var(--clr-primary-7);
   }
 }
-
- 
-
 
 /* scientificName page */
 .button-navigate {

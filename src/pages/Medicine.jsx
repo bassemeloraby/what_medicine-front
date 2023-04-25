@@ -144,7 +144,7 @@ function Medicine() {
                       {/* ---start trade name & price & buttons*/}
                       <div className="row">
                         <div
-                          className="col-8 text-wrap border border-primary"
+                          className="col-8 text-wrap border border-primary hover"
                           onClick={() => cardHndeler(data[index]._id)}
                           // style={{ fontSize: 'small' }}
                         >
@@ -158,7 +158,7 @@ function Medicine() {
                       {/* ---end trade name & price & buttons*/}
 
                       <div
-                        className="col-12 text-wrap"
+                        className="col-12 text-wrap hover"
                         style={{ fontSize: 'small',color:"green" }}
                         onClick={() =>
                           ScientificNameHndeler(data[index].ScientificName)
