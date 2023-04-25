@@ -58,7 +58,7 @@ function AllScientificName() {
   return (
     <Fragment>
       <section className="container">
-        {/*-------start Scientific header----------*/}
+        {/*-------start AllScientific header----------*/}
         {/* navigate to medicine*/}
         <section className="">
           <Button variant="primary" onClick={() => navigate('/medicine')}>
@@ -69,7 +69,7 @@ function AllScientificName() {
           <h2 className="text-center">Medicine by Scientific name</h2>
           <div className="underline"></div>
         </div>
-        {/*-------end Scientific header----------*/}
+        {/*-------end AllScientific header----------*/}
         {/*-------start Scientific search----------*/}
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>

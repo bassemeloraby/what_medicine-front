@@ -31,27 +31,46 @@ function ScientificName() {
 
   return (
     <Fragment>
-      <div className="drugs">
-        <h2>{ScientificName}</h2>
-      </div>
-      <div className="underline"></div>
-      <Link to="/medicine" className="btn btn-primary button-navigate">
-        back to medicine list
-      </Link>
-      <Link to="/AllScientificName" className="btn btn-primary button-navigate">
-        back to Scientific list
-      </Link>
-      {drugs
-        .filter((drug) => drug.ScientificName === ScientificName)
-        .map((drug) => {
-          return (
-            <div className="card" key={drug._id}>
-              <div className="TradeName"> {drug.TradeName}</div>
-              <div className="PublicPrice">{drug.PublicPrice} SR</div>
-              <div className="ScientificName">{drug.ScientificName}</div>
-            </div>
-          );
-        })}
+      <section className="container">
+        <Link to="/medicine" className="btn btn-primary button-navigate">
+          back to medicine list
+        </Link>
+        <Link
+          to="/AllScientificName"
+          className="btn btn-primary button-navigate"
+        >
+          back to Scientific list
+        </Link>
+        <div className="drugs">
+          <h2>{ScientificName}</h2>
+        </div>
+        <div className="underline"></div>
+
+        {drugs
+          .filter((drug) => drug.ScientificName === ScientificName)
+          .map((drug) => {
+            return (
+              <div className="" key={drug._id}>
+                <div className="row">
+                  <div className="col-8 text-wrap border border-primary">
+                    {' '}
+                    {drug.TradeName}
+                  </div>
+                  <div className="col-2 " style={{ fontSize: 'small' }}>
+                    {drug.PublicPrice} SR
+                  </div>
+                </div>
+
+                <div
+                  className="col-12 text-wrap"
+                  style={{ fontSize: 'small', color: 'green' }}
+                >
+                  {drug.ScientificName}
+                </div>
+              </div>
+            );
+          })}
+      </section>
     </Fragment>
   );
 }
