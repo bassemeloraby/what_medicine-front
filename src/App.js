@@ -11,7 +11,7 @@ import Products from './pages/Products';
 import NavbarA from './components/NavbarA';
 function App() {
   return (
-    <div>
+    <div style={{backgroundColor:'#bac4de'}}>
     <NavbarA/>
       <Routes>
         <Route path="/" element={<Home />} />
