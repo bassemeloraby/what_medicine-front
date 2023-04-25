@@ -84,11 +84,11 @@ function Products() {
           )}
           {/*------------- end product-form ------ */}
           {/*-------------start product-show------ ------ */}
-          <section className="col row justify-content-center">
+          <section className="col row justify-content-around">
             {products
               .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
               .map((product) => (
-                <Card style={{ width: '18rem' }} key={product._id}>
+                <Card style={{ width: '18rem' }} key={product._id} className=' mb-3'>
                   <div className="card-photo">
                     {' '}
                     <Card.Img
