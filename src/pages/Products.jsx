@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { useGlobalContext } from '../context';
 import axios from 'axios';
-import noPhoto from '../images/noPhoto.jpg';
+// import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from '../components/AddProducts';
 import Loading from '../components/Loading';
 const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
