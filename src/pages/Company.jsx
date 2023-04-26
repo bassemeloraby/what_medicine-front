@@ -151,6 +151,9 @@ const Company = () => {
                                   update
                                 </Button>
                               </td>
+                              <td>
+                                <Button className="cancel" onClick={()=>setUpdateState("")}>Cancel</Button>
+                              </td>
                             </Fragment>
                           )}
                         </tr>
