@@ -45,6 +45,7 @@ const Company = () => {
   // add company
   const updateCompany = async (comp) => {
     console.log(comp);
+    console.log(updateState)
     const res = await axios.put(`${URL}/${updateState}`, comp);
 
     const newCompany = res.data;
