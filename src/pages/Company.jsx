@@ -92,7 +92,7 @@ const Company = () => {
         {/*-------start company form-------*/}
         <section className="row">
           {adminOpen ? (
-            <section class="col-3">
+            <section className="col-3">
               <AddCompany onAdd={addCompany} />
             </section>
           ) : (
@@ -100,7 +100,7 @@ const Company = () => {
           )}
           {/*-------end company form-------*/}
           {/*-------start company show-------*/}
-          <section class="col">
+          <section className="col">
             <form onSubmit={onSubmit}>
               <Table striped bordered hover>
                 <thead>
