@@ -1,6 +1,8 @@
 import React, { Fragment } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 import AddCompany from '../components/AddCompany';
 import { useGlobalContext } from '../context';
@@ -15,6 +17,7 @@ const Company = () => {
   const { adminOpen } = useGlobalContext();
 
   const [companyName, setCompanyName] = React.useState('');
+  const [website, setWebsite] = React.useState('');
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -70,7 +73,7 @@ const Company = () => {
       alert('Please add a company name');
       return;
     }
-    updateCompany({ companyName });
+    updateCompany({ companyName, website });
 
     setCompanyName('');
   };
@@ -92,11 +95,9 @@ const Company = () => {
         {/*-------start company form-------*/}
         <section className="row">
           {adminOpen ? (
-            <section className="col-3">
+            <section class="col-3">
               <AddCompany onAdd={addCompany} />
             </section>
-          ) : (
-            ''
           )}
           {/*-------end company form-------*/}
           {/*-------start company show-------*/}
@@ -107,13 +108,11 @@ const Company = () => {
                   <tr style={{ backgroundColor: 'orange' }}>
                     <th>Company</th>
                     <th>Website</th>
-                    {adminOpen ? (
+                    {adminOpen && (
                       <Fragment>
                         <th>Delete</th>
                         <th>Update</th>
                       </Fragment>
-                    ) : (
-                      ''
                     )}
                   </tr>
                 </thead>
@@ -124,33 +123,34 @@ const Company = () => {
                       updateState === comp._id ? (
                         <tr key={comp._id}>
                           <td>
-                            <input
-                              name="text"
-                              defaultValue={comp.companyName}
-                              autoComplete="off"
-                              onChange={(e) => setCompanyName(e.target.value)}
-                            ></input>
+                            <InputGroup className="">
+                              <Form.Control
+                                name="text"
+                                defaultValue={comp.companyName}
+                                autoComplete="off"
+                                onChange={(e) => setCompanyName(e.target.value)}
+                              />
+                            </InputGroup>
                           </td>
                           <td>
-                            <a
-                              href={comp.website}
-                              rel="noreferrer"
-                              target="_blank"
-                              style={{ textDecoration: 'underline' }}
-                            >
-                              {comp.website}
-                            </a>
+                            <InputGroup className="">
+                              <Form.Control
+                                name="text"
+                                defaultValue={comp.website}
+                                autoComplete="off"
+                                onChange={(e) => setWebsite(e.target.value)}
+                              />
+                            </InputGroup>
                           </td>
-                          {adminOpen ? (
+
+                          {adminOpen && (
                             <Fragment>
                               <td>
-                                <button className="update" type="submit">
+                                <Button className="update" type="submit">
                                   update
-                                </button>
+                                </Button>
                               </td>
                             </Fragment>
-                          ) : (
-                            ''
                           )}
                         </tr>
                       ) : (
