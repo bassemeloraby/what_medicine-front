@@ -17,6 +17,7 @@ const Company = () => {
   const { adminOpen } = useGlobalContext();
 
   const [companyName, setCompanyName] = React.useState('');
+  const [website, setWebsite] = React.useState('');
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -45,7 +46,7 @@ const Company = () => {
   // add company
   const updateCompany = async (comp) => {
     console.log(comp);
-    console.log(updateState)
+    console.log(updateState);
     const res = await axios.patch(`${URL}/${updateState}`, comp);
 
     const newCompany = res.data;
@@ -73,7 +74,7 @@ const Company = () => {
       alert('Please add a company name');
       return;
     }
-    updateCompany({ companyName });
+    updateCompany({ companyName, website });
 
     setCompanyName('');
   };
@@ -125,14 +126,23 @@ const Company = () => {
                           <td>
                             <InputGroup className="">
                               <Form.Control
-                                name="text"
+                                name="companyName"
                                 defaultValue={comp.companyName}
                                 autoComplete="off"
                                 onChange={(e) => setCompanyName(e.target.value)}
                               />
                             </InputGroup>
                           </td>
-                          
+                          <td>
+                            <InputGroup className="">
+                              <Form.Control
+                                name="website"
+                                defaultValue={comp.website}
+                                autoComplete="off"
+                                onChange={(e) => setWebsite(e.target.value)}
+                              />
+                            </InputGroup>
+                          </td>
 
                           {adminOpen && (
                             <Fragment>
