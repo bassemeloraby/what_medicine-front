@@ -17,7 +17,6 @@ const Company = () => {
   const { adminOpen } = useGlobalContext();
 
   const [companyName, setCompanyName] = React.useState('');
-  const [website, setWebsite] = React.useState('');
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -73,7 +72,7 @@ const Company = () => {
       alert('Please add a company name');
       return;
     }
-    updateCompany({ companyName, website });
+    updateCompany({ companyName });
 
     setCompanyName('');
   };
@@ -95,7 +94,7 @@ const Company = () => {
         {/*-------start company form-------*/}
         <section className="row">
           {adminOpen && (
-            <section class="col-3">
+            <section className="col-3">
               <AddCompany onAdd={addCompany} />
             </section>
           )}
@@ -132,16 +131,7 @@ const Company = () => {
                               />
                             </InputGroup>
                           </td>
-                          <td>
-                            <InputGroup className="">
-                              <Form.Control
-                                name="text"
-                                defaultValue={comp.website}
-                                autoComplete="off"
-                                onChange={(e) => setWebsite(e.target.value)}
-                              />
-                            </InputGroup>
-                          </td>
+                          
 
                           {adminOpen && (
                             <Fragment>
