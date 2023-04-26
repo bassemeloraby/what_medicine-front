@@ -63,9 +63,11 @@ const Company = () => {
   }
 
   // update company
-  const editHandler = (_id) => {
-    console.log(_id);
-    setUpdateState(_id);
+  const editHandler = (comp) => {
+    console.log(comp._id);
+    console.log(comp.companyName);
+    setUpdateState(comp._id);
+    setCompanyName(comp.companyName);
   };
 
   const onSubmit = (e) => {
@@ -152,7 +154,12 @@ const Company = () => {
                                 </Button>
                               </td>
                               <td>
-                                <Button className="cancel" onClick={()=>setUpdateState("")}>Cancel</Button>
+                                <Button
+                                  className="cancel"
+                                  onClick={() => setUpdateState('')}
+                                >
+                                  Cancel
+                                </Button>
                               </td>
                             </Fragment>
                           )}
@@ -185,7 +192,7 @@ const Company = () => {
                               </td>
                               <td>
                                 <Button
-                                  onClick={() => editHandler(comp._id)}
+                                  onClick={() => editHandler(comp)}
                                   variant="success"
                                   size="sm"
                                 >
