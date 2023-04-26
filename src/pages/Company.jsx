@@ -94,7 +94,7 @@ const Company = () => {
         {/*-------start company body-------*/}
         {/*-------start company form-------*/}
         <section className="row">
-          {adminOpen ? (
+          {adminOpen && (
             <section class="col-3">
               <AddCompany onAdd={addCompany} />
             </section>
