@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
@@ -7,11 +7,18 @@ import Button from 'react-bootstrap/Button';
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
 function AddProducts({ onAdd }) {
-  const [comp, setComp] = React.useState([]);
-  const [company, setCompany] = React.useState('');
-  const [productName, setProductName] = React.useState('');
-  const [photo, setPhoto] = React.useState('');
+  const [comp, setComp] = useState([]);
+  // const [company, setCompany] = React.useState('');
+  // const [productName, setProductName] = React.useState('');
+  // const [photo, setPhoto] = React.useState('');
 
+  const [formData, setFormData] = useState({
+    company: '',
+    productName: '',
+    photo: '',
+  });
+
+  const { company, productName, photo } = formData;
   //fetch company data from backend
   React.useEffect(() => {
     const fetchCompany = async () => {
@@ -25,6 +32,13 @@ function AddProducts({ onAdd }) {
     fetchCompany();
   }, []);
 
+  const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  };
+
   const onSubmit = (e) => {
     e.preventDefault();
     if (!company || !productName || !photo) {
@@ -33,9 +47,14 @@ function AddProducts({ onAdd }) {
     }
     onAdd({ company, productName, photo });
     console.log(productName);
-    setCompany('');
-    setProductName('');
-    setPhoto('');
+    // setCompany('');
+    // setProductName('');
+    // setPhoto('');
+    setFormData({
+      company: '',
+      productName: '',
+      photo: '',
+    });
   };
 
   return (
@@ -47,12 +66,13 @@ function AddProducts({ onAdd }) {
           <Form.Control
             placeholder="Enter a company"
             type="text"
-            name="text"
+            name="company"
             autoFocus
             autoComplete="off"
             list="data"
-            onChange={(e) => setCompany(e.target.value)}
+            onChange={onChange}
             value={company}
+            // value={formData.company}
           />
         </InputGroup>
         <datalist id="data">
@@ -70,7 +90,7 @@ function AddProducts({ onAdd }) {
             placeholder="Enter Product Name"
             value={productName}
             autoComplete="off"
-            onChange={(e) => setProductName(e.target.value)}
+            onChange={onChange}
           />
         </InputGroup>
         {/*Enter Product photo link*/}
@@ -81,7 +101,7 @@ function AddProducts({ onAdd }) {
             placeholder="Enter Product image link"
             value={photo}
             autoComplete="off"
-            onChange={(e) => setPhoto(e.target.value)}
+            onChange={onChange}
           />
         </InputGroup>
         <Button variant="primary" type="submit" value="Save Company">
