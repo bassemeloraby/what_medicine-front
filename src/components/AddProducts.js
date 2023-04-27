@@ -16,9 +16,10 @@ function AddProducts({ onAdd }) {
     company: '',
     productName: '',
     photo: '',
+    category: '',
   });
 
-  const { company, productName, photo } = formData;
+  const { company, productName, photo, category } = formData;
   //fetch company data from backend
   React.useEffect(() => {
     const fetchCompany = async () => {
@@ -45,7 +46,7 @@ function AddProducts({ onAdd }) {
       alert('Please add all fields');
       return;
     }
-    onAdd({ company, productName, photo });
+    onAdd({ company, productName, photo, category });
     console.log(productName);
     // setCompany('');
     // setProductName('');
@@ -54,6 +55,7 @@ function AddProducts({ onAdd }) {
       company: '',
       productName: '',
       photo: '',
+      category: '',
     });
   };
 
@@ -104,6 +106,23 @@ function AddProducts({ onAdd }) {
             onChange={onChange}
           />
         </InputGroup>
+        {/*select name of category*/}
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder="Enter a category"
+            type="text"
+            name="category"
+            autoComplete="off"
+            list="data-category"
+            onChange={onChange}
+            value={category}
+            // value={formData.company}
+          />
+        </InputGroup>
+        <datalist id="data-category">
+          <option>Sunscreen</option>
+          <option>cleanser</option>
+        </datalist>
         <Button variant="primary" type="submit" value="Save Company">
           Add
         </Button>{' '}
