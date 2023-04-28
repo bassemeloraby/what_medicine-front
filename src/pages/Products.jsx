@@ -95,7 +95,7 @@ function Products() {
                       variant="top"
                       src={product.photo}
                       alt={product.productName}
-                      style={{ width: '10rem' }}
+                      className="img-thumbnail
                     />
                   </div>
 
