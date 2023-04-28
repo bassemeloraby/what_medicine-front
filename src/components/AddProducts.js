@@ -17,9 +17,10 @@ function AddProducts({ onAdd }) {
     productName: '',
     photo: '',
     category: '',
+    age: '',
   });
 
-  const { company, productName, photo, category } = formData;
+  const { company, productName, photo, category, age } = formData;
   //fetch company data from backend
   React.useEffect(() => {
     const fetchCompany = async () => {
@@ -46,7 +47,7 @@ function AddProducts({ onAdd }) {
       alert('Please add all fields');
       return;
     }
-    onAdd({ company, productName, photo, category });
+    onAdd({ company, productName, photo, category, age });
     console.log(productName);
     // setCompany('');
     // setProductName('');
@@ -56,6 +57,7 @@ function AddProducts({ onAdd }) {
       productName: '',
       photo: '',
       category: '',
+      age: '',
     });
   };
 
@@ -74,7 +76,7 @@ function AddProducts({ onAdd }) {
             list="data"
             onChange={onChange}
             value={company}
-            multiple
+
             // value={formData.company}
           />
         </InputGroup>
@@ -123,6 +125,23 @@ function AddProducts({ onAdd }) {
         <datalist id="data-category">
           <option>Sunscreen</option>
           <option>cleanser</option>
+        </datalist>
+        {/*select age*/}
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder="Enter a Age"
+            type="text"
+            name="age"
+            autoComplete="off"
+            list="data-age"
+            onChange={onChange}
+            value={age}
+            // value={formData.company}
+          />
+        </InputGroup>
+        <datalist id="data-age">
+          <option>Children</option>
+          <option>Adult</option>
         </datalist>
         <Button variant="primary" type="submit" value="Save Company">
           Add
