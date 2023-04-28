@@ -2,9 +2,11 @@ import React from 'react';
 
 const Loading = () => {
   return (
-    <div className="loading">
-      <h1>loading...</h1>
-    </div>
+    
+<div class="spinner-border text-dark" role="status">
+  <span class="visually-hidden">Loading...</span>
+</div>
+    
   );
 };
 
