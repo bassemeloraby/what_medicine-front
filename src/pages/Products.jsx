@@ -88,7 +88,11 @@ function Products() {
             {products
               .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
               .map((product) => (
-                <Card style={{ width: '18rem' }} key={product._id} className=' mb-3'>
+                <Card
+                  style={{ width: '18rem' }}
+                  key={product._id}
+                  className=" mb-3"
+                >
                   <div className="card-photo">
                     {' '}
                     <Card.Img
@@ -101,17 +105,24 @@ function Products() {
 
                   <Card.Body>
                     <Card.Title>{product.productName}</Card.Title>
-                    <Card.Text>
-                      {product.company}
-                    </Card.Text>
-                    {adminOpen && (
-                      <Button
-                        variant="danger"
-                        onClick={() => deleteCompany(product._id)}
-                      >
-                        Delete
-                      </Button>
-                    )}
+                    <ul className="list-group">
+                      <li className="list-group-item">
+                        Company: {product.company}
+                      </li>
+                      <li className="list-group-item">
+                        Category: {product.category}
+                      </li>
+                    </ul>
+                    <div className="">
+                      {adminOpen && (
+                        <Button
+                          variant="danger"
+                          onClick={() => deleteCompany(product._id)}
+                        >
+                          Delete
+                        </Button>
+                      )}
+                    </div>
                   </Card.Body>
                 </Card>
               ))}

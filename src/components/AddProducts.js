@@ -74,6 +74,7 @@ function AddProducts({ onAdd }) {
             list="data"
             onChange={onChange}
             value={company}
+            multiple
             // value={formData.company}
           />
         </InputGroup>
