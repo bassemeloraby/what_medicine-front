@@ -95,7 +95,7 @@ function Products() {
                       variant="top"
                       src={product.photo}
                       alt={product.productName}
-                      className="img-thumbnail
+                      className="img-thumbnail" 
                     />
                   </div>
 
