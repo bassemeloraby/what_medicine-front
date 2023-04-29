@@ -112,6 +112,9 @@ function Products() {
                       <li className="list-group-item">
                         Category: {product.category}
                       </li>
+                      <li className="list-group-item">
+                        Category: {product.age}
+                      </li>
                     </ul>
                     <div className="">
                       {adminOpen && (
