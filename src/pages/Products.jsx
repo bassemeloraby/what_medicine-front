@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
+import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
 import { useNavigate } from 'react-router-dom';
@@ -16,6 +16,7 @@ function Products() {
   const { adminOpen } = useGlobalContext();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [filter, setFilter] = React.useState('');
 
   const navigate = useNavigate();
   //fetch product data from backend
@@ -67,6 +68,15 @@ function Products() {
             <Button variant="primary" onClick={() => navigate('/companies')}>
               Companies
             </Button>{' '}
+            <Form.Select
+              aria-label="Default select example"
+              onChange={(e) => setFilter(e.target.value)}
+            >
+              <option>Open this select menu</option>
+              <option value='*'>All</option>
+              <option value="cleanser">cleanser</option>
+              <option value="Sunscreen">Sunscreen</option>
+            </Form.Select>
           </section>
           <div className="">
             <h2 className="text-center">Products</h2>
@@ -87,35 +97,40 @@ function Products() {
           <section className="col row justify-content-around">
             {products
               .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+              .filter((product) => product.category === filter)
               .map((product) => (
                 <Card
-                  style={{ width: '18rem' }}
+                  style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
                   key={product._id}
                   className=" mb-3"
                 >
-                  <div className="card-photo mt-2" style={{backgroundColor:'black'}}>
+                  <div
+                    className="card-photo mt-2"
+                    style={{ backgroundColor: 'black' }}
+                  >
                     {' '}
                     <Card.Img
                       variant="top"
                       src={product.photo}
                       alt={product.productName}
-                      className=''
+                      className=""
+                      height={400}
                     />
                   </div>
 
                   <Card.Body>
                     <Card.Title>{product.productName}</Card.Title>
-                    <ul className="list-group">
-                      <li className="list-group-item">
-                        Company: {product.company}
-                      </li>
-                      <li className="list-group-item">
-                        Category: {product.category}
-                      </li>
-                      <li className="list-group-item">
-                        Category: {product.age}
-                      </li>
-                    </ul>
+                    {adminOpen && (
+                      <ul className="list-group">
+                        <li className="list-group-item">
+                          Company: {product.company}
+                        </li>
+                        <li className="list-group-item">
+                          Category: {product.category}
+                        </li>
+                        <li className="list-group-item">age: {product.age}</li>
+                      </ul>
+                    )}
                     <div className="">
                       {adminOpen && (
                         <Button
