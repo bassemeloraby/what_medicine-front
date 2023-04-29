@@ -43,7 +43,7 @@ function AddProducts({ onAdd }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!company || !productName || !photo) {
+    if (!company || !productName || !photo || !category || !age) {
       alert('Please add all fields');
       return;
     }

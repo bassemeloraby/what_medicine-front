@@ -93,13 +93,13 @@ function Products() {
                   key={product._id}
                   className=" mb-3"
                 >
-                  <div className="card-photo">
+                  <div className="card-photo mt-2" style={{backgroundColor:'black'}}>
                     {' '}
                     <Card.Img
                       variant="top"
                       src={product.photo}
                       alt={product.productName}
-                      className="img-thumbnail" 
+                      className=''
                     />
                   </div>
 
