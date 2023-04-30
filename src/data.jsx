@@ -97,3 +97,9 @@ export const proGroup = [
     groupName: 'ABC Derm',
   },
 ];
+
+export const categotyData = [
+  { id: 1, name: 'Sunscreen' },
+  { id: 2, name: 'cleanser' },
+  { id: 3, name: 'dry' },
+];
