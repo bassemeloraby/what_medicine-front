@@ -125,6 +125,7 @@ function AddProducts({ onAdd }) {
         <datalist id="data-category">
           <option>Sunscreen</option>
           <option>cleanser</option>
+          <option>Dehydrated and Dry Skin</option>
         </datalist>
         {/*select age*/}
         <InputGroup className="mb-3">
