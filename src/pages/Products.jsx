@@ -1,6 +1,5 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
 import Card from 'react-bootstrap/Card';
 
 import { useNavigate } from 'react-router-dom';
@@ -16,7 +15,6 @@ function Products() {
   const { adminOpen } = useGlobalContext();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
-  const [filter, setFilter] = React.useState('');
 
   const navigate = useNavigate();
   //fetch product data from backend
@@ -68,15 +66,6 @@ function Products() {
             <Button variant="primary" onClick={() => navigate('/companies')}>
               Companies
             </Button>{' '}
-            <Form.Select
-              aria-label="Default select example"
-              onChange={(e) => setFilter(e.target.value)}
-            >
-              <option>Open this select menu</option>
-              <option value='*'>All</option>
-              <option value="cleanser">cleanser</option>
-              <option value="Sunscreen">Sunscreen</option>
-            </Form.Select>
           </section>
           <div className="">
             <h2 className="text-center">Products</h2>
@@ -97,7 +86,6 @@ function Products() {
           <section className="col row justify-content-around">
             {products
               .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-              .filter((product) => product.category === filter)
               .map((product) => (
                 <Card
                   style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
