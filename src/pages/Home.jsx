@@ -1,5 +1,4 @@
 import React, { Fragment } from 'react';
-import YouTube from 'react-youtube';
 
 
 function Home() {
@@ -10,9 +9,7 @@ function Home() {
         <section className="home-header">
           <h2 className="">Welcome to my new site</h2>
         </section>
-        <section className="home-video">
-          <YouTube videoId="7wX3Pnjecqc" />
-        </section>
+        
       </section>
     </Fragment>
   );

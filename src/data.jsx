@@ -100,6 +100,6 @@ export const proGroup = [
 
 export const categotyData = [
   { id: 1, name: 'Sunscreen' },
-  { id: 2, name: 'cleanser' },
-  { id: 3, name: 'dry' },
+  { id: 2, name: 'Cleanser' },
+  { id: 3, name: 'Dry and Dehydrated Skin' },
 ];

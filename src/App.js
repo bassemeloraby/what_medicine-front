@@ -9,6 +9,7 @@ import Medicine from './pages/Medicine';
 import Company from './pages/Company';
 import Products from './pages/Products';
 import NavbarA from './components/NavbarA';
+import Insurance from './pages/Insurance';
 function App() {
   return (
     <div style={{backgroundColor:'#bac4de'}}>
@@ -22,6 +23,7 @@ function App() {
         <Route path="/companies" element={<Company />} />
         <Route path="/products" element={<Products />} />
         <Route path="/AllScientificName" element={<AllScientificName />} />
+        <Route path="/insurance" element={<Insurance/>} />
       </Routes>
     </div>
   );
