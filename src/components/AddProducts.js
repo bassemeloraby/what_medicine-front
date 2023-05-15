@@ -145,6 +145,7 @@ function AddProducts({ onAdd }) {
           <option>Children</option>
           <option>Adult</option>
 <option>All except premature infants</option>
+<option>All</option>
         </datalist>
         <Button variant="primary" type="submit" value="Save Company">
           Add
