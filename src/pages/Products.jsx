@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+
 
 import { useNavigate } from 'react-router-dom';
 
@@ -9,6 +9,7 @@ import axios from 'axios';
 // import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from '../components/AddProducts';
 import Loading from '../components/Loading';
+import ProductShow from '../components/ProductShow';
 const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
 
 function Products() {
@@ -74,6 +75,7 @@ function Products() {
         </section>
         {/*-------end products header----------*/}
         {/*-------start products-form-show----------*/}
+        
         <section className="products-form-show row">
           {' '}
           {adminOpen && (
@@ -82,58 +84,10 @@ function Products() {
             </section>
           )}
           {/*------------- end product-form ------ */}
+          
           {/*-------------start product-show------ ------ */}
-          <section className="col row justify-content-around">
-            {products
-              .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-              .map((product) => (
-                <Card
-                  style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
-                  key={product._id}
-                  className=" mb-3"
-                >
-                  <div
-                    className="card-photo mt-2"
-                    style={{ backgroundColor: 'black' }}
-                  >
-                    {' '}
-                    <Card.Img
-                      variant="top"
-                      src={product.photo}
-                      alt={product.productName}
-                      className=""
-                      height={300}
-                      width={150}
-                    />
-                  </div>
-
-                  <Card.Body>
-                    <Card.Title>{product.productName}</Card.Title>
-                    {adminOpen && (
-                      <ul className="list-group">
-                        <li className="list-group-item">
-                          Company: {product.company}
-                        </li>
-                        <li className="list-group-item">
-                          Category: {product.category}
-                        </li>
-                        <li className="list-group-item">age: {product.age}</li>
-                      </ul>
-                    )}
-                    <div className="">
-                      {adminOpen && (
-                        <Button
-                          variant="danger"
-                          onClick={() => deleteCompany(product._id)}
-                        >
-                          Delete
-                        </Button>
-                      )}
-                    </div>
-                  </Card.Body>
-                </Card>
-              ))}
-          </section>
+          <ProductShow products={products} adminOpen={adminOpen} deleteCompany={deleteCompany}/>
+          
         </section>
         {/*-------end products-form-show----------*/}
       </section>
