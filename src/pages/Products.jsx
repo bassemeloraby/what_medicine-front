@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
-
+import Card from 'react-bootstrap/Card';
+import{categotyData} from '../data'
 
 import { useNavigate } from 'react-router-dom';
 
@@ -12,10 +13,12 @@ import Loading from '../components/Loading';
 import ProductShow from '../components/ProductShow';
 const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
 
+
 function Products() {
   const { adminOpen } = useGlobalContext();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
+  const [filter, setFilter] = React.useState('');
 
   const navigate = useNavigate();
   //fetch product data from backend
@@ -67,6 +70,13 @@ function Products() {
             <Button variant="primary" onClick={() => navigate('/companies')}>
               Companies
             </Button>{' '}
+            <Button variant="danger" onClick={() => setFilter('')}>
+              All
+            </Button>
+            
+            {categotyData.map((c)=><Button className='m-1' variant="success" onClick={() => setFilter(`${c.name}`)}>
+            {c.name}
+          </Button>)}
           </section>
           <div className="">
             <h2 className="text-center">Products</h2>
@@ -75,7 +85,7 @@ function Products() {
         </section>
         {/*-------end products header----------*/}
         {/*-------start products-form-show----------*/}
-        
+
         <section className="products-form-show row">
           {' '}
           {adminOpen && (
@@ -84,10 +94,65 @@ function Products() {
             </section>
           )}
           {/*------------- end product-form ------ */}
-          
           {/*-------------start product-show------ ------ */}
-          <ProductShow products={products} adminOpen={adminOpen} deleteCompany={deleteCompany}/>
-          
+          {filter === '' ? (
+            <ProductShow
+              products={products}
+              adminOpen={adminOpen}
+              deleteCompany={deleteCompany}
+            />
+          ):<section className="col row justify-content-around">
+          {products
+            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+            .filter((p)=> p.category === filter )
+            .map((product) => (
+              <Card
+                style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
+                key={product._id}
+                className=" mb-3"
+              >
+                <div
+                  className="card-photo mt-2"
+                  style={{ backgroundColor: 'black' }}
+                >
+                  {' '}
+                  <Card.Img
+                    variant="top"
+                    src={product.photo}
+                    alt={product.productName}
+                    className=""
+                    height={300}
+                    width={150}
+                  />
+                </div>
+    
+                <Card.Body>
+                  <Card.Title>{product.productName}</Card.Title>
+                  {adminOpen && (
+                    <ul className="list-group">
+                      <li className="list-group-item">
+                        Company: {product.company}
+                      </li>
+                      <li className="list-group-item">
+                        Category: {product.category}
+                      </li>
+                      <li className="list-group-item">age: {product.age}</li>
+                    </ul>
+                  )}
+                  <div className="">
+                    {adminOpen && (
+                      <Button
+                        variant="danger"
+                        onClick={() => deleteCompany(product._id)}
+                      >
+                        Delete
+                      </Button>
+                    )}
+                  </div>
+                </Card.Body>
+              </Card>
+            ))}
+        </section>}
         </section>
         {/*-------end products-form-show----------*/}
       </section>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Button from 'react-bootstrap/Button';
+import {categotyData} from '../data'
 
 const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
@@ -123,10 +124,7 @@ function AddProducts({ onAdd }) {
           />
         </InputGroup>
         <datalist id="data-category">
-          <option>Sunscreen</option>
-          <option>Cleanser</option>
-          <option>Dehydrated and Dry Skin</option>
-<option>Atopic</option>
+          {categotyData.map((c)=><option>{c.name}</option>)}
         </datalist>
         {/*select age*/}
         <InputGroup className="mb-3">
@@ -144,8 +142,9 @@ function AddProducts({ onAdd }) {
         <datalist id="data-age">
           <option>Children</option>
           <option>Adult</option>
-<option>All except premature infants</option>
-<option>All</option>
+          <option>All except premature infants</option>
+          <option>All</option>
+          
         </datalist>
         <Button variant="primary" type="submit" value="Save Company">
           Add

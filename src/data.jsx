@@ -102,4 +102,5 @@ export const categotyData = [
   { id: 1, name: 'Sunscreen' },
   { id: 2, name: 'Cleanser' },
   { id: 3, name: 'Dry and Dehydrated Skin' },
+  { id: 4, name: 'Atopic' },
 ];
