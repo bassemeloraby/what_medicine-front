@@ -102,7 +102,8 @@ function Products() {
                       src={product.photo}
                       alt={product.productName}
                       className=""
-                      height={400}
+                      height={300}
+                      width={150}
                     />
                   </div>
 
