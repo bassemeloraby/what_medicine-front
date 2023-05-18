@@ -86,8 +86,9 @@ function Products() {
         </section>
         {/*-------end products header----------*/}
         {/*-------start products-form-show----------*/}
-
+<UpdateProducts/>
         <section className="products-form-show row">
+      
           {' '}
           {adminOpen && (
             <section className="col-3">
