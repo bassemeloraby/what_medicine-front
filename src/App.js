@@ -10,6 +10,8 @@ import Company from './pages/Company';
 import Products from './pages/Products';
 import NavbarA from './components/NavbarA';
 import Insurance from './pages/Insurance';
+import UpdateProducts from './components/UpdateProducts';
+
 function App() {
   return (
     <div style={{backgroundColor:'#bac4de'}}>
@@ -22,6 +24,8 @@ function App() {
         <Route path="/medicine" element={<Medicine />} />
         <Route path="/companies" element={<Company />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/update-product" element={<UpdateProducts />} />
+        
         <Route path="/AllScientificName" element={<AllScientificName />} />
         <Route path="/insurance" element={<Insurance/>} />
       </Routes>

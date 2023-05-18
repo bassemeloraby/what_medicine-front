@@ -1,7 +1,7 @@
 import React from 'react';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
-import{categotyData} from '../data'
+import { categotyData } from '../data';
 
 import { useNavigate } from 'react-router-dom';
 
@@ -9,11 +9,9 @@ import { useGlobalContext } from '../context';
 import axios from 'axios';
 // import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from '../components/AddProducts';
-import UpdateProducts from '../components/UpdateProducts';
 import Loading from '../components/Loading';
 import ProductShow from '../components/ProductShow';
 const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
-
 
 function Products() {
   const { adminOpen } = useGlobalContext();
@@ -74,10 +72,15 @@ function Products() {
             <Button variant="danger" onClick={() => setFilter('')}>
               All
             </Button>
-            
-            {categotyData.map((c)=><Button className='m-1' variant="success" onClick={() => setFilter(`${c.name}`)}>
-            {c.name}
-          </Button>)}
+            {categotyData.map((c) => (
+              <Button
+                className="m-1"
+                variant="success"
+                onClick={() => setFilter(`${c.name}`)}
+              >
+                {c.name}
+              </Button>
+            ))}
           </section>
           <div className="">
             <h2 className="text-center">Products</h2>
@@ -86,9 +89,8 @@ function Products() {
         </section>
         {/*-------end products header----------*/}
         {/*-------start products-form-show----------*/}
-<UpdateProducts/>
+        
         <section className="products-form-show row">
-      
           {' '}
           {adminOpen && (
             <section className="col-3">
@@ -103,58 +105,62 @@ function Products() {
               adminOpen={adminOpen}
               deleteCompany={deleteCompany}
             />
-          ):<section className="col row justify-content-around">
-          {products
-            .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
-            .filter((p)=> p.category === filter )
-            .map((product) => (
-              <Card
-                style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
-                key={product._id}
-                className=" mb-3"
-              >
-                <div
-                  className="card-photo mt-2"
-                  style={{ backgroundColor: 'black' }}
-                >
-                  {' '}
-                  <Card.Img
-                    variant="top"
-                    src={product.photo}
-                    alt={product.productName}
-                    className=""
-                    height={300}
-                    width={150}
-                  />
-                </div>
-    
-                <Card.Body>
-                  <Card.Title>{product.productName}</Card.Title>
-                  {adminOpen && (
-                    <ul className="list-group">
-                      <li className="list-group-item">
-                        Company: {product.company}
-                      </li>
-                      <li className="list-group-item">
-                        Category: {product.category}
-                      </li>
-                      <li className="list-group-item">age: {product.age}</li>
-                    </ul>
-                  )}
-                  <div className="">
-                    {adminOpen && (
-                      <Button
-                        variant="danger"
-                        onClick={() => deleteCompany(product._id)}
-                      >
-                        Delete
-                      </Button>
-                    )}
-                  </div>
-                </Card.Body>
-              </Card>
-            ))}
-        </section>}
+          ) : (
+            <section className="col row justify-content-around">
+              {products
+                .sort((a, b) => (a.createdAt > b.createdAt ? -1 : 1))
+                .filter((p) => p.category === filter)
+                .map((product) => (
+                  <Card
+                    style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
+                    key={product._id}
+                    className=" mb-3"
+                  >
+                    <div
+                      className="card-photo mt-2"
+                      style={{ backgroundColor: 'black' }}
+                    >
+                      {' '}
+                      <Card.Img
+                        variant="top"
+                        src={product.photo}
+                        alt={product.productName}
+                        className=""
+                        height={300}
+                        width={150}
+                      />
+                    </div>
+
+                    <Card.Body>
+                      <Card.Title>{product.productName}</Card.Title>
+                      {adminOpen && (
+                        <ul className="list-group">
+                          <li className="list-group-item">
+                            Company: {product.company}
+                          </li>
+                          <li className="list-group-item">
+                            Category: {product.category}
+                          </li>
+                          <li className="list-group-item">
+                            age: {product.age}
+                          </li>
+                        </ul>
+                      )}
+                      <div className="">
+                        {adminOpen && (
+                          <Button
+                            variant="danger"
+                            onClick={() => deleteCompany(product._id)}
+                          >
+                            Delete
+                          </Button>
+                        )}
+                      </div>
+                    </Card.Body>
+                  </Card>
+                ))}
+            </section>
+          )}
         </section>
         {/*-------end products-form-show----------*/}
       </section>

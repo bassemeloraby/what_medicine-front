@@ -9,9 +9,7 @@ const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
 
 function AddProducts({ onAdd }) {
   const [comp, setComp] = useState([]);
-  // const [company, setCompany] = React.useState('');
-  // const [productName, setProductName] = React.useState('');
-  // const [photo, setPhoto] = React.useState('');
+ 
 
   const [formData, setFormData] = useState({
     company: '',
