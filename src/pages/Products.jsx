@@ -9,6 +9,7 @@ import { useGlobalContext } from '../context';
 import axios from 'axios';
 // import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from '../components/AddProducts';
+import UpdateProducts from '../components/UpdateProducts';
 import Loading from '../components/Loading';
 import ProductShow from '../components/ProductShow';
 const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
@@ -85,8 +86,9 @@ function Products() {
         </section>
         {/*-------end products header----------*/}
         {/*-------start products-form-show----------*/}
-
+<UpdateProducts/>
         <section className="products-form-show row">
+      
           {' '}
           {adminOpen && (
             <section className="col-3">
