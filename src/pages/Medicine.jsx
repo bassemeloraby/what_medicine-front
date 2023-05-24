@@ -76,10 +76,10 @@ function Medicine() {
     console.log(_id);
     navigate(`/card/${_id}`);
   };
-  const ScientificNameHndeler = (ScientificName) => {
-    console.log(ScientificName);
-    navigate(`/ScientificName/${ScientificName}`);
-  };
+  // const ScientificNameHndeler = (ScientificName) => {
+  //   console.log(ScientificName);
+  //   navigate(`/ScientificName/${ScientificName}`);
+  // };
   function rowHeight({ index }) {
     return isGroup(index) ? 20 : 60; // Use your heights here
   }
