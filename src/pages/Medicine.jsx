@@ -5,6 +5,8 @@ import AutoSizer from 'react-virtualized-auto-sizer';
 import axios from 'axios';
 import Loading from '../components/Loading';
 // import { useGlobalContext } from '../context';
+import Table from 'react-bootstrap/Table';
+
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
@@ -142,30 +144,22 @@ function Medicine() {
                       }}
                     >
                       {/* ---start trade name & price & buttons*/}
-                      <div className="row">
-                        <div
-                          className="col-8 text-wrap border border-primary hover"
-                          onClick={() => cardHndeler(data[index]._id)}
-                          // style={{ fontSize: 'small' }}
-                        >
-                          {data[index].TradeName}
-                        </div>
+                      <Table striped bordered hover>
+                        <tbody>
+                          <tr className="">
+                            <td
+                              className="col-8 hover"
+                              onClick={() => cardHndeler(data[index]._id)}
+                            >
+                              {data[index].TradeName}
+                            </td>
 
-                        <div className="col-2 " style={{ fontSize: 'small' }}>
-                          {data[index].PublicPrice} SR
-                        </div>
-                      </div>
+                            <td className=" col-4">{data[index].PublicPrice} SR</td>
+                            
+                          </tr>
+                        </tbody>
+                      </Table>
                       {/* ---end trade name & price & buttons*/}
-
-                      <div
-                        className="col-12 text-wrap hover"
-                        style={{ fontSize: 'small',color:"green" }}
-                        onClick={() =>
-                          ScientificNameHndeler(data[index].ScientificName)
-                        }
-                      >
-                        {data[index].ScientificName}
-                      </div>
                     </div>
                   );
                 }}

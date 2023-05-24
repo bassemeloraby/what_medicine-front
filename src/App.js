@@ -14,7 +14,7 @@ import UpdateProducts from './components/UpdateProducts';
 
 function App() {
   return (
-    <div style={{backgroundColor:'#bac4de'}}>
+    <div >
     <NavbarA/>
       <Routes>
         <Route path="/" element={<Home />} />
