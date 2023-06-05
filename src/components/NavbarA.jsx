@@ -1,11 +1,15 @@
+import { useGlobalContext } from "../context";
+import { Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { NavDropdown } from "react-bootstrap";
 import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
-
+import Login from "./Login";
 function OffcanvasExample() {
+  const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
+    useGlobalContext();
   return (
     <>
       {[false].map((expand) => (
@@ -24,8 +28,9 @@ function OffcanvasExample() {
               </Offcanvas.Header>
               <Offcanvas.Body>
                 <Nav className="justify-content-end flex-grow-1 pe-3">
-                  <Nav.Link >
- <Link to="/medicine">Medicine</Link>                    <NavDropdown>
+                  <Nav.Link>
+                    <Link to="/medicine">Medicine</Link>{" "}
+                    <NavDropdown>
                       <NavDropdown.Item href="#action3">
                         Search by Trade Name
                       </NavDropdown.Item>
@@ -34,8 +39,8 @@ function OffcanvasExample() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav.Link>
-                  <Nav.Link >
-              <Link to="/products">Derma</Link>
+                  <Nav.Link>
+                    <Link to="/products">Derma</Link>
                     <NavDropdown>
                       <NavDropdown.Item href="#action3">
                         Products
@@ -51,8 +56,8 @@ function OffcanvasExample() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav.Link>
-                  <Nav.Link >
-                                  <Link to="/insurance">Insurance</Link>
+                  <Nav.Link>
+                    <Link to="/insurance">Insurance</Link>
 
                     <NavDropdown>
                       <NavDropdown.Item href="#action3">
@@ -73,7 +78,20 @@ function OffcanvasExample() {
             <Navbar.Brand>
               <Link to="/">Medderma</Link>
             </Navbar.Brand>
-            <div>login</div>
+            {!adminOpen ? (
+              <Button variant="primary" onClick={asAdmin}>
+                login
+              </Button>
+            ) : (
+              <Button variant="danger" onClick={asUser}>
+                logout
+              </Button>
+            )}
+            {admin ? (
+              <Login setAdminOpen={setAdminOpen} setAdmin={setAdmin} />
+            ) : (
+              ""
+            )}
           </Container>
         </Navbar>
       ))}
