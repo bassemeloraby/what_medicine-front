@@ -8,7 +8,7 @@ import { NavDropdown } from "react-bootstrap";
 import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Login from "./Login";
-function OffcanvasExample() {
+function Header() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
@@ -37,13 +37,21 @@ function OffcanvasExample() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
-                <Nav.Link as={Link} to="/medicine" onClick={handleClose}>
+                <Nav.Link>
                   Medicine
                   <NavDropdown>
-                    <NavDropdown.Item href="#action3">
+                    <NavDropdown.Item
+                      as={Link}
+                      to="/medicine"
+                      onClick={handleClose}
+                    >
                       Search by Trade Name
                     </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
+                    <NavDropdown.Item
+                      as={Link}
+                      to="/AllScientificName"
+                      onClick={handleClose}
+                    >
                       Search by Sientific Name
                     </NavDropdown.Item>
                   </NavDropdown>
@@ -161,4 +169,4 @@ function OffcanvasExample() {
   );
 }
 
-export default OffcanvasExample;
+export default Header;
