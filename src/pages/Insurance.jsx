@@ -1,7 +1,6 @@
 import React from "react";
 import YouTube from "react-youtube";
 import { Link } from "react-router-dom";
-import drugImge from "./no photo.jpg";
 import insc from "../images/insurance_companies_nom.jpeg";
 
 function Insurance() {
