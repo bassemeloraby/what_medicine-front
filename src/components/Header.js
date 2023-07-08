@@ -56,10 +56,14 @@ function Header() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav.Link>
-                <Nav.Link as={Link} to="/products" onClick={handleClose}>
+                <Nav.Link>
                   Derma
                   <NavDropdown>
-                    <NavDropdown.Item href="#action3">
+                    <NavDropdown.Item
+                      as={Link}
+                      to="/products"
+                      onClick={handleClose}
+                    >
                       Products
                     </NavDropdown.Item>
                     <NavDropdown.Item href="#action3">
@@ -73,10 +77,11 @@ function Header() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav.Link>
-                <Nav.Link>
+                <Nav.Link >
                   <Link to="/insurance">Insurance</Link>
 
                   <NavDropdown>
+                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
                     <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
                     <NavDropdown.Item href="#action3">
                       Insurance Companies
