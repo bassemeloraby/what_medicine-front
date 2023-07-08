@@ -71,6 +71,70 @@ function OffcanvasExample() {
                       </NavDropdown.Item>
                     </NavDropdown>
                   </Nav.Link>
+                  {/* milk & nutritions */}
+                  <Nav.Link>
+                    <Link to="/insurance">Milk & Nutritions</Link>
+
+                    <NavDropdown>
+                      <NavDropdown.Item href="#action3">
+                        Videos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Companies
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Company Card
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav.Link>
+                  {/* dipers */}
+                  <Nav.Link>
+                    <Link to="/insurance">Dipers</Link>
+
+                    <NavDropdown>
+                      <NavDropdown.Item href="#action3">
+                        Videos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Companies
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Company Card
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav.Link>
+                  {/* machines */}
+                  <Nav.Link>
+                    <Link to="/insurance">Machines</Link>
+
+                    <NavDropdown>
+                      <NavDropdown.Item href="#action3">
+                        Videos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Companies
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Company Card
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav.Link>
+                  {/* cosmotic tools */}
+                  <Nav.Link>
+                    <Link to="/insurance">Cosmotic Tools</Link>
+
+                    <NavDropdown>
+                      <NavDropdown.Item href="#action3">
+                        Videos
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Companies
+                      </NavDropdown.Item>
+                      <NavDropdown.Item href="#action3">
+                        Insurance Company Card
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </Nav.Link>
                 </Nav>
               </Offcanvas.Body>
             </Navbar.Offcanvas>
