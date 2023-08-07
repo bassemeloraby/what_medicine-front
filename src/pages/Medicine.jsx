@@ -6,7 +6,7 @@ import axios from 'axios';
 import Loading from '../components/Loading';
 // import { useGlobalContext } from '../context';
 import Table from 'react-bootstrap/Table';
-
+import { Link } from "react-router-dom";
 import InputGroup from 'react-bootstrap/InputGroup';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
