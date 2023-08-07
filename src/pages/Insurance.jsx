@@ -23,6 +23,11 @@ function Insurance() {
               I care
             </Link>
           </li>
+          <li>
+            <Link to="https://portal.waseel.com/WaseelSwitch/web/xhtml/login/HomePage.jsf" target="_blank">
+              waseel
+            </Link>
+          </li>
         </ul>
       </section>
       <section className="home-video">
