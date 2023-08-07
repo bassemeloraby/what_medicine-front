@@ -18,6 +18,11 @@ function Insurance() {
               bupa
             </Link>
           </li>
+          <li>
+            <Link to="https://i-care.globemedsaudi.com:8036/" target="_blank">
+              I care
+            </Link>
+          </li>
         </ul>
       </section>
       <section className="home-video">
