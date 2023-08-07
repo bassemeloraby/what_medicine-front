@@ -95,6 +95,13 @@ function Medicine() {
     <Fragment>
       <section className="container">
         {/*-------start medicine header----------*/}
+      <ul> 
+        <li>
+            <Link to="https://www.sfda.gov.sa/ar/drugs-list" target="_blank">
+              sfda
+            </Link>
+          </li>
+      </ul>
         {/* navigate to AllScientificName*/}
         <section className="">
           <Button
