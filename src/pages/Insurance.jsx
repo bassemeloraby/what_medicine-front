@@ -8,11 +8,7 @@ function Insurance() {
     <section className="insurance">
       <section className="insurance-companies">
         <ul className="links">
-          <li>
-            <Link to="https://www.sfda.gov.sa/ar/drugs-list" target="_blank">
-              sfda
-            </Link>
-          </li>
+          
           <li>
             <Link to="https://onlineservices.bupa.com.sa/" target="_blank">
               bupa
