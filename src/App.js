@@ -6,6 +6,7 @@ import ScientificName from "./pages/ScientificName";
 import Home from "./pages/Home";
 import AllScientificName from "./pages/AllScientificName";
 import Medicine from "./pages/Medicine";
+import MedCalc from "./pages/MedCalc";
 import Company from "./pages/Company";
 import Products from "./pages/Products";
 import Header from "./components/Header";
@@ -25,7 +26,8 @@ function App() {
           element={<ScientificName />}
         />
         <Route path="/medicine" element={<Medicine />} />
-        <Route path="/companies" element={<Company />} />
+        <Route path="/medCalc" element={<MedCalc />} />
+                   <Route path="/companies" element={<Company />} />
         <Route path="/products" element={<Products />} />
         <Route path="/update-product" element={<UpdateProducts />} />
 
