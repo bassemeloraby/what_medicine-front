@@ -54,6 +54,13 @@ function Header() {
                     >
                       Search by Sientific Name
                     </NavDropdown.Item>
+                       <NavDropdown.Item
+                      as={Link}
+                      to="/medCalc"
+                      onClick={handleClose}
+                    >
+                      medicine calculation
+                    </NavDropdown.Item> 
                   </NavDropdown>
                 </Nav.Link>
                 <Nav.Link>
