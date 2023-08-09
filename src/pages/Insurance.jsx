@@ -8,7 +8,11 @@ function Insurance() {
     <section className="insurance">
       <section className="insurance-companies">
         <ul className="links">
-          
+          <li>
+            <Link to="https://chi.gov.sa/AboutCCHI/CCHIprograms/Pages/IDF.aspx" target="_blank">
+              الضمان الصحى 
+            </Link>
+          </li>
           <li>
             <Link to="https://onlineservices.bupa.com.sa/" target="_blank">
               bupa
