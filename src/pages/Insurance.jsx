@@ -33,7 +33,7 @@ function Insurance() {
       <section className="home-video">
         <YouTube videoId="7wX3Pnjecqc" />
       </section>
-      <div>
+      <div className="d-flex justify-content-center">
         {" "}
         <img src={insc} alt="insurance"></img>
       </div>
