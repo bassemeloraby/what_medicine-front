@@ -1,1 +1,22 @@
 
+import React, { Fragment } from 'react';
+
+
+function  FoodSupplement() {
+  return (
+    <Fragment>
+    <div className="container">
+    <section className="home">
+        <section className="home-header">
+          <h2 className="">Welcome to my FoodSupplement</h2>
+        </section>
+        <h3>20 drops</h3>
+
+      </section>
+    </div>
+      
+    </Fragment>
+  );
+}
+
+export default FoodSupplement;
