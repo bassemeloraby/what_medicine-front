@@ -61,6 +61,14 @@ function Header() {
                     >
                       medicine calculation
                     </NavDropdown.Item> 
+<NavDropdown.Item
+                      as={Link}
+                      to="/foodSupplement"
+                      onClick={handleClose}
+                    >
+                       FoodSupplement
+                    </NavDropdown.Item> 
+                        
                   </NavDropdown>
                 </Nav.Link>
                 <Nav.Link>
