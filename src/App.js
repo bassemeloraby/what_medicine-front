@@ -12,6 +12,7 @@ import Products from "./pages/Products";
 import Header from "./components/Header";
 import Insurance from "./pages/Insurance";
 import UpdateProducts from "./components/UpdateProducts";
+import FoodSupplement from "./pages/FoodSupplement";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           element={<ScientificName />}
         />
         <Route path="/medicine" element={<Medicine />} />
+          <Route path="/foodSupplement" element={<FoodSupplement />} />  
         <Route path="/medCalc" element={<MedCalc />} />
                    <Route path="/companies" element={<Company />} />
         <Route path="/products" element={<Products />} />
