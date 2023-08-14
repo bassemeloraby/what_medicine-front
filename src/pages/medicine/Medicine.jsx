@@ -1,16 +1,15 @@
-import React, { useState, useEffect, Fragment } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { VariableSizeList as List } from 'react-window';
-import AutoSizer from 'react-virtualized-auto-sizer';
-import axios from 'axios';
-import Loading from '../components/Loading';
-// import { useGlobalContext } from '../context';
-import Table from 'react-bootstrap/Table';
+import React, { useState, useEffect, Fragment } from "react";
+import { useNavigate } from "react-router-dom";
+import { VariableSizeList as List } from "react-window";
+import AutoSizer from "react-virtualized-auto-sizer";
+import axios from "axios";
+import Loading from "../../components/Loading";
+import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
 
 function Medicine() {
   const [drugs, setDrugs] = useState([]);
@@ -95,21 +94,21 @@ function Medicine() {
     <Fragment>
       <section className="container">
         {/*-------start medicine header----------*/}
-      <ul> 
-        <li>
+        <ul>
+          <li>
             <Link to="https://www.sfda.gov.sa/ar/drugs-list" target="_blank">
               sfda
             </Link>
           </li>
-      </ul>
+        </ul>
         {/* navigate to AllScientificName*/}
         <section className="">
           <Button
             variant="primary"
-            onClick={() => navigate('/AllScientificName')}
+            onClick={() => navigate("/AllScientificName")}
           >
             search by Scientific Name
-          </Button>{' '}
+          </Button>{" "}
         </section>
         <div className="">
           <h2 className="text-center">Medicine by trade name </h2>
@@ -132,7 +131,7 @@ function Medicine() {
 
         {/*-------end  medicine tarde name table----------*/}
 
-        <section style={{ width: '100%', height: '100vh' }}>
+        <section style={{ width: "100%", height: "100vh" }}>
           <AutoSizer>
             {({ width, height }) => (
               <List
@@ -161,8 +160,9 @@ function Medicine() {
                               {data[index].TradeName}
                             </td>
 
-                            <td className=" col-4">{data[index].PublicPrice} SR</td>
-                            
+                            <td className=" col-4">
+                              {data[index].PublicPrice} SR
+                            </td>
                           </tr>
                         </tbody>
                       </Table>
