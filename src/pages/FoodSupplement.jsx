@@ -1,6 +1,6 @@
 
 import React, { Fragment } from 'react';
-
+import vit from "../images/vit.jpg";
 
 function  FoodSupplement() {
   return (
@@ -10,9 +10,13 @@ function  FoodSupplement() {
         <section className="home-header">
           <h2 className="">Welcome to my FoodSupplement</h2>
         </section>
-        <h3>20 drops</h3>
+        
 
       </section>
+      <div className="d-flex justify-content-center">
+            {" "}
+            <img src={vit} alt="insurance"></img>
+          </div>
     </div>
       
     </Fragment>
