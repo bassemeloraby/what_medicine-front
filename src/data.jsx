@@ -1,84 +1,77 @@
-
 export const mainPages = [
   {
     id: 1,
-    url: '/',
-    text: 'home',
+    url: "/medicine",
+    text: "Medicine",
+
+    ping: ["search by trade name", "main course", "main dish", "dinner"],
   },
   {
     id: 2,
-    url: '/about',
-    text: 'about',
+    url: "/AllScientificName",
+    text: "Derma",
+
+    ping: ["companies"],
   },
   {
     id: 3,
-    url: '/projects',
-    text: 'projects',
-  },
-  {
-    id: 4,
-    url: '/contact',
-    text: 'contact',
-  },
-  {
-    id: 5,
-    url: '/profile',
-    text: 'profile',
+    url: "/projects",
+    text: "Insurance",
+
+    ping: [],
   },
 ];
-
-
 
 export const proGroup = [
   {
     _id: 1,
-    groupName: 'Sensibio',
+    groupName: "Sensibio",
   },
   {
     _id: 2,
-    groupName: 'Autoderm',
+    groupName: "Autoderm",
   },
   {
     _id: 3,
-    groupName: 'Sebium',
+    groupName: "Sebium",
   },
   {
     _id: 4,
-    groupName: 'Photoderm',
+    groupName: "Photoderm",
   },
   {
     _id: 5,
-    groupName: 'PigmentBio',
+    groupName: "PigmentBio",
   },
   {
     _id: 6,
-    groupName: 'White Objective',
+    groupName: "White Objective",
   },
   {
     _id: 7,
-    groupName: 'Hydrabio',
+    groupName: "Hydrabio",
   },
   {
     _id: 8,
-    groupName: 'Secapio',
+    groupName: "Secapio",
   },
   {
     _id: 9,
-    groupName: 'No D',
+    groupName: "No D",
   },
   {
     _id: 10,
-    groupName: 'ABC Derm',
+    groupName: "ABC Derm",
   },
   {
     _id: 11,
-    groupName: 'ABC Derm',
+    groupName: "ABC Derm",
   },
 ];
 
 export const categotyData = [
-  { id: 1, name: 'Sunscreen' },
-  { id: 2, name: 'Cleanser' },
-  { id: 3, name: 'Dry and Dehydrated Skin' },
-  { id: 4, name: 'Atopic' },
+  { id: 1, name: "Sunscreen" },
+  { id: 2, name: "Cleanser" },
+  { id: 3, name: "Dry and Dehydrated Skin" },
+  { id: 4, name: "Atopic" },
 ];

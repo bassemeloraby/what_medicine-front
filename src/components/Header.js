@@ -8,6 +8,7 @@ import { NavDropdown } from "react-bootstrap";
 import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Login from "./Login";
+import { mainPages } from "../data";
 function Header() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
@@ -37,6 +38,27 @@ function Header() {
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
+                {mainPages.map((mainPage) => (
+                  <Nav.Link
+                    key={mainPage.id}
+                    style={{ backgroundColor: `${mainPage.backgroundColor}` }}
+                  >
+                    <h5 className="ms-2">{mainPage.text}</h5>
+
+                    <NavDropdown>
+                      {mainPage.ping.map((m, index) => (
+                        <NavDropdown.Item
+                          as={Link}
+                          to={mainPage.url}
+                          onClick={handleClose}
+                          key={index}
+                        >
+                          {m}
+                        </NavDropdown.Item>
+                      ))}
+                    </NavDropdown>
+                  </Nav.Link>
+                ))}
                 <Nav.Link>
                   Medicine
                   <NavDropdown>
@@ -54,21 +76,20 @@ function Header() {
                     >
                       Search by Sientific Name
                     </NavDropdown.Item>
-                       <NavDropdown.Item
+                    <NavDropdown.Item
                       as={Link}
                       to="/medCalc"
                       onClick={handleClose}
                     >
                       medicine calculation
-                    </NavDropdown.Item> 
-<NavDropdown.Item
+                    </NavDropdown.Item>
+                    <NavDropdown.Item
                       as={Link}
                       to="/foodSupplement"
                       onClick={handleClose}
                     >
-                       FoodSupplement
-                    </NavDropdown.Item> 
-                        
+                      FoodSupplement
+                    </NavDropdown.Item>
                   </NavDropdown>
                 </Nav.Link>
                 <Nav.Link>
@@ -92,7 +113,7 @@ function Header() {
                     </NavDropdown.Item>
                   </NavDropdown>
                 </Nav.Link>
-                <Nav.Link >
+                <Nav.Link>
                   <Link to="/insurance">Insurance</Link>
 
                   <NavDropdown>
