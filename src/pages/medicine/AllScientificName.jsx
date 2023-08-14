@@ -1,13 +1,13 @@
-import { Fragment, useState, useEffect } from 'react';
-import { FixedSizeList as List } from 'react-window';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
-import Loading from '../components/Loading';
-import Button from 'react-bootstrap/Button';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Form from 'react-bootstrap/Form';
+import { Fragment, useState, useEffect } from "react";
+import { FixedSizeList as List } from "react-window";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Loading from "../../components/Loading";
+import Button from "react-bootstrap/Button";
+import InputGroup from "react-bootstrap/InputGroup";
+import Form from "react-bootstrap/Form";
 
-const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
+const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
 
 function AllScientificName() {
   const [drugs, setDrugs] = useState([]);
@@ -61,9 +61,9 @@ function AllScientificName() {
         {/*-------start AllScientific header----------*/}
         {/* navigate to medicine*/}
         <section className="">
-          <Button variant="primary" onClick={() => navigate('/medicine')}>
+          <Button variant="primary" onClick={() => navigate("/medicine")}>
             search by medicine trade Name
-          </Button>{' '}
+          </Button>{" "}
         </section>
         <div className="">
           <h2 className="text-center">Medicine by Scientific name</h2>
@@ -89,7 +89,7 @@ function AllScientificName() {
             itemCount={items.length}
             itemData={items}
             itemSize={35}
-            width={'100%'}
+            width={"100%"}
           >
             {({ index, style, data }) => (
               <div style={style} className="card">
@@ -98,7 +98,7 @@ function AllScientificName() {
                     ScientificNameHndeler(data[index].ScientificName)
                   }
                   className="ScientificName Scientific-display"
-                  style={{ width: '100%' }}
+                  style={{ width: "100%" }}
                 >
                   {data[index].ScientificName}
                 </div>
