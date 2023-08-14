@@ -49,140 +49,16 @@ function Header() {
                       {mainPage.ping.map((m, index) => (
                         <NavDropdown.Item
                           as={Link}
-                          to={mainPage.url}
+                          to={m.link}
                           onClick={handleClose}
                           key={index}
                         >
-                          {m}
+                          {m.name}
                         </NavDropdown.Item>
                       ))}
                     </NavDropdown>
                   </Nav.Link>
                 ))}
-                <Nav.Link>
-                  Medicine
-                  <NavDropdown>
-                    <NavDropdown.Item
-                      as={Link}
-                      to="/medicine"
-                      onClick={handleClose}
-                    >
-                      Search by Trade Name
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={Link}
-                      to="/AllScientificName"
-                      onClick={handleClose}
-                    >
-                      Search by Sientific Name
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={Link}
-                      to="/medCalc"
-                      onClick={handleClose}
-                    >
-                      medicine calculation
-                    </NavDropdown.Item>
-                    <NavDropdown.Item
-                      as={Link}
-                      to="/foodSupplement"
-                      onClick={handleClose}
-                    >
-                      FoodSupplement
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
-                <Nav.Link>
-                  Derma
-                  <NavDropdown>
-                    <NavDropdown.Item
-                      as={Link}
-                      to="/products"
-                      onClick={handleClose}
-                    >
-                      Products
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Companies
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action4">
-                      Product Card
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action5">
-                      Company Card
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
-                <Nav.Link>
-                  <Link to="/insurance">Insurance</Link>
-
-                  <NavDropdown>
-                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Companies
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Company Card
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
-                {/* milk & nutritions */}
-                <Nav.Link>
-                  <Link to="/insurance">Milk & Nutritions</Link>
-
-                  <NavDropdown>
-                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Companies
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Company Card
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
-                {/* dipers */}
-                <Nav.Link>
-                  <Link to="/insurance">Dipers</Link>
-
-                  <NavDropdown>
-                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Companies
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Company Card
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
-                {/* machines */}
-                <Nav.Link>
-                  <Link to="/insurance">Machines</Link>
-
-                  <NavDropdown>
-                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Companies
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Company Card
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
-                {/* cosmotic tools */}
-                <Nav.Link>
-                  <Link to="/insurance">Cosmotic Tools</Link>
-
-                  <NavDropdown>
-                    <NavDropdown.Item href="#action3">Videos</NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Companies
-                    </NavDropdown.Item>
-                    <NavDropdown.Item href="#action3">
-                      Insurance Company Card
-                    </NavDropdown.Item>
-                  </NavDropdown>
-                </Nav.Link>
               </Nav>
             </Offcanvas.Body>
           </Navbar.Offcanvas>

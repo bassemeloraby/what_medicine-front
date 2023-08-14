@@ -4,21 +4,26 @@ export const mainPages = [
     url: "/medicine",
     text: "Medicine",
 
-    ping: ["search by trade name", "main course", "main dish", "dinner"],
+    ping: [
+      { name: "search by trade name", link: "/medicine" },
+      { name: "search by sientific name", link: "/AllScientificName" },
+      { name: "medicine calculation", link: "/medCalc" },
+      { name: "Food Supplement", link: "/foodSupplement" },
+    ],
   },
   {
     id: 2,
     url: "/AllScientificName",
-    text: "Derma",
+    text: "Cosmotic",
 
-    ping: ["companies"],
+    ping: [{ name: "products", link: "/products" }],
   },
   {
     id: 3,
     url: "/projects",
     text: "Insurance",
 
-    ping: [],
+    ping: [{ name: "insurance", link: "/insurance" }],
   },
 ];
 
