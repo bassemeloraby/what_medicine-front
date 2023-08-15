@@ -2,7 +2,7 @@ import React from "react";
 import YouTube from "react-youtube";
 import { Link } from "react-router-dom";
 import insc from "../../images/inscTel.png";
-
+import Zoom from "react-zoom-image-hover";
 function Insurance() {
   return (
     <section className="insurance">
@@ -42,6 +42,9 @@ function Insurance() {
       <div className="d-flex justify-content-center">
         {" "}
         <img src={insc} alt="insurance"></img>
+      </div>
+      <div>
+        <Zoom height={500} width={830} zoomScale={3} src={insc} />
       </div>
     </section>
   );
