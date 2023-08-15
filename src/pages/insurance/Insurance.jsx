@@ -1,7 +1,7 @@
 import React from "react";
 import YouTube from "react-youtube";
 import { Link } from "react-router-dom";
-import insc from "../images/insurance_companies_nom.jpeg";
+import insc from "../../images/insurance_companies_nom.jpeg";
 
 function Insurance() {
   return (
@@ -9,8 +9,11 @@ function Insurance() {
       <section className="insurance-companies">
         <ul className="links">
           <li>
-            <Link to="https://chi.gov.sa/AboutCCHI/CCHIprograms/Pages/IDF.aspx" target="_blank">
-              الضمان الصحى 
+            <Link
+              to="https://chi.gov.sa/AboutCCHI/CCHIprograms/Pages/IDF.aspx"
+              target="_blank"
+            >
+              الضمان الصحى
             </Link>
           </li>
           <li>
@@ -24,7 +27,10 @@ function Insurance() {
             </Link>
           </li>
           <li>
-            <Link to="https://portal.waseel.com/WaseelSwitch/web/xhtml/login/HomePage.jsf" target="_blank">
+            <Link
+              to="https://portal.waseel.com/WaseelSwitch/web/xhtml/login/HomePage.jsf"
+              target="_blank"
+            >
               waseel
             </Link>
           </li>

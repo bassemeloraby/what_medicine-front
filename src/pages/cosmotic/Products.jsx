@@ -1,23 +1,23 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
-import { categotyData } from '../data';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import { categotyData } from "../../data";
 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
-import { useGlobalContext } from '../context';
-import axios from 'axios';
+import { useGlobalContext } from "../../context";
+import axios from "axios";
 // import noPhoto from '../images/noPhoto.jpg';
-import AddProducts from '../components/AddProducts';
-import Loading from '../components/Loading';
-import ProductShow from '../components/ProductShow';
-const pruductURL = 'https://sore-lime-goat-tam.cyclic.app/api/products';
+import AddProducts from "../../components/cosmotic/AddProducts";
+import Loading from "../../components/Loading";
+import ProductShow from "../../components/cosmotic/ProductShow";
+const pruductURL = "https://sore-lime-goat-tam.cyclic.app/api/products";
 
 function Products() {
   const { adminOpen } = useGlobalContext();
   const [products, setProducts] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
-  const [filter, setFilter] = React.useState('');
+  const [filter, setFilter] = React.useState("");
 
   const navigate = useNavigate();
   //fetch product data from backend
@@ -63,13 +63,13 @@ function Products() {
       <section className="container">
         {/*-------start products header----------*/}
         <section className="">
-          {' '}
+          {" "}
           {/* navigate to company*/}
           <section className="">
-            <Button variant="primary" onClick={() => navigate('/companies')}>
+            <Button variant="primary" onClick={() => navigate("/companies")}>
               Companies
-            </Button>{' '}
-            <Button variant="danger" onClick={() => setFilter('')}>
+            </Button>{" "}
+            <Button variant="danger" onClick={() => setFilter("")}>
               All
             </Button>
             {categotyData.map((c) => (
@@ -89,9 +89,9 @@ function Products() {
         </section>
         {/*-------end products header----------*/}
         {/*-------start products-form-show----------*/}
-        
+
         <section className="products-form-show row">
-          {' '}
+          {" "}
           {adminOpen && (
             <section className="col-3">
               <AddProducts onAdd={addProduct} />
@@ -99,7 +99,7 @@ function Products() {
           )}
           {/*------------- end product-form ------ */}
           {/*-------------start product-show------ ------ */}
-          {filter === '' ? (
+          {filter === "" ? (
             <ProductShow
               products={products}
               adminOpen={adminOpen}
@@ -112,15 +112,15 @@ function Products() {
                 .filter((p) => p.category === filter)
                 .map((product) => (
                   <Card
-                    style={{ width: '18rem', backgroundColor: 'antiquewhite' }}
+                    style={{ width: "18rem", backgroundColor: "antiquewhite" }}
                     key={product._id}
                     className=" mb-3"
                   >
                     <div
                       className="card-photo mt-2"
-                      style={{ backgroundColor: 'black' }}
+                      style={{ backgroundColor: "black" }}
                     >
-                      {' '}
+                      {" "}
                       <Card.Img
                         variant="top"
                         src={product.photo}

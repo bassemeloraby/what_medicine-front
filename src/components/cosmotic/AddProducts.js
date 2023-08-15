@@ -1,22 +1,21 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
-import Button from 'react-bootstrap/Button';
-import {categotyData} from '../data'
+import React, { useState } from "react";
+import axios from "axios";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
+import Button from "react-bootstrap/Button";
+import { categotyData } from "../../data";
 
-const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
+const URL = "https://sore-lime-goat-tam.cyclic.app/api/companies";
 
 function AddProducts({ onAdd }) {
   const [comp, setComp] = useState([]);
- 
 
   const [formData, setFormData] = useState({
-    company: '',
-    productName: '',
-    photo: '',
-    category: '',
-    age: '',
+    company: "",
+    productName: "",
+    photo: "",
+    category: "",
+    age: "",
   });
 
   const { company, productName, photo, category, age } = formData;
@@ -43,7 +42,7 @@ function AddProducts({ onAdd }) {
   const onSubmit = (e) => {
     e.preventDefault();
     if (!company || !productName || !photo || !category || !age) {
-      alert('Please add all fields');
+      alert("Please add all fields");
       return;
     }
     onAdd({ company, productName, photo, category, age });
@@ -52,11 +51,11 @@ function AddProducts({ onAdd }) {
     // setProductName('');
     // setPhoto('');
     setFormData({
-      company: '',
-      productName: '',
-      photo: '',
-      category: '',
-      age: '',
+      company: "",
+      productName: "",
+      photo: "",
+      category: "",
+      age: "",
     });
   };
 
@@ -122,7 +121,9 @@ function AddProducts({ onAdd }) {
           />
         </InputGroup>
         <datalist id="data-category">
-          {categotyData.map((c)=><option>{c.name}</option>)}
+          {categotyData.map((c) => (
+            <option>{c.name}</option>
+          ))}
         </datalist>
         {/*select age*/}
         <InputGroup className="mb-3">
@@ -142,11 +143,10 @@ function AddProducts({ onAdd }) {
           <option>Adult</option>
           <option>All except premature infants</option>
           <option>All</option>
-          
         </datalist>
         <Button variant="primary" type="submit" value="Save Company">
           Add
-        </Button>{' '}
+        </Button>{" "}
       </Form>
     </React.Fragment>
   );
