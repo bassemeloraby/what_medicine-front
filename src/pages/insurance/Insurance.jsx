@@ -1,7 +1,7 @@
 import React from "react";
 import YouTube from "react-youtube";
 import { Link } from "react-router-dom";
-import insc from "../../images/insurance_companies_nom.jpeg";
+import insc from "../../images/inscTel.png";
 import ReactImageMagnify from "react-image-magnify";
 
 function Insurance() {
