@@ -1,6 +1,7 @@
 import React, { Fragment } from "react";
 import vit from "../../images/vit.jpg";
-
+import multiVit from "../../images/multiVit.jpg";
+import Zoom from "react-zoom-image-hover";
 function FoodSupplement() {
   return (
     <Fragment>
@@ -13,6 +14,9 @@ function FoodSupplement() {
         <div className="d-flex justify-content-center">
           {" "}
           <img src={vit} alt="insurance"></img>
+        </div>
+        <div>
+          <Zoom height={500} width={830} zoomScale={3} src={multiVit} />
         </div>
       </div>
     </Fragment>
