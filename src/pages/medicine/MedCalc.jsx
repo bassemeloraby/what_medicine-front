@@ -1,4 +1,8 @@
 import React, { Fragment } from "react";
+import Zoom from "react-zoom-image-hover";
+import dose1 from "../../images/medicine/dose1.jpeg";
+import dose2 from "../../images/medicine/dose2.jpeg";
+import dose3 from "../../images/medicine/dose3.jpeg";
 
 function MedCalc() {
   return (
@@ -17,6 +21,15 @@ function MedCalc() {
             may vary depending on how many drops your dropper contains.
           </p>
           <hr></hr>
+          <div>
+            <Zoom height={500} width={830} zoomScale={2} src={dose1} />
+          </div>
+          <div>
+            <Zoom height={500} width={830} zoomScale={2} src={dose2} />
+          </div>
+          <div>
+            <Zoom height={500} width={830} zoomScale={2} src={dose3} />
+          </div>
         </section>
       </div>
     </Fragment>
