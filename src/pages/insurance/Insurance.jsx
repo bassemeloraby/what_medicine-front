@@ -1,7 +1,8 @@
 import React from "react";
 import YouTube from "react-youtube";
 import { Link } from "react-router-dom";
-import insc from "../../images/insurance_companies_nom.jpeg";
+import insc from "../../images/inscTel.png";
+import ReactImageMagnify from "react-image-magnify";
 
 function Insurance() {
   return (
@@ -42,6 +43,22 @@ function Insurance() {
       <div className="d-flex justify-content-center">
         {" "}
         <img src={insc} alt="insurance"></img>
+      </div>
+      <div id="lolo">
+        <ReactImageMagnify
+          {...{
+            smallImage: {
+              alt: "Wristwatch by Ted Baker London",
+              isFluidWidth: true,
+              src: insc,
+            },
+            largeImage: {
+              src: insc,
+              width: 1500,
+              height: 1750,
+            },
+          }}
+        />
       </div>
     </section>
   );
