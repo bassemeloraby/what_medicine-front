@@ -1,16 +1,16 @@
 import { Route, Routes } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "./pages/medicine/Card";
-import ScientificName from "./pages/ScientificName";
+import ScientificName from "./pages/medicine/ScientificName";
 import Home from "./pages/Home";
 import AllScientificName from "./pages/medicine/AllScientificName";
 import Medicine from "./pages/medicine/Medicine";
-import MedCalc from "./pages/MedCalc";
-import Company from "./pages/Company";
-import Products from "./pages/Products";
+import MedCalc from "./pages/medicine/MedCalc";
+import Company from "./pages/cosmotic/Company";
+import Products from "./pages/cosmotic/Products";
 import Header from "./components/Header";
-import Insurance from "./pages/Insurance";
-import UpdateProducts from "./components/UpdateProducts";
+import Insurance from "./pages/insurance/Insurance";
+import UpdateProducts from "./components/cosmotic/UpdateProducts";
 import FoodSupplement from "./pages/medicine/FoodSupplement";
 
 function App() {

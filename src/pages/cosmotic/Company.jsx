@@ -1,23 +1,23 @@
-import React, { Fragment } from 'react';
-import Table from 'react-bootstrap/Table';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import InputGroup from 'react-bootstrap/InputGroup';
+import React, { Fragment } from "react";
+import Table from "react-bootstrap/Table";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import InputGroup from "react-bootstrap/InputGroup";
 
-import AddCompany from '../components/AddCompany';
-import { useGlobalContext } from '../context';
-import axios from 'axios';
-import Loading from '../components/Loading';
-const URL = 'https://sore-lime-goat-tam.cyclic.app/api/companies';
+import AddCompany from "../../components/cosmotic/AddCompany";
+import { useGlobalContext } from "../../context";
+import axios from "axios";
+import Loading from "../../components/Loading";
+const URL = "https://sore-lime-goat-tam.cyclic.app/api/companies";
 
 const Company = () => {
   const [company, setCompany] = React.useState([]);
   const [loading, setLoading] = React.useState(false);
-  const [updateState, setUpdateState] = React.useState('');
+  const [updateState, setUpdateState] = React.useState("");
   const { adminOpen } = useGlobalContext();
 
-  const [companyName, setCompanyName] = React.useState('');
-  const [website, setWebsite] = React.useState('');
+  const [companyName, setCompanyName] = React.useState("");
+  const [website, setWebsite] = React.useState("");
 
   //fetch company data from backend
   React.useEffect(() => {
@@ -52,7 +52,7 @@ const Company = () => {
     const newCompany = res.data;
     console.log(newCompany);
     // setCompany([...company, newCompany]);
-    setUpdateState('');
+    setUpdateState("");
   };
 
   //delete company
@@ -73,12 +73,12 @@ const Company = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     if (!companyName) {
-      alert('Please add a company name');
+      alert("Please add a company name");
       return;
     }
     updateCompany({ companyName, website });
 
-    setCompanyName('');
+    setCompanyName("");
   };
 
   if (loading) {
@@ -108,7 +108,7 @@ const Company = () => {
             <form onSubmit={onSubmit}>
               <Table striped bordered hover>
                 <thead>
-                  <tr style={{ backgroundColor: 'orange' }}>
+                  <tr style={{ backgroundColor: "orange" }}>
                     <th>Company</th>
                     <th>Website</th>
                     {adminOpen && (
@@ -156,7 +156,7 @@ const Company = () => {
                               <td>
                                 <Button
                                   className="cancel"
-                                  onClick={() => setUpdateState('')}
+                                  onClick={() => setUpdateState("")}
                                 >
                                   Cancel
                                 </Button>
@@ -174,7 +174,7 @@ const Company = () => {
                               href={comp.website}
                               rel="noreferrer"
                               target="_blank"
-                              style={{ textDecoration: 'underline' }}
+                              style={{ textDecoration: "underline" }}
                             >
                               {comp.companyName}
                             </a>
@@ -188,7 +188,7 @@ const Company = () => {
                                   size="sm"
                                 >
                                   Delete
-                                </Button>{' '}
+                                </Button>{" "}
                               </td>
                               <td>
                                 <Button
@@ -197,11 +197,11 @@ const Company = () => {
                                   size="sm"
                                 >
                                   Edit
-                                </Button>{' '}
+                                </Button>{" "}
                               </td>
                             </Fragment>
                           ) : (
-                            ''
+                            ""
                           )}
                         </tr>
                       )

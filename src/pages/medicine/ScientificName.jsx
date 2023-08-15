@@ -1,9 +1,9 @@
-import React, { Fragment, useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
-import axios from 'axios';
-import Loading from '../components/Loading';
+import React, { Fragment, useState, useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
+import axios from "axios";
+import Loading from "../../components/Loading";
 
-const url = 'https://sore-lime-goat-tam.cyclic.app/api/drugs';
+const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
 
 function ScientificName() {
   const [drugs, setDrugs] = useState([]);
@@ -53,17 +53,17 @@ function ScientificName() {
               <div className="" key={drug._id}>
                 <div className="row">
                   <div className="col-8 text-wrap border border-primary">
-                    {' '}
+                    {" "}
                     {drug.TradeName}
                   </div>
-                  <div className="col-2 " style={{ fontSize: 'small' }}>
+                  <div className="col-2 " style={{ fontSize: "small" }}>
                     {drug.PublicPrice} SR
                   </div>
                 </div>
 
                 <div
                   className="col-12 text-wrap"
-                  style={{ fontSize: 'small', color: 'green' }}
+                  style={{ fontSize: "small", color: "green" }}
                 >
                   {drug.ScientificName}
                 </div>
