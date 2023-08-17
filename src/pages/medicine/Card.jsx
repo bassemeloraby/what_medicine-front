@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import Loading from "../../components/Loading";
+import Spinner from "../../components/Spinner";
 import axios from "axios";
 import drugImge from "../../images/noPhoto.jpg";
 
@@ -29,7 +29,7 @@ function Card() {
     fetchOneDrug();
   }, [_id]);
   if (loading) {
-    return <Loading />;
+    return <Spinner />;
   }
   //open Scientific
   const ScientificNameHndeler = (ScientificName) => {

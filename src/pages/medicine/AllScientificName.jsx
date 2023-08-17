@@ -2,7 +2,7 @@ import { Fragment, useState, useEffect } from "react";
 import { FixedSizeList as List } from "react-window";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Loading from "../../components/Loading";
+import Spinner from "../../components/Spinner";
 import Button from "react-bootstrap/Button";
 import InputGroup from "react-bootstrap/InputGroup";
 import Form from "react-bootstrap/Form";
@@ -52,7 +52,7 @@ function AllScientificName() {
   }, [query, data]);
 
   if (loading) {
-    return <Loading />;
+    return <Spinner />;
   }
 
   return (

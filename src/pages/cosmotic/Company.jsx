@@ -7,7 +7,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import AddCompany from "../../components/cosmotic/AddCompany";
 import { useGlobalContext } from "../../context";
 import axios from "axios";
-import Loading from "../../components/Loading";
+import Spinner from "../../components/Spinner";
 const URL = "https://sore-lime-goat-tam.cyclic.app/api/companies";
 
 const Company = () => {
@@ -82,7 +82,7 @@ const Company = () => {
   };
 
   if (loading) {
-    return <Loading />;
+    return <Spinner />;
   }
   return (
     <React.Fragment>

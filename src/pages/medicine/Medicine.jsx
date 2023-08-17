@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { VariableSizeList as List } from "react-window";
 import AutoSizer from "react-virtualized-auto-sizer";
 import axios from "axios";
-import Loading from "../../components/Loading";
+import Spinner from "../../components/Spinner";
 import Table from "react-bootstrap/Table";
 import { Link } from "react-router-dom";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -68,7 +68,7 @@ function Medicine() {
   }, [data]);
 
   if (loading) {
-    return <Loading />;
+    return <Spinner />;
   }
 
   const cardHndeler = (_id) => {
