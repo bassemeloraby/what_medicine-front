@@ -9,7 +9,7 @@ import { useGlobalContext } from "../../context";
 import axios from "axios";
 // import noPhoto from '../images/noPhoto.jpg';
 import AddProducts from "../../components/cosmotic/AddProducts";
-import Loading from "../../components/Loading";
+import Spinner from "../../components/Spinner";
 import ProductShow from "../../components/cosmotic/ProductShow";
 const pruductURL = "https://sore-lime-goat-tam.cyclic.app/api/products";
 
@@ -55,7 +55,7 @@ function Products() {
   }
 
   if (loading) {
-    return <Loading />;
+    return <Spinner />;
   }
 
   return (
