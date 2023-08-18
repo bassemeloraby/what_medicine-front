@@ -39,25 +39,22 @@ function Header() {
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 {mainPages.map((mainPage) => (
-                  <Nav.Link
+                  <NavDropdown
+                    title={mainPage.text}
+                    id="basic-nav-dropdown"
                     key={mainPage.id}
-                    style={{ backgroundColor: `${mainPage.backgroundColor}` }}
                   >
-                    <h5 className="ms-2">{mainPage.text}</h5>
-
-                    <NavDropdown>
-                      {mainPage.ping.map((m, index) => (
-                        <NavDropdown.Item
-                          as={Link}
-                          to={m.link}
-                          onClick={handleClose}
-                          key={index}
-                        >
-                          {m.name}
-                        </NavDropdown.Item>
-                      ))}
-                    </NavDropdown>
-                  </Nav.Link>
+                    {mainPage.ping.map((m, index) => (
+                      <NavDropdown.Item
+                        as={Link}
+                        to={m.link}
+                        onClick={handleClose}
+                        key={index}
+                      >
+                        {m.name}
+                      </NavDropdown.Item>
+                    ))}
+                  </NavDropdown>
                 ))}
               </Nav>
             </Offcanvas.Body>
