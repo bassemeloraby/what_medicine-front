@@ -72,11 +72,12 @@ function Products() {
             <Button variant="danger" onClick={() => setFilter("")}>
               All
             </Button>
-            {categotyData.map((c) => (
+            {categotyData.map((c, index) => (
               <Button
                 className="m-1"
                 variant="success"
                 onClick={() => setFilter(`${c.name}`)}
+                key={index}
               >
                 {c.name}
               </Button>
