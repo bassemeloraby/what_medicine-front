@@ -159,7 +159,7 @@ function AddProducts({ onAdd }) {
           <Form.Control
             placeholder="Enter a protectionKind"
             type="text"
-            name="age"
+            name="protectionKind"
             autoComplete="off"
             list="data-protectionKind"
             onChange={onChange}
