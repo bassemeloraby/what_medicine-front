@@ -16,6 +16,7 @@ function AddProducts({ onAdd }) {
     photo: "",
     category: "",
     age: "",
+    protectionKind: "",
   });
 
   const { company, productName, photo, category, age, protectionKind } =
