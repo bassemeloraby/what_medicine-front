@@ -18,7 +18,8 @@ function AddProducts({ onAdd }) {
     age: "",
   });
 
-  const { company, productName, photo, category, age } = formData;
+  const { company, productName, photo, category, age, protectionKind } =
+    formData;
   //fetch company data from backend
   React.useEffect(() => {
     const fetchCompany = async () => {
@@ -41,11 +42,18 @@ function AddProducts({ onAdd }) {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    if (!company || !productName || !photo || !category || !age) {
+    if (
+      !company ||
+      !productName ||
+      !photo ||
+      !category ||
+      !age ||
+      !protectionKind
+    ) {
       alert("Please add all fields");
       return;
     }
-    onAdd({ company, productName, photo, category, age });
+    onAdd({ company, productName, photo, category, age, protectionKind });
     console.log(productName);
     // setCompany('');
     // setProductName('');
@@ -56,6 +64,7 @@ function AddProducts({ onAdd }) {
       photo: "",
       category: "",
       age: "",
+      protectionKind: "",
     });
   };
 
@@ -143,6 +152,23 @@ function AddProducts({ onAdd }) {
           <option>Adult</option>
           <option>All except premature infants</option>
           <option>All</option>
+        </datalist>
+        {/*select protectionKind*/}
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder="Enter a protectionKind"
+            type="text"
+            name="age"
+            autoComplete="off"
+            list="data-protectionKind"
+            onChange={onChange}
+            value={protectionKind}
+            // value={formData.company}
+          />
+        </InputGroup>
+        <datalist id="data-protectionKind">
+          <option>CLASSIC </option>
+          <option>SPECIFIC </option>
         </datalist>
         <Button variant="primary" type="submit" value="Save Company">
           Add
