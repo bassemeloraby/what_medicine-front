@@ -49,12 +49,20 @@ function ProductShow({ products, adminOpen, deleteCompany }) {
               )}
               <div className="">
                 {adminOpen && (
-                  <Button
-                    variant="danger"
-                    onClick={() => deleteCompany(product._id)}
-                  >
-                    Delete
-                  </Button>
+                  <div>
+                    <Button
+                      variant="danger"
+                      onClick={() => deleteCompany(product._id)}
+                    >
+                      Delete
+                    </Button>
+                    <Button
+                      variant="success"
+                      // onClick={() => deleteCompany(product._id)}
+                    >
+                      Edit
+                    </Button>
+                  </div>
                 )}
               </div>
             </Card.Body>
