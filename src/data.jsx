@@ -79,5 +79,5 @@ export const categotyData = [
   { id: 2, name: "Cleanser" },
   { id: 3, name: "Dry and Dehydrated Skin" },
   { id: 4, name: "Atopic" },{ id: 5, name: "HYPERPIGMENTED SKIN" },{ id: 6, name: "Deodorant" },
-];
+
 ];
