@@ -17,10 +17,18 @@ function AddProducts({ onAdd }) {
     category: "",
     age: "",
     protectionKind: "",
+    protectionFor: "",
   });
 
-  const { company, productName, photo, category, age, protectionKind } =
-    formData;
+  const {
+    company,
+    productName,
+    photo,
+    category,
+    age,
+    protectionKind,
+    protectionFor,
+  } = formData;
   //fetch company data from backend
   React.useEffect(() => {
     const fetchCompany = async () => {
@@ -49,12 +57,21 @@ function AddProducts({ onAdd }) {
       !photo ||
       !category ||
       !age ||
-      !protectionKind
+      !protectionKind ||
+      !protectionFor
     ) {
       alert("Please add all fields");
       return;
     }
-    onAdd({ company, productName, photo, category, age, protectionKind });
+    onAdd({
+      company,
+      productName,
+      photo,
+      category,
+      age,
+      protectionKind,
+      protectionFor,
+    });
     console.log(productName);
     // setCompany('');
     // setProductName('');
@@ -66,6 +83,7 @@ function AddProducts({ onAdd }) {
       category: "",
       age: "",
       protectionKind: "",
+      protectionFor: "",
     });
   };
 
@@ -171,6 +189,18 @@ function AddProducts({ onAdd }) {
           <option>CLASSIC </option>
           <option>SPECIFIC </option>
         </datalist>
+        {/*select protectionFor*/}
+        <InputGroup className="mb-3">
+          <Form.Control
+            placeholder="Enter a protectionFor"
+            type="text"
+            name="protectionFor"
+            autoComplete="off"
+            onChange={onChange}
+            value={protectionFor}
+            // value={formData.company}
+          />
+        </InputGroup>
         <Button variant="primary" type="submit" value="Save Company">
           Add
         </Button>{" "}

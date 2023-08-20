@@ -40,7 +40,10 @@ function ProductShow({ products, adminOpen, deleteCompany }) {
                   </li>
                   <li className="list-group-item">age: {product.age}</li>
                   <li className="list-group-item">
-                    age: {product.protectionKind}
+                    protection Kind: {product.protectionKind}
+                  </li>
+                  <li className="list-group-item">
+                    protection for: {product.protectionFor}
                   </li>
                 </ul>
               )}
