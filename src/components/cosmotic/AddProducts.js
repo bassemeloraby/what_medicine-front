@@ -188,6 +188,7 @@ function AddProducts({ onAdd }) {
         <datalist id="data-protectionKind">
           <option>CLASSIC </option>
           <option>SPECIFIC </option>
+          <option>None </option>
         </datalist>
         {/*select protectionFor*/}
         <InputGroup className="mb-3">
