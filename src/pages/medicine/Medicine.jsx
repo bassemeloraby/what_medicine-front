@@ -6,8 +6,8 @@ import Spinner from "../../components/Spinner";
 import { Virtuoso } from "react-virtuoso";
 import { VscArrowSmallRight } from "react-icons/vsc";
 
-import InputGroup from "react-bootstrap/InputGroup";
-import Form from "react-bootstrap/Form";
+import { InputGroup, Button, Form } from "react-bootstrap";
+// import Form from "react-bootstrap/Form";
 
 const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
 
@@ -57,7 +57,11 @@ function Medicine() {
   return (
     <Fragment>
       <div className="container">
-        <h2>Medicine</h2>
+        <div className="d-flex mb-2">
+          <h2>Medicine</h2>
+          <Button variant="primary">+ Add</Button>{" "}
+        </div>
+
         <InputGroup className="mb-3">
           <InputGroup.Text id="basic-addon1">Search</InputGroup.Text>
           <Form.Control
