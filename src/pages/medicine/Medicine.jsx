@@ -7,9 +7,8 @@ import { Virtuoso } from "react-virtuoso";
 import { VscArrowSmallRight } from "react-icons/vsc";
 
 import { InputGroup, Button, Form } from "react-bootstrap";
-// import Form from "react-bootstrap/Form";
-
-const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
+import { mainUrl } from "../../data";
+const url = mainUrl + "drugs";
 
 function Medicine() {
   const [drugs, setDrugs] = useState([]);

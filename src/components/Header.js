@@ -1,21 +1,21 @@
 import { useState } from "react";
-import { useGlobalContext } from "../context";
-import { Button } from "react-bootstrap";
+// import { useGlobalContext } from "../context";
+// import { Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
 import { Nav } from "react-bootstrap";
 import { Navbar } from "react-bootstrap";
 import { NavDropdown } from "react-bootstrap";
 import { Offcanvas } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Login from "./Login";
+// import Login from "./Login";
 import { mainPages } from "../data";
 function Header() {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow((s) => !s);
 
-  const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
-    useGlobalContext();
+  // const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
+  //   useGlobalContext();
   return (
     <>
       <Navbar collapseOnSelect expand="expand" bg="dark" variant="dark">
@@ -63,7 +63,7 @@ function Header() {
           <Navbar.Brand>
             <Link to="/">Medderma</Link>
           </Navbar.Brand>
-          {!adminOpen ? (
+          {/* {!adminOpen ? (
             <Button variant="primary" onClick={asAdmin}>
               login
             </Button>
@@ -76,7 +76,8 @@ function Header() {
             <Login setAdminOpen={setAdminOpen} setAdmin={setAdmin} />
           ) : (
             ""
-          )}
+          )} */}
+         
         </Container>
       </Navbar>
     </>

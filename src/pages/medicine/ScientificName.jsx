@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import axios from "axios";
 import Loading from "../../components/Loading";
 
-const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
+import { mainUrl } from "../../data";
+const url = mainUrl + "drugs";
 
 function ScientificName() {
   const [drugs, setDrugs] = useState([]);

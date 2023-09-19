@@ -8,7 +8,9 @@ import AddCompany from "../../components/cosmotic/AddCompany";
 import { useGlobalContext } from "../../context";
 import axios from "axios";
 import Spinner from "../../components/Spinner";
-const URL = "https://sore-lime-goat-tam.cyclic.app/api/companies";
+import { mainUrl } from "../../data";
+const URL = mainUrl + "companies";
+// const URL = "https://sore-lime-goat-tam.cyclic.app/api/companies";
 
 const Company = () => {
   const [company, setCompany] = React.useState([]);

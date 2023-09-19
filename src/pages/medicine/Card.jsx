@@ -5,7 +5,8 @@ import Spinner from "../../components/Spinner";
 import axios from "axios";
 import drugImge from "../../images/noPhoto.jpg";
 
-const url = "https://sore-lime-goat-tam.cyclic.app/api/drugs";
+import { mainUrl } from "../../data";
+const url = mainUrl + "drugs";
 function Card() {
   const [drugs, setDrugs] = useState([]);
   const [loading, setLoading] = useState(false);

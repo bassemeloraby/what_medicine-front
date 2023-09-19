@@ -81,3 +81,5 @@ export const categotyData = [
   { id: 4, name: "Atopic" },{ id: 5, name: "HYPERPIGMENTED SKIN" },{ id: 6, name: "Deodorant" },
 
 ];
+
+export const mainUrl = "https://wild-pear-tuna-wig.cyclic.cloud/api/"
