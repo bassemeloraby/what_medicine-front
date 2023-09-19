@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,Fragment } from "react";
 // import { useGlobalContext } from "../context";
 // import { Button } from "react-bootstrap";
 import { Container } from "react-bootstrap";
@@ -17,7 +17,7 @@ function Header() {
   // const { setAdmin, admin, setAdminOpen, adminOpen, asAdmin, asUser } =
   //   useGlobalContext();
   return (
-    <>
+    <Fragment>
       <Navbar collapseOnSelect expand="expand" bg="dark" variant="dark">
         <Container>
           <Navbar.Toggle
@@ -80,7 +80,7 @@ function Header() {
          
         </Container>
       </Navbar>
-    </>
+    </Fragment>
   );
 }
 
